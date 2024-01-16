@@ -15,7 +15,7 @@ class SuperAdminSeeder extends Seeder
     {
         $superAdminData = [
             'name'=>'SuperAdmin',
-            'email'=>'germansoy@gmail.com',
+            'email'=>'admin@germanraulgarcia.es',
             'password'=>bcrypt('PicaPica23'),
         ];
 

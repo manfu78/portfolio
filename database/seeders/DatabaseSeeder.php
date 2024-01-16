@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call(SuperAdminSeeder::class);
         $this->call(UserSeeder::class);
         $this->call(LogViewerSeeder::class);
+        $this->call(SidebarMenuSeeder::class);
 
         // \App\Models\User::factory(10)->create();
 
