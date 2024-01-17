@@ -28,13 +28,10 @@ class SidebarMenuFather extends Model
             ->orWhereIn('sidebar_menu_sub_father_id',$sidebarMenuSubFatherIds)
             ->get();
 
-        return $sidebarMenus->toArray();
-
-        // $routesForExpandedMenu = null;
-        // foreach ($sidebarMenus as $sidebarMenu) {
-        //     $routesForExpandedMenu[] = routeForActiveMenu($sidebarMenu->route);
-        // }
-        // return $routesForExpandedMenu;
+        if ($sidebarMenus) {
+            return $sidebarMenus->pluck('route')->toArray();
+        }
+        return [];
     }
 
     public function permissionsForMenu(){
@@ -43,7 +40,6 @@ class SidebarMenuFather extends Model
             ->select('permission')
             ->where('sidebar_menu_father_id',$this->id)
             ->orWhereIn('sidebar_menu_sub_father_id',$sidebarMenuSubFatherIds)
-            ->where('active','=',1)
             ->pluck('permission');
         return $permissionsForMenu;
     }

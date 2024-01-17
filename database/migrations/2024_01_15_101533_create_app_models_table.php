@@ -16,7 +16,6 @@ return new class extends Migration
 
             $table->string('name')->unique();
             $table->string('namespace');//namespace App\Models\Model_name
-            $table->boolean('landlord')->default(0);
 
             $table->timestamps();
         });

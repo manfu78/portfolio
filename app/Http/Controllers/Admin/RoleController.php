@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\AppModel;
@@ -26,7 +26,7 @@ class RoleController extends Controller
     public function index():View
     {
         $roles = Role::all();
-        return view('common.Roles.index', compact('roles'));
+        return view('Admin.Roles.index', compact('roles'));
     }
 
     public function create():View
@@ -36,7 +36,7 @@ class RoleController extends Controller
         $permissions = Permission::all();
         $permissionModels = $permissions->unique('menu')->pluck('menu','model');
 
-        return view('common.Roles.create', compact(
+        return view('Admin.Roles.create', compact(
             'permissions',
             'permissionModels',
             'showAll',
@@ -92,7 +92,7 @@ class RoleController extends Controller
         $appModels = AppModel::orderBy('name')->with('permissions')->get();
         $permissionModels = $permissions->unique('menu')->pluck('menu','model');
 
-        return view('common.Roles.edit', compact(
+        return view('Admin.Roles.edit', compact(
             'appModels',
             'role',
             'permissions',

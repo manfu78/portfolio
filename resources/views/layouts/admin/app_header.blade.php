@@ -292,7 +292,7 @@
                                     </div>
                                     <div class="dropdown-divider m-0"></div>
 
-                                    <a class="dropdown-item" href="{{ route('admin.profile') }}">
+                                    <a class="dropdown-item" href="{{ route('admin.profile.show') }}">
                                         <i class="dropdown-icon fe fe-user"></i> {{ trans('messages.Profile') }}
                                     </a>
 

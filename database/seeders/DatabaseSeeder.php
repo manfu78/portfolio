@@ -2,8 +2,10 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+
+include 'Functions/SeederFunctions.php';
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,6 +20,15 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeeder::class);
         $this->call(LogViewerSeeder::class);
         $this->call(SidebarMenuSeeder::class);
+        $this->call(CountrySeeder::class);
+        $this->call(CountrySeederDat::class);
+        $this->call(CategorySeeder::class);
+        $this->call(VatSeeder::class);
+        $this->call(BankAccountSeeder::class);
+        $this->call(BusinessSeeder::class);
+        $this->call(PaymentMethodSeeder::class);
+
+
 
         // \App\Models\User::factory(10)->create();
 
@@ -27,4 +38,5 @@ class DatabaseSeeder extends Seeder
         // ]);
 
     }
+
 }

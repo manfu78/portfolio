@@ -8,7 +8,7 @@
             <h1 class="page-title">&nbsp;</h1>
             <div>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{ route('admin.profile') }}">{{ trans('messages.Profile') }}</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('admin.profile.show') }}">{{ trans('messages.Profile') }}</a></li>
                 </ol>
             </div>
         </div>

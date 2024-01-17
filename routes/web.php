@@ -1,8 +1,16 @@
 <?php
 
+use App\Http\Controllers\Admin\BankAccountController;
+use App\Http\Controllers\Admin\BusinessController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\CountryController;
+use App\Http\Controllers\Admin\PaymentMethodController;
 use App\Http\Controllers\Admin\ProfileController;
-use App\Http\Controllers\admin\SidebarMenuController;
+use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\SidebarMenuController;
 use App\Http\Controllers\Admin\UserConfigurationController;
+use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\VatController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
@@ -32,7 +40,34 @@ Auth::routes();
 Route::name('admin.')->middleware(['auth'])->group(function() {
     Route::get('dashboard', [HomeController::class, 'index'])->name('dashboard');
 
-    Route::get('profile', [ProfileController::class, 'show'])->name('profile');
+    Route::resource('roles', RoleController::class)->except(['show']);
+
+    Route::resource('countries', CountryController::class)->except(['show']);
+    // Route::resource('vats', VatController::class);
+
+    Route::resource('categories', CategoryController::class)->except(['show']);
+    Route::resource('bankAccounts', BankAccountController::class)->except(['show']);
+    Route::resource('vats', VatController::class)->except(['show']);
+    Route::resource('paymentMethods', PaymentMethodController::class)->except(['show']);
+
+
+    Route::resource('businesses', BusinessController::class)->except(['show']);
+        Route::controller(BusinessController::class)->group(function () {
+            Route::get('businesses/{business}/deleteLogo', 'deleteLogo')->name('businesses.deleteLogo');
+            Route::put('businesses/{business}/addBankAccount/{bankAccount}', 'addBankAccount')->name('businesses.addBankAccount');
+            Route::put('businesses.delBankAccount/{business}', 'delBankAccount')->name('businesses.delBankAccount');
+            Route::get('businesses/{business}/editDocuments', 'editDocuments')->name('businesses.editDocuments');
+            Route::post('businesses.addDocument/{business}', 'addDocument')->name('businesses.addDocument');
+            Route::delete('businesses.deleteDocument/{document}', 'deleteDocument')->name('businesses.deleteDocument');
+        });
+
+    Route::resource('users', UserController::class)->except(['show']);
+    Route::controller(UserController::class)->group(function () {
+        Route::get('users/{user}/unsetUserProfile', 'unsetUserProfile')->name('users.unsetUserProfile');
+        Route::get('users/{user}/setUserProfile/{userProfile}', 'setUserProfile')->name('users.setUserProfile');
+    });
+
+    Route::get('profile', [ProfileController::class, 'show'])->name('profile.show');
     Route::get('profile.documents', [ProfileController::class, 'documents'])->name('profile.documents');
 
     Route::controller(UserConfigurationController::class)->group(function () {

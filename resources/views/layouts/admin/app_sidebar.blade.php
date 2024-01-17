@@ -58,7 +58,7 @@
                         {{-- <li class="side-menu-label1"><a href="javascript:void(0)">Pages</a></li> --}}
 
                         <li>
-                            <a href="{{ route('admin.profile') }}" class="slide-item {{request()->routeIs('admin.profile') ? 'active fw-bold':''}}">
+                            <a href="{{ route('admin.profile.show') }}" class="slide-item {{request()->routeIs('admin.profile') ? 'active fw-bold':''}}">
                                 {{ trans('messages.Profile') }}
                             </a>
                         </li>
@@ -86,6 +86,7 @@
                 <li class="sub-category">
                     <h3>{{ trans('messages.Menu') }}</h3>
                 </li>
+
                 @foreach (sidebarMenuFathers() as $sidebarMenuFather )
                     @canany( $sidebarMenuFather->permissionsForMenu() )
                         <li class="slide {{ (request()->routeIs(
@@ -96,19 +97,19 @@
                                 <span class="side-menu__label">{{ trans('messages.'.$sidebarMenuFather->name) }}</span>
                                 <i class="angle fe fe-chevron-right"></i>
                             </a>
-                            {{-- SUBMENU --}}
+
                             <ul class="slide-menu">
-                                @foreach ($sidebarMenuFather->sidebarMenus->where('active','=',1) as $sidebarMenu)
+                                @foreach ($sidebarMenuFather->sidebarMenuItems as $sidebarMenu)
                                     @can($sidebarMenu->permission)
                                         <li>
-                                            <a href="{{ route($sidebarMenu->route) }}" class="slide-item {{request()->routeIs(routeForActiveMenu($sidebarMenu->route)) ? 'active fw-bold':''}}">
+                                            <a href="{{ route($sidebarMenu->route) }}" class="slide-item {{request()->routeIs($sidebarMenu->route) ? 'active fw-bold':''}}">
                                                 {{ trans('messages.'.$sidebarMenu->name) }}
                                             </a>
                                         </li>
                                     @endcan
                                 @endforeach
-                                @if ($sidebarMenuFather->sidebarMenuSubFathers->where('active','=',1)->count()>0)
-                                    @foreach ($sidebarMenuFather->sidebarMenuSubFathers->where('active','=',1) as $sidebarMenuSubFather)
+                                @if ($sidebarMenuFather->sidebarMenuSubFathers->count()>0)
+                                    @foreach ($sidebarMenuFather->sidebarMenuSubFathers as $sidebarMenuSubFather)
                                         @canany( $sidebarMenuSubFather->permissionsForMenu() )
                                             <li class="sub-slide {{ (request()->routeIs(
                                                     $sidebarMenuSubFather->routesForExpandedMenu()
@@ -118,10 +119,10 @@
                                                     <i class="sub-angle fe fe-chevron-right"></i>
                                                 </a>
                                                 <ul class="sub-slide-menu">
-                                                    @foreach ($sidebarMenuSubFather->sidebarMenus->where('active','=',1) as $subSidebarMenu)
+                                                    @foreach ($sidebarMenuSubFather->sidebarMenuItems as $subSidebarMenu)
                                                         @can($subSidebarMenu->permission)
                                                             <li>
-                                                                <a href="{{ route($subSidebarMenu->route) }}" class="sub-slide-item {{request()->routeIs(routeForActiveMenu($subSidebarMenu->route)) ? 'active fw-bold':''}}">
+                                                                <a href="{{ route($subSidebarMenu->route) }}" class="sub-slide-item {{request()->routeIs($subSidebarMenu->route) ? 'active fw-bold':''}}">
                                                                     {{ trans('messages.'.$subSidebarMenu->name) }}
                                                                 </a>
                                                             </li>

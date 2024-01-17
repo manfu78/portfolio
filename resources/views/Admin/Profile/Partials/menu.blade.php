@@ -4,7 +4,7 @@
             <div class="card-body p-1">
                 <ul class="nav nav-pills nav-pills-circle" role="tablist">
                     <li class="nav-item">
-                        <a href="{{ request()->routeIs('admin.profile')?'#':route('admin.profile') }}" class="nav-link border py-1 px-2 m-2 {{ request()->routeIs('admin.profile')?'active':'' }}">
+                        <a href="{{ request()->routeIs('admin.profile')?'#':route('admin.profile.show') }}" class="nav-link border py-1 px-2 m-2 {{ request()->routeIs('admin.profile')?'active':'' }}">
                             <span class="nav-link-icon d-block"><i class="fa-solid fa-user-pen"></i>&nbsp;{{ trans('messages.UserProfile.UserProfile') }}</span>
                         </a>
                     </li>

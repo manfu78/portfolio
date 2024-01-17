@@ -9,7 +9,7 @@ class SidebarMenuSubFather extends Model
 {
     use HasFactory;
 
-    protected $with = ['sidebarMenus'];
+    protected $with = ['sidebarMenuItems'];
 
     protected $fillable = ['name', 'order','sidebar_menu_father_id'];
 
@@ -23,7 +23,12 @@ class SidebarMenuSubFather extends Model
 
     public function routesForExpandedMenu(){
         $sidebarMenus = $this->sidebarMenus;
-        return $sidebarMenus->pluck('route')->toArray();
+
+        if ($sidebarMenus) {
+           return $sidebarMenus->pluck('route')->toArray();
+        }
+        return [];
+
 
 
         // $routesForExpandedMenu = null;
@@ -34,8 +39,8 @@ class SidebarMenuSubFather extends Model
     }
 
     public function permissionsForMenu(){
-        $sidebarMenus = $this->sidebarMenus;
-        $permissionsForMenu = $sidebarMenus->orderBy('order')->pluck('permission');
+        $sidebarMenuItems = $this->sidebarMenuItems;
+        $permissionsForMenu = $sidebarMenuItems->sortBy('order')->pluck('permission');
 
         return $permissionsForMenu;
     }
