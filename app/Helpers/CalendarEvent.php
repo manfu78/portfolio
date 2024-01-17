@@ -41,7 +41,7 @@ if(!function_exists('calendarEvent')){
         $usersArray = $users->map(function ($user) {
             return [
                 'id' => $user->id,
-                'name' => $user->nameWorker(),
+                'name' => $user->nameUserProfile(),
             ];
         });
 

@@ -9,7 +9,7 @@ class SidebarMenuFather extends Model
 {
     use HasFactory;
 
-    protected $with = ['sidebarMenus','sidebarMenuSubFathers'];
+    protected $with = ['sidebarMenuItems','sidebarMenuSubFathers'];
 
     protected $fillable = ['name','icon','order'];
 

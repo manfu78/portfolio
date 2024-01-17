@@ -62,7 +62,7 @@
             <li><a class="nav-link" href="#contact">Contacto</a></li>
             @if (Route::has('login'))
                 @auth
-                    <li><a class="nav-link" href="{{ route('dashboard') }}"><i class="bi bi-gear"></i></a></li>
+                    <li><a class="nav-link" href="{{ route('admin.dashboard') }}"><i class="bi bi-gear"></i></a></li>
                 @else
                     <li><a class="nav-link" href="#login"><i class="bi bi-person"></i></a></li>
                 @endauth

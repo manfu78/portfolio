@@ -11,10 +11,10 @@ class ProfileController extends Controller
     public function show(Request $request): View
     {
         $user = $request->user();
-        $worker = null;//$user->worker;
-        return view('common.Profile.show', compact(
+        $userProfile = $user->userProfile;
+        return view('Admin.Profile.show', compact(
             'user',
-            'worker',
+            'userProfile',
         ));
     }
 }

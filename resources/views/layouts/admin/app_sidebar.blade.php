@@ -17,29 +17,31 @@
                     <h3>Main</h3>
                 </li>
                 <li class="slide">
-                    <a class="side-menu__item has-link" data-bs-toggle="slide" href="{{ route('dashboard') }}"><i class="side-menu__icon fe fe-home"></i><span class="side-menu__label">Dashboard</span></a>
+                    <a class="side-menu__item has-link" data-bs-toggle="slide" href="{{ route('admin.dashboard') }}"><i class="side-menu__icon fe fe-home"></i><span class="side-menu__label">Dashboard</span></a>
                 </li>
 
-                <li class="slide {{(
-                    request()->routeIs('admin.profile.*')
-                    ) ? 'is-expanded':''}}">
-                    <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0)">
-                        <i class="side-menu__icon fa-solid fa-star"></i>
-                        <span class="side-menu__label">{{ trans('messages.Favorites') }}</span>
-                        <i class="angle fe fe-chevron-right"></i>
-                    </a>
-                    <ul class="slide-menu">
-                        @foreach (sidebarMenuFavorites() as $sidebarMenuFavorite)
-                            @can($sidebarMenuFavorite->permission)
-                                <li>
-                                    <a href="{{ route($sidebarMenuFavorite->route) }}" class="slide-item {{request()->routeIs($sidebarMenuFavorite->route) ? 'active fw-bold':''}}">
-                                        {{ trans('messages.'.$sidebarMenuFavorite->name) }}
-                                    </a>
-                                </li>
-                            @endcan
-                        @endforeach
-                    </ul>
-                </li>
+                @if (sidebarMenuFavorites())
+                    <li class="slide {{(
+                        request()->routeIs('admin.profile.*')
+                        ) ? 'is-expanded':''}}">
+                        <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0)">
+                            <i class="side-menu__icon fa-solid fa-star"></i>
+                            <span class="side-menu__label">{{ trans('messages.Favorites') }}</span>
+                            <i class="angle fe fe-chevron-right"></i>
+                        </a>
+                        <ul class="slide-menu">
+                            @foreach (sidebarMenuFavorites() as $sidebarMenuFavorite)
+                                @can($sidebarMenuFavorite->permission)
+                                    <li>
+                                        <a href="{{ route($sidebarMenuFavorite->route) }}" class="slide-item {{request()->routeIs($sidebarMenuFavorite->route) ? 'active fw-bold':''}}">
+                                            {{ trans('messages.'.$sidebarMenuFavorite->name) }}
+                                        </a>
+                                    </li>
+                                @endcan
+                            @endforeach
+                        </ul>
+                    </li>
+                @endif
 
                 <li class="slide {{(
                     request()->routeIs('admin.profile.*')||
@@ -56,7 +58,7 @@
                         {{-- <li class="side-menu-label1"><a href="javascript:void(0)">Pages</a></li> --}}
 
                         <li>
-                            <a href="{{ route('admin.profile.show') }}" class="slide-item {{request()->routeIs('admin.profile') ? 'active fw-bold':''}}">
+                            <a href="{{ route('admin.profile') }}" class="slide-item {{request()->routeIs('admin.profile') ? 'active fw-bold':''}}">
                                 {{ trans('messages.Profile') }}
                             </a>
                         </li>

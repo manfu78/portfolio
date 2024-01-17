@@ -1,7 +1,5 @@
 <?php
 
-// workerSelect()
-
 use App\Models\CoinType;
 
 if(!function_exists('defaultCoin')){

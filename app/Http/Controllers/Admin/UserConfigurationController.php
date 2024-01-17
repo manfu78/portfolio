@@ -3,8 +3,15 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\SidebarMenuFather;
+use App\Models\SidebarMenuItem;
+use App\Models\UserConfig;
+use App\Models\UserFavorite;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\View\View;
+use Symfony\Component\Routing\Exception\RouteNotFoundException;
 
 class UserConfigurationController extends Controller
 {
@@ -14,37 +21,16 @@ class UserConfigurationController extends Controller
         $userFavorites = $user->favorites;
         $arrayUserFavorites = $user->favorites?$user->favorites->pluck('sidebar_menu_id')->toArray():null;
 
-        $sidebarMenuFathers = SidebarMenuFather::orderBy('order')
-            ->where('active', 1)
-            ->with(['sidebarMenus' => function ($query) {
-                $query->where('active', 1);
-            }])
-            ->with(['sidebarMenuSubFathers' => function ($query) {
-                $query->where('active', 1)
-                    ->with(['sidebarMenus' => function ($query) {
-                        $query->where('active', 1);
-                    }]);
-            }])
+        $sidebarMenuFathers = SidebarMenuFather::orderBy('order')->get();
 
-            ->orWhereHas('sidebarMenus', function ($query) {
-                $query->where('active', 1);
-            })
-            ->orWhereHas('sidebarMenuSubFathers', function ($query) {
-                $query->where('active', 1)
-                    ->whereHas('sidebarMenus', function ($query) {
-                        $query->where('active', 1);
-                    });
-            })
-            ->get();
-
-        return view('common.UserConfigurations.favorites', compact(
+        return view('admin.UserConfigurations.favorites', compact(
             'userFavorites',
             'sidebarMenuFathers',
             'arrayUserFavorites',
         ));
     }
 
-    public function favoriteAdd(Request $request, SidebarMenu $sidebarMenu):RedirectResponse
+    public function favoriteAdd(Request $request, SidebarMenuItem $sidebarMenuItem):RedirectResponse
     {
         $logVars=logVars();
         $model = trans('messages.Menu');
@@ -52,14 +38,14 @@ class UserConfigurationController extends Controller
         $route = $request->ubi?base64_decode($request->ubi):'admin.userConfigurations.favorites';
 
         try {
-            if (UserFavorite::where('user_id',auth()->user()->id)->where('sidebar_menu_id',$sidebarMenu->id)->count()>0) {
+            if (UserFavorite::where('user_id',auth()->user()->id)->where('sidebar_menu_id',$sidebarMenuItem->id)->count()>0) {
                 return back()->with('error',trans("messages.InfoError.MenuAlreadyAdded"));
             }
 
             $favorite = new UserFavorite();
 
             $favorite->user_id = auth()->user()->id;
-            $favorite->sidebar_menu_id = $sidebarMenu->id;
+            $favorite->sidebar_menu_id = $sidebarMenuItem->id;
             $favorite->save();
 
             Log::info("Favorite Store. ".trans('messages.InfoSuccess.Created'),array('context'=>$favorite,'logVars'=>$logVars));
@@ -98,35 +84,14 @@ class UserConfigurationController extends Controller
     {
         $user = auth()->user();
 
-        $sidebarMenuFathers = SidebarMenuFather::orderBy('order')
-            ->where('active', 1)
-            ->with(['sidebarMenus' => function ($query) {
-                $query->where('active', 1);
-            }])
-            ->with(['sidebarMenuSubFathers' => function ($query) {
-                $query->where('active', 1)
-                    ->with(['sidebarMenus' => function ($query) {
-                        $query->where('active', 1);
-                    }]);
-            }])
+        $sidebarMenuFathers = SidebarMenuFather::orderBy('order')->get();
 
-            ->orWhereHas('sidebarMenus', function ($query) {
-                $query->where('active', 1);
-            })
-            ->orWhereHas('sidebarMenuSubFathers', function ($query) {
-                $query->where('active', 1)
-                    ->whereHas('sidebarMenus', function ($query) {
-                        $query->where('active', 1);
-                    });
-            })
-            ->get();
-
-        return view('common.UserConfigurations.homepage', compact(
+        return view('admin.UserConfigurations.homepage', compact(
             'sidebarMenuFathers',
         ));
     }
 
-    public function homeSet(Request $request, SidebarMenu $sidebarMenu):RedirectResponse
+    public function homeSet(Request $request, SidebarMenuItem $sidebarMenuItem):RedirectResponse
     {
         $logVars=logVars();
         $model = trans('messages.Home.Homepage');
@@ -141,10 +106,10 @@ class UserConfigurationController extends Controller
             }
 
             $userConfig->user_id = auth()->user()->id;
-            $userConfig->sidebar_menu_start_id = $sidebarMenu->id;
+            $userConfig->sidebar_menu_start_id = $sidebarMenuItem->id;
             $userConfig->save();
 
-            Log::info("Assigned Homepage. ",array('context'=>$sidebarMenu,'logVars'=>$logVars));
+            Log::info("Assigned Homepage. ",array('context'=>$sidebarMenuItem,'logVars'=>$logVars));
             return redirect()->route($route)->with('info',trans('messages.InfoSuccess.Created'));
         } catch (RouteNotFoundException $re) {
             createErrorExceptionLog($re,$controllerFunction);

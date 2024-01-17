@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class LogViewerSeeder extends Seeder
 {
@@ -13,6 +14,15 @@ class LogViewerSeeder extends Seeder
      */
     public function run(): void
     {
+
+        $roleName ='Administrador';
+
+        $role = Role::where('name','=',$roleName)->first();
+        if(!$role){
+            $role = Role::create(['name' => $roleName]);
+        }
+
+
         $permissions = [
             ['log-viewer::dashboard','View Logs','Log','LogViewer'],
             ['log-viewer::logs.create','Create Log','Log','LogViewer'],
@@ -24,9 +34,8 @@ class LogViewerSeeder extends Seeder
                 Permission::create([
                     'name'          =>$permission[0],
                     'description'   =>$permission[1],
-                    'model'         =>$permission[2],
-                    'menu'          =>$permission[3],
-                ])->assignRole('Administrador');
+                    'app_model_id'  =>null
+                ])->assignRole($role->name);
             }
         }
     }

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\AppModel;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
@@ -14,26 +15,39 @@ class RoleSeeder extends Seeder
      */
     public function run(): void
     {
-        $roleName ='Administrador';
+        //Datos a rellenar
+        $roleName           ='Administrador';
+        $modelName          = 'Role';
+        $modelNamePlural    = 'Roles';
+        $modelNamespace     = 'Spatie\Permission\Models\\'.$roleName;
+
+
 
         $roleAdmin = Role::where('name','=',$roleName)->first();
         if(!$roleAdmin){
             $roleAdmin = Role::create(['name' => $roleName]);
         }
 
+        $model = AppModel::where('name','=',$modelName)->first();
+        if(!$model){
+            $model = AppModel::create([
+                'name'=>$modelName,
+                'namespace'=>$modelNamespace,
+            ]);
+        }
+
         $permissions = [
-            ['roles.index','View Roles','Role','Roles'],
-            ['roles.create','Create Role','Role','Roles'],
-            ['roles.edit','Edit Role','Role','Roles'],
-            ['roles.destroy','Destroy Role','Role','Roles'],
+            [$modelNamePlural.'.index','View  '.$modelNamePlural ],
+            [$modelNamePlural.'.create','Create '.$modelName],
+            [$modelNamePlural.'.edit','Edit '.$modelName],
+            [$modelNamePlural.'.destroy','Destroy '.$modelName],
         ];
         foreach($permissions as $permission){
             if (!Permission::where('name','=',$permission[0])->first()) {
                 Permission::create([
                     'name'          =>$permission[0],
                     'description'   =>$permission[1],
-                    'model'         =>$permission[2],
-                    'menu'          =>$permission[3],
+                    'app_model_id'  =>$model->id
                 ])->syncRoles([$roleAdmin]);
             }
         }

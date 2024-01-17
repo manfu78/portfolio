@@ -468,7 +468,7 @@
     </div>
 
     @can('countries.destroy')
-        @include('layouts.common.modal.delete-reg-html')
+        @include('layouts.admin.modal.delete-reg-html')
     @endcan
 @endsection
 
@@ -477,7 +477,7 @@
 @section('page_css') @endsection
 
 @section('scripts_js')
-    @include('layouts.common.scripts_js.datatable')
+    @include('layouts.admin.scripts_js.datatable')
 @endsection
 
 @section('scripts')
@@ -525,6 +525,6 @@
         });
     </script>
      @can('countries.destroy')
-        @include('layouts.common.modal.delete-reg-scritp')
+        @include('layouts.admin.modal.delete-reg-scritp')
     @endcan
 @endsection

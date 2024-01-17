@@ -22,11 +22,11 @@ if(!function_exists('logVars')){
 
         $ipClient = request()->ip();
 
-        $userName = $userAuth?$userAuth->username:'';
+        // $userName = $userAuth?$userAuth->name:'';
 
-        if ($userAuth&&$userAuth->worker) {
-            $userName = $userAuth->worker->name.' '.$userAuth->worker->lastname;
-        }
+        // if ($userAuth&&$userAuth->userProfile) {
+        //     $userName = $userAuth->userProfile->name.' '.$userAuth->userProfile->lastname;
+        // }
 
         $logVars = [
             'userAuth'  => $userAuth,

@@ -27,10 +27,13 @@ Route::get('/set_language/{lang}', [Controller::class, 'set_language'])->name('s
 
 Auth::routes();
 
-Route::get('dashboard', [HomeController::class, 'index'])->name('dashboard');
+
 
 Route::name('admin.')->middleware(['auth'])->group(function() {
-    Route::get('/profile', [ProfileController::class, 'show'])->name('profile.show');
+    Route::get('dashboard', [HomeController::class, 'index'])->name('dashboard');
+
+    Route::get('profile', [ProfileController::class, 'show'])->name('profile');
+    Route::get('profile.documents', [ProfileController::class, 'documents'])->name('profile.documents');
 
     Route::controller(UserConfigurationController::class)->group(function () {
         Route::get('userConfigurations.favorites', 'favorites')->name('userConfigurations.favorites');

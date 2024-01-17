@@ -9,9 +9,7 @@ use Illuminate\Support\Facades\DB;
 if(!function_exists('sidebarMenuFathers')){
     function sidebarMenuFathers (){
         try {
-            $sidebarMenuFathers = SidebarMenuFather::orderBy('order')
-                ->where('active','=',1)
-                ->get();
+            $sidebarMenuFathers = SidebarMenuFather::orderBy('order')->get();
             return $sidebarMenuFathers;
         } catch (\Throwable $th) {
             return [];

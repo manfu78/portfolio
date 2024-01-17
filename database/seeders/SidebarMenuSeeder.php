@@ -14,6 +14,7 @@ class SidebarMenuSeeder extends Seeder
      */
     public function run(): void
     {
+        //Datos a rellenar
         $roleName ='Administrador';
 
         $roleAdmin = Role::where('name','=',$roleName)->first();

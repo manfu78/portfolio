@@ -2,9 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\AppModel;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class UserSeeder extends Seeder
 {
@@ -13,11 +15,34 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
+        //Datos a rellenar
+        $roleName           ='Administrador';
+        $modelName          = 'User';
+        $modelNamePlural    = 'Users';
+
+
+
+        $modelNamespace = 'App\Models\\'.$modelName;
+
+        $role = Role::where('name','=',$roleName)->first();
+        if(!$role){
+            $role = Role::create(['name' => $roleName]);
+        }
+
+        $model = AppModel::where('name','=',$modelName)->first();
+        if(!$model){
+            $model = AppModel::create([
+                'name'=>$modelName,
+                'namespace'=>$modelNamespace,
+            ]);
+        }
+
         $permissions = [
-            ['users.index','View Users','User','Users'],
-            ['users.create','Create User','User','Users'],
-            ['users.edit','Edit User','User','Users'],
-            ['users.destroy','Destroy User','User','Users'],
+            [$modelNamePlural.'.index','View '.$modelNamePlural],
+            [$modelNamePlural.'.show','View '.$modelName],
+            [$modelNamePlural.'.create','Create '.$modelName],
+            [$modelNamePlural.'.edit','Edit '.$modelName],
+            [$modelNamePlural.'.destroy','Destroy '.$modelName],
         ];
 
 
@@ -26,9 +51,8 @@ class UserSeeder extends Seeder
                 Permission::create([
                     'name'          =>$permission[0],
                     'description'   =>$permission[1],
-                    'model'         =>$permission[2],
-                    'menu'          =>$permission[3],
-                ])->assignRole('Administrador');
+                    'app_model_id'  =>$model->id
+                ])->assignRole($role->name);
             }
         }
     }

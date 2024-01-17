@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Role;
 
 class SuperAdminSeeder extends Seeder
 {
@@ -13,6 +14,13 @@ class SuperAdminSeeder extends Seeder
      */
     public function run(): void
     {
+        $roleName ='Administrador';
+
+        $role = Role::where('name','=',$roleName)->first();
+        if(!$role){
+            $role = Role::create(['name' => $roleName]);
+        }
+
         $superAdminData = [
             'name'=>'SuperAdmin',
             'email'=>'admin@germanraulgarcia.es',
@@ -22,7 +30,7 @@ class SuperAdminSeeder extends Seeder
         $superAdmin = User::where('email','=',$superAdminData['email'])->first();
         if (!$superAdmin) {
             $superAdmin = User::create($superAdminData);
-            $superAdmin->assignRole('Administrador');
+            $superAdmin->assignRole($role->name);
         }
 
         // $user = User::create([
