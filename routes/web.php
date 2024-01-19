@@ -50,7 +50,6 @@ Route::name('admin.')->middleware(['auth'])->group(function() {
     Route::resource('vats', VatController::class)->except(['show']);
     Route::resource('paymentMethods', PaymentMethodController::class)->except(['show']);
 
-
     Route::resource('businesses', BusinessController::class)->except(['show']);
         Route::controller(BusinessController::class)->group(function () {
             Route::get('businesses/{business}/deleteLogo', 'deleteLogo')->name('businesses.deleteLogo');

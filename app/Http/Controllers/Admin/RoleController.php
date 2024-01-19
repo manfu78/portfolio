@@ -34,12 +34,14 @@ class RoleController extends Controller
         $showAll = true;
 
         $permissions = Permission::all();
-        $permissionModels = $permissions->unique('menu')->pluck('menu','model');
+        $permissionModels = $permissions->unique('a')->pluck('menu','model');
+        $appModels = AppModel::all();
 
         return view('Admin.Roles.create', compact(
             'permissions',
             'permissionModels',
             'showAll',
+            'appModels',
         ));
     }
 

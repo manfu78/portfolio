@@ -161,7 +161,7 @@
                                                                     title="{{ trans('messages.Save') }}">
                                                                     <i class="fa-solid fa-floppy-disk"></i>
                                                                 </button>
-                                                                <a class="modal-effect btn btn-sm btn-icon btn-danger"
+                                                                <a class="modal-effect btn text-danger btn-sm"
                                                                     data-bs-effect="effect-flip-horizontal" data-bs-toggle="modal" href="#modalEliminar"
                                                                     data-name="{{ $sidebarMenuFather->name }}"
                                                                     data-route="{{ route('admin.sidebarMenus.destroyMenuFather',$sidebarMenuFather->id) }}">
@@ -200,7 +200,7 @@
                                                                             title="{{ trans('messages.Save') }}">
                                                                             <i class="fa-solid fa-floppy-disk"></i>
                                                                         </button>
-                                                                        <a class="modal-effect btn btn-sm btn-icon btn-danger"
+                                                                        <a class="modal-effect btn text-danger btn-sm"
                                                                             data-bs-effect="effect-flip-horizontal" data-bs-toggle="modal" href="#modalEliminar"
                                                                             data-name="{{ $sidebarMenuSubFather->name }}"
                                                                             data-route="{{ route('admin.sidebarMenus.destroyMenuSubFather',$sidebarMenuSubFather->id) }}">
@@ -319,7 +319,7 @@
                                                                                         title="{{ trans('messages.Save') }}">
                                                                                         <i class="fa-solid fa-floppy-disk"></i>
                                                                                     </button>
-                                                                                    <a class="modal-effect btn btn-sm btn-icon btn-danger"
+                                                                                    <a class="modal-effect btn text-danger btn-sm"
                                                                                         data-bs-effect="effect-flip-horizontal" data-bs-toggle="modal" href="#modalEliminar"
                                                                                         data-name="{{ $sidebarMenu->name }}"
                                                                                         data-route="{{ route('admin.sidebarMenus.destroyItem',$sidebarMenu->id) }}">
@@ -431,7 +431,7 @@
                                                                                                                     title="{{ trans('messages.Save') }}">
                                                                                                                     <i class="fa-solid fa-floppy-disk"></i>
                                                                                                                 </button>
-                                                                                                                <a class="modal-effect btn btn-sm btn-icon btn-danger"
+                                                                                                                <a class="modal-effect btn text-danger btn-sm"
                                                                                                                     data-bs-effect="effect-flip-horizontal" data-bs-toggle="modal" href="#modalEliminar"
                                                                                                                     data-name="{{ $sidebarSubMenu->name }}"
                                                                                                                     data-route="{{ route('admin.sidebarMenus.destroyItem',$sidebarSubMenu->id) }}">

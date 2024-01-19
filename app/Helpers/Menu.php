@@ -33,3 +33,13 @@ if(!function_exists('sidebarMenuFavorites')){
     }
 }
 
+// menuActiveForRoute()
+if(!function_exists('menuActiveForRoute')){
+    function menuActiveForRoute ($route){
+
+        $routeArray = explode('.', $route);
+        $menuActiveForRoute = implode('.', array_slice($routeArray, 0, 2));
+        return $menuActiveForRoute;
+    }
+}
+

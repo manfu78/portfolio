@@ -29,6 +29,9 @@ class SidebarMenuFather extends Model
             ->get();
 
         if ($sidebarMenus) {
+            foreach ($sidebarMenus as $sidebarMenu) {
+                $sidebarMenu->route = str_replace('index','',$sidebarMenu->route).'*';
+            }
             return $sidebarMenus->pluck('route')->toArray();
         }
         return [];

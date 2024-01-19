@@ -122,7 +122,7 @@
                                                     @foreach ($sidebarMenuSubFather->sidebarMenuItems as $subSidebarMenu)
                                                         @can($subSidebarMenu->permission)
                                                             <li>
-                                                                <a href="{{ route($subSidebarMenu->route) }}" class="sub-slide-item {{request()->routeIs($subSidebarMenu->route) ? 'active fw-bold':''}}">
+                                                                <a href="{{ route($subSidebarMenu->route) }}" class="sub-slide-item {{ request()->routeIs($subSidebarMenu->route) ? 'active fw-bold':''}}">
                                                                     {{ trans('messages.'.$subSidebarMenu->name) }}
                                                                 </a>
                                                             </li>

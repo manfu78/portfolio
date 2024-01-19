@@ -3,7 +3,7 @@
 @section('main_container')
     <div class="main-container container-fluid">
         <div class="page-header">
-            <h1 class="page-title"><i class="fe fe-file-plus"></i>&nbsp;{{ trans('messages.Role.NewRole') }}</h1>
+            <h1 class="page-title">&nbsp;</h1>
             <div>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('admin.roles.index') }}">Roles</a></li>
@@ -13,10 +13,16 @@
         </div>
         <div class="row ">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                {!! Form::open(array('route'=>'admin.roles.store','method'=>'POST')) !!}
+                <form action="{{ route('admin.roles.store') }}" method="post" name="form_role_store">
                 @csrf
-                    @include('Admin.Roles.Partials.form')
-                {!! Form::close() !!}
+                @method('POST')
+                    <div class="card">
+                        <div class="card-header bg-info-transparent p-2">
+                            <span class="fw-bold"><i class="fe fe-edit"></i></span>&nbsp;{{ trans('messages.Role.NewRole') }}
+                        </div>
+                        @include('Admin.Roles.Partials.form')
+                    </div>
+                </form>
             </div>
         </div>
     </div>

@@ -24,11 +24,8 @@
         <div class="row row-sm">
             <div class="col-lg-12">
                 <div class="card">
-                    {{-- <div class="card-header bg-info-transparent p-2">
-                        <h1 class="page-title"><i class="fa-solid fa-grip-vertical"></i>&nbsp;{{ trans('messages.Role.Roles') }}</h1>
-                    </div> --}}
                     <div class="card-header bg-info-transparent p-2">
-                        <i class="fa-solid fa-grip-vertical"></i>&nbsp;{{ trans('messages.Role.Roles') }}
+                        <span class="fw-bold"><i class="fa-solid fa-grip-vertical"></i></span>&nbsp;{{ trans('messages.Role.Roles') }}
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -44,21 +41,23 @@
                                     @foreach($roles as $role)
                                         <tr>
                                             <td class="py-1 text-end" style="width: 10px;">{{$role->id}}</td>
-                                            <td class="py-1"><span class="fw-bold">{{$role->name}}</span></td>
-                                            <td class="py-1" style="width: 60px;text-align: right;">
+                                            <td class="py-1">
+                                                <span class="fw-bold">{{$role->name}}</span>
+                                            </td>
+                                            <td class="py-1" style="width: 10px;text-align: right;">
                                                 @can('roles.edit')
                                                     <a href="{{ route('admin.roles.edit', $role) }}"
-                                                        class="btn btn-sm btn-icon btn-default"
+                                                        class="btn text-default btn-sm py-0"
                                                         data-bs-placement="top"
                                                         data-bs-toggle="tooltip"
                                                         title="{{ trans('messages.Edit') }}">
                                                         <i class="fe fe-edit"></i>
                                                     </a>
                                                 @else
-                                                    <button class="btn btn-sm btn-icon btn-default disabled"><i class="fe fe-edit"></i></button>
+                                                    <button class="btn text-default btn-sm  py-0" disabled><i class="fe fe-edit"></i></button>
                                                 @endcan
                                                 @can('roles.destroy')
-                                                    <a class="modal-effect btn btn-sm btn-icon btn-danger"
+                                                    <a class="modal-effect btn text-danger btn-sm py-0"
                                                         data-bs-effect="effect-flip-horizontal" data-bs-toggle="modal" href="#modalEliminar"
                                                         data-name="{{ $role->name }}"
                                                         data-route="{{ route('admin.roles.destroy',$role->id) }}">
@@ -67,7 +66,7 @@
                                                         </div>
                                                     </a>
                                                 @else
-                                                    <button class="btn btn-sm btn-icon btn-danger disabled"><i class="fe fe-trash"></i></button>
+                                                    <button class="btn btn-sm btn-icon btn-danger py-0 disabled"><i class="fe fe-trash"></i></button>
                                                 @endcan
                                             </td>
                                         </tr>
@@ -90,20 +89,7 @@
 @section('page_css') @endsection
 
 @section('scripts_js')
-    <!-- DATA TABLE JS -->
-    <script src="/assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
-    <script src="/assets/plugins/datatable/js/dataTables.bootstrap5.js"></script>
-    <script src="/assets/plugins/datatable/js/dataTables.buttons.min.js"></script>
-    <script src="/assets/plugins/datatable/js/buttons.bootstrap5.min.js"></script>
-    <script src="/assets/plugins/datatable/js/jszip.min.js"></script>
-    <script src="/assets/plugins/datatable/pdfmake/pdfmake.min.js"></script>
-    <script src="/assets/plugins/datatable/pdfmake/vfs_fonts.js"></script>
-    <script src="/assets/plugins/datatable/js/buttons.html5.min.js"></script>
-    <script src="/assets/plugins/datatable/js/buttons.print.min.js"></script>
-    <script src="/assets/plugins/datatable/js/buttons.colVis.min.js"></script>
-    <script src="/assets/plugins/datatable/dataTables.responsive.min.js"></script>
-    <script src="/assets/plugins/datatable/responsive.bootstrap5.min.js"></script>
-    <script src="/assets/js/table-data.js"></script>
+    @include('layouts.admin.scripts_js.datatable')
 @endsection
 
 @section('scripts')

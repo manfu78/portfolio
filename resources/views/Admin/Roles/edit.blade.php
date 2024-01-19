@@ -3,7 +3,7 @@
 @section('main_container')
     <div class="main-container container-fluid">
         <div class="page-header">
-            <h1 class="page-title"><i class="fe fe-edit"></i>&nbsp;{{ trans('messages.Role.EditRole') }}</h1>
+            <h1 class="page-title">&nbsp;</h1>
             <div>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('admin.roles.index') }}">Roles</a></li>
@@ -13,10 +13,16 @@
         </div>
         <div class="row ">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                {!! Form::model($role,['route'=>['admin.roles.update',$role],'method'=>'put']) !!}
-                @csrf
-                    @include('Admin.Roles.Partials.form')
-                {!! Form::close() !!}
+                <form action="{{ route('admin.roles.update',$role) }}" method="POST" name="form_role_update" id="form_role_update">
+                    @csrf
+                    @method('PUT')
+                    <div class="card">
+                        <div class="card-header bg-info-transparent p-2">
+                            <span class="fw-bold"><i class="fe fe-edit"></i></span>&nbsp;{{ trans('messages.Role.EditRole') }}
+                        </div>
+                        @include('Admin.Roles.Partials.form')
+                    </div>
+                </form>
             </div>
         </div>
     </div>

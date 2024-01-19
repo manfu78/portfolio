@@ -1,13 +1,15 @@
-<div class="card">
+
     <div class="card-body">
         <div class="row">
             <label class="form-label">Rol</label>
             <div class="input-group mb-4">
-                {!! Form::text('name', null, array(
+                {{-- {!! Form::text('name', null, array(
                     'class'=>'form-control '. (($errors)->has('name') ? 'is-invalid state-invalid':''),
                     'value'=>old('name'),
-                    'placeholder'=>'...','value'=>old('name')
-                )) !!}
+                    'placeholder'=>'...',
+                    'value'=>old('name')
+                )) !!} --}}
+                <input type="text" name="name" class="form-control {{ ($errors)->has('name') ? 'is-invalid state-invalid':'' }}" value="{{ isset($role)?$role->name:old('name') }}">
                 <button type="submit" class="input-group-text btn btn-primary shadow-none">
                     <i class="fa fa-save"></i> &nbsp;{{ trans('messages.Save') }}
                 </button>
@@ -45,7 +47,7 @@
                                         <div class="custom-controls-stacked">
                                             @foreach ($appModel->permissions as $permission)
                                                  <label class="custom-control custom-checkbox">
-                                                    {{ Form::checkbox('permissions[]',$permission->id,null,['class'=>'custom-control-input']) }}
+                                                    <input type="checkbox" name="permissions[]" value="{{ $permission->id }}" class="custom-control-input" {{ isset($role)&&$role->permissions->contains($permission)?'checked':'' }}>
                                                     <span class="custom-control-label">{{ trans('messages.'.$appModel->name.'.'.str_replace(' ','',$permission->description)) }}</span>
                                                 </label>
                                             @endforeach
@@ -68,4 +70,4 @@
             </div>
         </div>
     </div>
-</div>
+
