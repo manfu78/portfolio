@@ -66,11 +66,11 @@
                             <ul class="list-group">
                                 @if ($userFavorites)
                                     @foreach ($userFavorites as $userFavorite)
-                                        @can($userFavorite->sidebarMenu->permission)
+                                        @can($userFavorite->sidebarMenuItem->permission)
                                             <form name="formDeleteUserFavorite{{ $userFavorite->id }}" id="formDeleteUserFavorite{{ $userFavorite->id }}" method="POST" action="{{ route('admin.userConfigurations.favoriteDestroy',$userFavorite->id ) }}">
                                                 @csrf @method('DELETE')
                                                 <li class="list-group-item justify-content-between">
-                                                    <span><i class="fa-regular fa-angle-right"></i>&nbsp;{{ $userFavorite->sidebarMenu->name }}</span>
+                                                    <span><i class="fa-regular fa-angle-right"></i>&nbsp;{{ $userFavorite->sidebarMenuItem->name }}</span>
                                                     <button type="submit" class="badgetext badge bg-danger rounded-pill border-0">
                                                         <i class="fa-solid fa-minus"></i>
                                                     </button>
@@ -114,13 +114,13 @@
                                                                 <div class="accordion-body">
                                                                     <div class="">
                                                                         <ul class="list-group">
-                                                                            @foreach ($sidebarMenuFather->sidebarMenus as $sidebarMenu)
-                                                                                @can($sidebarMenu->permission)
-                                                                                    @if ($arrayUserFavorites&&in_array($sidebarMenu->id,$arrayUserFavorites) )
-                                                                                        <form name="formDeleteFavorite{{ $sidebarMenu->id }}" id="formDeleteFavorite{{ $sidebarMenu->id }}" method="POST" action="{{ route('admin.userConfigurations.favoriteDestroy',$sidebarMenu->id ) }}">
+                                                                            @foreach ($sidebarMenuFather->sidebarMenuItems as $sidebarMenuItem)
+                                                                                @can($sidebarMenuItem->permission)
+                                                                                    @if ($arrayUserFavorites&&in_array($sidebarMenuItem->id,$arrayUserFavorites) )
+                                                                                        <form name="formDeleteFavorite{{ $sidebarMenuItem->id }}" id="formDeleteFavorite{{ $sidebarMenuItem->id }}" method="POST" action="{{ route('admin.userConfigurations.favoriteDestroy',$sidebarMenuItem->id ) }}">
                                                                                         @csrf @method('DELETE')
                                                                                             <li class="list-group-item justify-content-between">
-                                                                                                <span><i class="fa-regular fa-angle-right"></i>&nbsp;{{ $sidebarMenu->name }}</span>
+                                                                                                <span><i class="fa-regular fa-angle-right"></i>&nbsp;{{ trans('messages.'.$sidebarMenuItem->name) }}</span>
                                                                                                 <button type="submit" class="badgetext badge bg-danger rounded-pill border-0">
                                                                                                     <i class="fa-solid fa-minus"></i>
                                                                                                 </button>
@@ -128,8 +128,8 @@
                                                                                         </form>
                                                                                     @else
                                                                                         <li class="list-group-item justify-content-between">
-                                                                                            <span><i class="fa-regular fa-angle-right"></i>&nbsp;{{ $sidebarMenu->name }}</span>
-                                                                                            <a href="{{ route('admin.userConfigurations.favoriteAdd',$sidebarMenu) }}">
+                                                                                            <span><i class="fa-regular fa-angle-right"></i>&nbsp;{{ trans('messages.'.$sidebarMenuItem->name) }}</span>
+                                                                                            <a href="{{ route('admin.userConfigurations.favoriteAdd',$sidebarMenuItem) }}">
                                                                                                 <button type="button" class="badgetext badge bg-success rounded-pill border-0">
                                                                                                     <i class="fa-solid fa-plus"></i>
                                                                                                 </button>
@@ -158,13 +158,13 @@
                                                                                             <div class="accordion-body">
                                                                                                 <div class="">
                                                                                                     <ul class="list-group">
-                                                                                                        @foreach ($sidebarMenuSubFather->sidebarMenus as $sidebarSubMenu)
-                                                                                                            @can($sidebarSubMenu->permission)
-                                                                                                                @if ($arrayUserFavorites&&in_array($sidebarSubMenu->id,$arrayUserFavorites) )
-                                                                                                                    <form name="formDeleteFavorite{{ $sidebarSubMenu->id }}" id="formDeleteFavorite{{ $sidebarSubMenu->id }}" method="POST" action="{{ route('admin.userConfigurations.favoriteDestroy',$sidebarSubMenu->id ) }}">
+                                                                                                        @foreach ($sidebarMenuSubFather->sidebarMenuItems as $sidebarMenuItem)
+                                                                                                            @can($sidebarMenuItem->permission)
+                                                                                                                @if ($arrayUserFavorites&&in_array($sidebarMenuItem->id,$arrayUserFavorites) )
+                                                                                                                    <form name="formDeleteFavorite{{ $sidebarMenuItem->id }}" id="formDeleteFavorite{{ $sidebarMenuItem->id }}" method="POST" action="{{ route('admin.userConfigurations.favoriteDestroy',$sidebarMenuItem->id ) }}">
                                                                                                                     @csrf @method('DELETE')
                                                                                                                         <li class="list-group-item justify-content-between">
-                                                                                                                            <span><i class="fa-regular fa-angle-right"></i>&nbsp;{{ $sidebarSubMenu->name }}</span>
+                                                                                                                            <span><i class="fa-regular fa-angle-right"></i>&nbsp;{{ $sidebarMenuItem->name }}</span>
                                                                                                                             <button type="submit" class="badgetext badge bg-danger rounded-pill border-0">
                                                                                                                                 <i class="fa-solid fa-minus"></i>
                                                                                                                             </button>
@@ -172,8 +172,8 @@
                                                                                                                     </form>
                                                                                                                 @else
                                                                                                                     <li class="list-group-item justify-content-between">
-                                                                                                                        <span><i class="fa-regular fa-angle-right"></i>&nbsp;{{ $sidebarSubMenu->name }}</span>
-                                                                                                                        <a href="{{ route('admin.userConfigurations.favoriteAdd',$sidebarSubMenu) }}">
+                                                                                                                        <span><i class="fa-regular fa-angle-right"></i>&nbsp;{{ $sidebarMenuItem->name }}</span>
+                                                                                                                        <a href="{{ route('admin.userConfigurations.favoriteAdd',$sidebarMenuItem) }}">
                                                                                                                             <button type="button" class="badgetext badge bg-success rounded-pill border-0">
                                                                                                                                     <i class="fa-solid fa-plus"></i>
                                                                                                                             </button>

@@ -10,7 +10,7 @@ if(!function_exists('sidebarMenuFathers')){
     function sidebarMenuFathers (){
         try {
             $sidebarMenuFathers = SidebarMenuFather::orderBy('order')
-                ->where('active','=',1)
+                //->where('active','=',1)
                 ->with('sidebarMenuItems')
                 ->with('sidebarMenuSubFathers')
                 ->get();

@@ -64,7 +64,7 @@
                 @auth
                     <li><a class="nav-link" href="{{ route('admin.dashboard') }}"><i class="bi bi-gear"></i></a></li>
                 @else
-                    <li><a class="nav-link" href="#login"><i class="bi bi-person"></i></a></li>
+                    <li><a class="nav-link" href="{{ route('login') }}"><i class="bi bi-person"></i></a></li>
                 @endauth
             @endif
         </ul>

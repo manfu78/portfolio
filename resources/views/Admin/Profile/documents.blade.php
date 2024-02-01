@@ -1,6 +1,6 @@
 @extends('layouts.admin.app')
-@section('sectiontitle') {{ trans('messages.UserProfile.EditUserProfile') }} @endsection
-@section('pagetitle') {{ trans('messages.UserProfile.UserProfile') }} @endsection
+@section('sectiontitle') {{ trans('messages.Worker.EditWorker') }} @endsection
+@section('pagetitle') {{ trans('messages.Worker.Worker') }} @endsection
 
 @section('main_container')
     <div class="main-container container-fluid">
@@ -22,28 +22,28 @@
                         <div class="row">
                             <div class="col">
                                 <div class="media d-flex">
-                                    @if ($userProfile->photo)
+                                    @if ($worker->photo)
                                         <span class="me-2">
-                                            <img id="photo" class="avatar brround cover-image" src="{{ Storage::url($userProfile->photo) }}" onerror="this.src='/assets/images/profileimg.png'" style="width: 75px;height: 75px;object-fit: cover;">
+                                            <img id="photo" class="avatar brround cover-image" src="{{ Storage::url($worker->photo) }}" onerror="this.src='/assets/images/profileimg.png'" style="width: 75px;height: 75px;object-fit: cover;">
                                         </span>
                                     @else
                                         <span class="avatar avatar-xxl brround bg-default mx-4">
-                                            {{ substr($userProfile->name,0,1).substr($userProfile->lastname,0,1) }}
+                                            {{ substr($worker->name,0,1).substr($worker->lastname,0,1) }}
                                         </span>
                                     @endif
                                     <div class="media-body">
-                                        <h4 class="font-weight-semibold mb-1">{{ $userProfile->full_name }}</h4>
-                                        @if ($userProfile->phone)
-                                            <span><a href="Tel:{{ $userProfile->phone }}"><small><i class="fa-solid fa-phone"></i>:</small>&nbsp;{{ $userProfile->phone }}</a></span>
+                                        <h4 class="font-weight-semibold mb-1">{{ $worker->full_name }}</h4>
+                                        @if ($worker->phone)
+                                            <span><a href="Tel:{{ $worker->phone }}"><small><i class="fa-solid fa-phone"></i>:</small>&nbsp;{{ $worker->phone }}</a></span>
                                         @endif
-                                        @if ($userProfile->email)
+                                        @if ($worker->email)
                                             <p class="m-0">
-                                                <a href="mailto:{{$userProfile->email}}"><small><i class="fa-solid fa-envelope"></i>:</small>&nbsp;{{$userProfile->email}}</a>
+                                                <a href="mailto:{{$worker->email}}"><small><i class="fa-solid fa-envelope"></i>:</small>&nbsp;{{$worker->email}}</a>
                                             </p>
                                         @endif
-                                        @if ($userProfile->phone)
+                                        @if ($worker->phone)
                                             <p class="m-0">
-                                                <a href="tel:{{$userProfile->phone}}"><small><i class="fa-solid fa-phone"></i>:</small>&nbsp;{{$userProfile->phone}}</a>
+                                                <a href="tel:{{$worker->phone}}"><small><i class="fa-solid fa-phone"></i>:</small>&nbsp;{{$worker->phone}}</a>
                                             </p>
                                         @endif
 
@@ -66,7 +66,7 @@
                         @endcan
 
 
-                        @if ($userProfile->documents->count()>0)
+                        @if ($worker->documents->count()>0)
                             <div class="table-responsive">
                                 <table id="documents_table" class="table table-bordered border-bottom">
                                     <thead>
@@ -79,14 +79,14 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach($userProfile->documents as $userProfileDocument)
+                                        @foreach($worker->documents as $workerDocument)
                                             <tr>
-                                                <td class="py-1 fw-bold" style="width: 10px;">{{ $userProfileDocument->id }}</td>
-                                                <td class="py-1" style="width: 50px;"><span>{{ date('m/d/Y', strtotime($userProfileDocument->created_at)) }}</span></td>
-                                                <td class="py-1"><span>{{ $userProfileDocument->name }}</span></td>
-                                                <td class="py-1"><span>{{ $userProfileDocument->documentType->type }}</span></td>
+                                                <td class="py-1 fw-bold" style="width: 10px;">{{ $workerDocument->id }}</td>
+                                                <td class="py-1" style="width: 50px;"><span>{{ date('m/d/Y', strtotime($workerDocument->created_at)) }}</span></td>
+                                                <td class="py-1"><span>{{ $workerDocument->name }}</span></td>
+                                                <td class="py-1"><span>{{ $workerDocument->documentType->type }}</span></td>
                                                 <td class="py-1 text-center"  style="width: 30px;">
-                                                    <a href="{{ Storage::url( $userProfileDocument->file) }}" target="_blank">
+                                                    <a href="{{ Storage::url( $workerDocument->file) }}" target="_blank">
                                                         <i class="fa-solid fa-eye"></i>
                                                     </a>
                                                 </td>
@@ -115,10 +115,10 @@
                                     <span aria-hidden="true">×</span>
                                 </button>
                             </div>
-                            {!! Form::open(array('route'=>['admin.userProfiles.addDocument',$userProfile],'method'=>'POST','name'=>'form_add_document','enctype'=>'multipart/form-data')) !!}
+                            {!! Form::open(array('route'=>['admin.workers.addDocument',$worker],'method'=>'POST','name'=>'form_add_document','enctype'=>'multipart/form-data')) !!}
                             @csrf
                                 <div class="modal-body">
-                                    @include('tenancy.DocumentManagement.Documents.Partials.form-documents')
+                                    @include('Admin.DocumentManagement.Documents.Partials.form-documents')
                                 </div>
                                 <div class="modal-footer py-1">
                                     <button class="btn btn-sm ripple btn-outline-success" type="submit">
@@ -136,7 +136,7 @@
         </div>
 
     </div>
-    @can('userProfiles.edit')
+    @can('workers.edit')
         @include('layouts.admin.modal.delete-reg-html')
     @endcan
 @endsection
@@ -197,7 +197,7 @@
             }).buttons().container().appendTo('#documents_table_wrapper .col-md-6:eq(0)');
         });
     </script>
-    @can('userProfiles.destroy')
+    @can('workers.destroy')
         @include('layouts.admin.modal.delete-reg-scritp')
     @endcan
 @endsection

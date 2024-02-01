@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
 
             $table->string('name');
+            $table->boolean('active')->default(1);
             $table->integer('order')->nullable()->default(null);
 
             $table->unsignedBigInteger('sidebar_menu_father_id');

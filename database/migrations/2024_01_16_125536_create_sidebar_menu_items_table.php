@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('route');
             $table->string('permission');
+            $table->boolean('active')->default(1);
             $table->integer('order')->nullable()->default(null);
 
             $table->unsignedBigInteger('sidebar_menu_father_id')->nullable()->default(null);

@@ -12,7 +12,7 @@
                                 <span class="text-muted">{{ trans('messages.Observations') }}</span>
                             </small>
                             <div class="form-control" style="border-top: 0;border-right: 0;">
-                                {{ $userProfile->observations }}&nbsp;
+                                {{ $worker->observations }}&nbsp;
                             </div>
                         </div>
                     </div>

@@ -49,11 +49,10 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function userProfile():HasOne
+    public function Worker():HasOne
     {
-        return $this->hasOne(UserProfile::class);
+        return $this->hasOne(Worker::class);
     }
-
 
     public function favorites():HasMany
     {

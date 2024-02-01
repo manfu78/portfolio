@@ -266,15 +266,15 @@
 
                             <div class="dropdown d-flex profile-1">
                                 <a href="javascript:void(0)" data-bs-toggle="dropdown" class="nav-link leading-none d-flex">
-                                    @if (auth()->user()->userProfile)
-                                        @if (auth()->user()->userProfile->photo)
+                                    @if (auth()->user()->worker)
+                                        @if (auth()->user()->worker->photo)
                                             <span class="avatar avatar-md brround cover-image"
-                                                data-bs-image-src="{{ Storage::url(auth()->user()->userProfile->photo) }}"
-                                                style="background: url(&quot;{{ Storage::url(auth()->user()->userProfile->photo) }}&quot;) center center;">
+                                                data-bs-image-src="{{ Storage::url(auth()->user()->worker->photo) }}"
+                                                style="background: url(&quot;{{ Storage::url(auth()->user()->worker->photo) }}&quot;) center center;">
                                             </span>
                                         @else
                                             <span class="avatar avatar-md brround bg-default">
-                                                {{ substr(auth()->user()->userProfile->name,0,1).substr(auth()->user()->userProfile->lastname,0,1) }}
+                                                {{ substr(auth()->user()->worker->name,0,1).substr(auth()->user()->worker->lastname,0,1) }}
                                             </span>
                                         @endif
                                     @else
@@ -287,7 +287,7 @@
                                     <div class="drop-heading">
                                         <div class="text-center">
                                             <h5 class="text-dark mb-0 fs-14 fw-semibold">{{ auth()->user()->name }}</h5>
-                                            <small class="text-muted">{{ auth()->user()->userProfile ? auth()->user()->userProfile->full_name:auth()->user()->name }}</small>
+                                            <small class="text-muted">{{ auth()->user()->worker ? auth()->user()->worker->full_name:auth()->user()->name }}</small>
                                         </div>
                                     </div>
                                     <div class="dropdown-divider m-0"></div>

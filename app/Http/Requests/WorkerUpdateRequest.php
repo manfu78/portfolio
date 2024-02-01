@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UserProfileStoreRequest extends FormRequest
+class WorkerUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,9 +23,11 @@ class UserProfileStoreRequest extends FormRequest
     {
         $rules = [
             'name'          =>'required',
-            'nif'           =>'required|unique:workers,nif',
-            //'email'         =>'nullable|email|unique:workers,email',
-            //'photo'         =>'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:10240',
+            'nif'           =>'required|unique:workers,nif,'.$this->worker->id,
+            'email'         =>'nullable|email|unique:workers,email,'.$this->worker->id,
+            'photo'         =>'image|mimes:jpeg,png,jpg,gif,svg|max:10240',
+
+            'status'        =>'boolean',
 
             'lastname'      => 'nullable|max:191',
             'phone'         => 'nullable|max:191',
@@ -38,10 +40,11 @@ class UserProfileStoreRequest extends FormRequest
             'observations'  => 'nullable',
 
             'category_id'   => 'nullable|exists:categories,id',
-            'country_id'    => 'required|exists:countries,id',
-            'business_id'   => 'required|exists:businesses,id',
+            'country_id'    => 'exists:countries,id',
+            'category_id'   => 'exists:categories,id',
+            'business_id'   => 'exists:businesses,id',
 
-            'user_id'       =>'nullable|exists:users,id|unique:workers,id',
+            'user_id'       =>'nullable|exists:users,id|unique:workers,user_id'.$this->worker->id,
         ];
         return $rules;
     }

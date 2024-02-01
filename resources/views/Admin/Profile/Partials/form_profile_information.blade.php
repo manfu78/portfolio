@@ -12,7 +12,7 @@
                                 <span class="text-muted">{{ trans('messages.Name') }}</span>
                             </small>
                             <div class="form-control" style="border-top: 0;border-right: 0;">
-                                {{ $userProfile->name }}&nbsp;
+                                {{ $worker->name }}&nbsp;
                             </div>
                         </div>
                     </div>
@@ -22,7 +22,7 @@
                                 <span class="text-muted">{{ trans('messages.LastName') }}</span>
                             </small>
                             <div class="form-control" style="border-top: 0;border-right: 0;">
-                                {{ $userProfile->lastname }}&nbsp;
+                                {{ $worker->lastname }}&nbsp;
                             </div>
                         </div>
                     </div>
@@ -34,7 +34,7 @@
                                 <span class="text-muted">NIF</span>
                             </small>
                             <div class="form-control" style="border-top: 0;border-right: 0;">
-                                {{ $userProfile->nif }}&nbsp;
+                                {{ $worker->nif }}&nbsp;
                             </div>
                         </div>
                     </div>
@@ -44,7 +44,7 @@
                                 <span class="text-muted">{{ trans('messages.Phone') }}</span>
                             </small>
                             <div class="form-control" style="border-top: 0;border-right: 0;">
-                                {{ $userProfile->phone }}&nbsp;
+                                {{ $worker->phone }}&nbsp;
                             </div>
                         </div>
                     </div>
@@ -54,7 +54,7 @@
                                 <span class="text-muted">{{ trans('messages.Email') }}</span>
                             </small>
                             <div class="form-control" style="border-top: 0;border-right: 0;">
-                                {{ $userProfile->email }}&nbsp;
+                                {{ $worker->email }}&nbsp;
                             </div>
                         </div>
                     </div>
@@ -66,7 +66,7 @@
                                 <span class="text-muted">{{ trans('messages.Business.Business') }}</span>
                             </small>
                             <div class="form-control" style="border-top: 0;border-right: 0;">
-                                {{ $userProfile->business->name }}&nbsp;
+                                {{ $worker->business->name }}&nbsp;
                             </div>
                         </div>
                     </div>
@@ -78,7 +78,7 @@
                                 <span class="text-muted">{{ trans('messages.IsCommercial') }}</span>
                             </small>
                             <div class="form-control" style="border-top: 0;border-right: 0;">
-                                {{ $userProfile->is_commercial===0?'NO':__('Yes') }}&nbsp;
+                                {{ $worker->is_commercial===0?'NO':__('Yes') }}&nbsp;
                             </div>
                         </div>
                     </div>
@@ -88,7 +88,7 @@
                                 <span class="text-muted">{{ trans('messages.Category.Category') }}</span>
                             </small>
                             <div class="form-control" style="border-top: 0;border-right: 0;">
-                                {{ $userProfile->category->name }}&nbsp;
+                                {{ $worker->category->name }}&nbsp;
                             </div>
                         </div>
                     </div>

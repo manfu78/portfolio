@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('name')->unique();
             $table->string('icon')->nullable()->default(null);
             $table->integer('order')->nullable()->default(null);
+            $table->boolean('active')->default(1);
 
             $table->timestamps();
         });

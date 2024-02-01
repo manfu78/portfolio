@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UserProfileUpdateRequest extends FormRequest
+class WorkerStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,10 +23,10 @@ class UserProfileUpdateRequest extends FormRequest
     {
         $rules = [
             'name'          =>'required',
+            //'category_id'   =>'required',
             'nif'           =>'required|unique:workers,nif',
-            'nif'           =>'required|unique:workers,nif,'.$this->worker->id,
-            //'email'         =>'nullable|email|unique:workers,email,'.$this->worker->id,
-            //'photo'         =>'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:10240',
+            'email'         =>'nullable|email|unique:workers,email',
+            'photo'         =>'image|mimes:jpeg,png,jpg,gif,svg|max:10240',
 
             'lastname'      => 'nullable|max:191',
             'phone'         => 'nullable|max:191',
@@ -39,10 +39,11 @@ class UserProfileUpdateRequest extends FormRequest
             'observations'  => 'nullable',
 
             'category_id'   => 'nullable|exists:categories,id',
-            'country_id'    => 'required|exists:countries,id',
-            'business_id'   => 'required|exists:businesses,id',
+            'country_id'    => 'exists:countries,id',
+            'category_id'   => 'exists:categories,id',
+            'business_id'   => 'exists:businesses,id',
 
-            'user_id'       =>'nullable|exists:users,id|unique:workers,id,'.$this->worker->id,
+            'user_id'       =>'nullable|exists:users,id|unique:workers,id',
         ];
         return $rules;
     }
@@ -51,7 +52,7 @@ class UserProfileUpdateRequest extends FormRequest
     {
         return [
             'photo'                 => trans('messages.Photo'),
-            'name'                  => trans('messages.Name'),
+            'name'             => trans('messages.Name'),
             'nif'                   => 'NIF',
             'lastname'              => trans('messages.Lastname'),
             'phone'                 => trans('messages.Phone'),

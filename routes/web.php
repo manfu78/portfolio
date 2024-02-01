@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\SidebarMenuController;
 use App\Http\Controllers\Admin\UserConfigurationController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\VatController;
+use App\Http\Controllers\admin\WorkerController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
@@ -62,8 +63,18 @@ Route::name('admin.')->middleware(['auth'])->group(function() {
 
     Route::resource('users', UserController::class)->except(['show']);
     Route::controller(UserController::class)->group(function () {
-        Route::get('users/{user}/unsetUserProfile', 'unsetUserProfile')->name('users.unsetUserProfile');
-        Route::get('users/{user}/setUserProfile/{userProfile}', 'setUserProfile')->name('users.setUserProfile');
+        Route::get('users/{user}/unsetWorker', 'unsetWorker')->name('users.unsetWorker');
+        Route::get('users/{user}/setWorker/{worker}', 'setWorker')->name('users.setWorker');
+    });
+
+    Route::resource('workers', WorkerController::class)->except(['show']);
+    Route::controller(WorkerController::class)->group(function () {
+        Route::get('workers/{worker}/unsetUser', 'unsetUser')->name('workers.unsetUser');
+        Route::get('workers/{worker}/setUser/{user}', 'setUser')->name('workers.setUser');
+        Route::post('workers.addDocument/{worker}', 'addDocument')->name('workers.addDocument');
+        Route::delete('workers.deleteDocument/{document}', 'deleteDocument')->name('workers.deleteDocument');
+        Route::get('workers/{worker}/removePhoto', 'removePhoto')->name('workers.removePhoto');
+        Route::get('workers/{worker}/editDocuments', 'editDocuments')->name('workers.editDocuments');
     });
 
     Route::get('profile', [ProfileController::class, 'show'])->name('profile.show');
@@ -71,10 +82,10 @@ Route::name('admin.')->middleware(['auth'])->group(function() {
 
     Route::controller(UserConfigurationController::class)->group(function () {
         Route::get('userConfigurations.favorites', 'favorites')->name('userConfigurations.favorites');
-        Route::get('userConfigurations/favoriteAdd/{sidebarMenu}', 'favoriteAdd')->name('userConfigurations.favoriteAdd');
+        Route::get('userConfigurations/favoriteAdd/{sidebarMenuItem}', 'favoriteAdd')->name('userConfigurations.favoriteAdd');
         Route::DELETE('userConfigurations.favoriteDestroy/{id}', 'favoriteDestroy')->name('userConfigurations.favoriteDestroy');
         Route::get('userConfigurations.homepage', 'homepage')->name('userConfigurations.homepage');
-        Route::get('userConfigurations/homeSet/{sidebarMenu}', 'homeSet')->name('userConfigurations.homeSet');
+        Route::get('userConfigurations/homeSet/{sidebarMenuItem}', 'homeSet')->name('userConfigurations.homeSet');
         Route::get('userConfigurations/homeUnset', 'homeUnset')->name('userConfigurations.homeUnset');
     });
 
@@ -84,10 +95,10 @@ Route::name('admin.')->middleware(['auth'])->group(function() {
         Route::post('sidebarMenus/newMenuItem', 'newMenuItem')->name('sidebarMenus.newMenuItem');
         Route::post('sidebarMenus/newMenuFather', 'newMenuFather')->name('sidebarMenus.newMenuFather');
         Route::post('sidebarMenus/newMenuSubFather', 'newMenuSubFather')->name('sidebarMenus.newMenuSubFather');
-        Route::put('sidebarMenus.updateItem/{sidebarMenu}', 'updateItem')->name('sidebarMenus.updateItem');
+        Route::put('sidebarMenus.updateItem/{sidebarMenuItem}', 'updateItem')->name('sidebarMenus.updateItem');
         Route::put('sidebarMenus.updateMenuFather/{sidebarMenuFather}', 'updateMenuFather')->name('sidebarMenus.updateMenuFather');
         Route::put('sidebarMenus.updateMenuSubFather/{sidebarMenuSubFather}', 'updateMenuSubFather')->name('sidebarMenus.updateMenuSubFather');
-        Route::DELETE('sidebarMenus.destroyItem/{sidebarMenu}', 'destroyItem')->name('sidebarMenus.destroyItem');
+        Route::DELETE('sidebarMenus.destroyItem/{sidebarMenuItem}', 'destroyItem')->name('sidebarMenus.destroyItem');
         Route::DELETE('sidebarMenus.destroyMenuFather/{sidebarMenuFather}', 'destroyMenuFather')->name('sidebarMenus.destroyMenuFather');
         Route::DELETE('sidebarMenus.destroyMenuSubFather/{sidebarMenuSubFather}', 'destroyMenuSubFather')->name('sidebarMenus.destroyMenuSubFather');
     });

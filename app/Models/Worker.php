@@ -5,9 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Support\Facades\Storage;
 
-class UserProfile extends Model
+class Worker extends Model
 {
     use HasFactory;
 
@@ -43,6 +45,10 @@ class UserProfile extends Model
         return $this->belongsTo(Business::class);
     }
 
+    public function leaveRequest(){
+        return $this->belongsToMany(LeaveRequest::class);
+    }
+
     // public function projects():BelongsToMany
     // {
     //     return $this->belongsToMany(Project::class);
@@ -68,6 +74,19 @@ class UserProfile extends Model
     //     return $this->morphMany(Expense::class, 'expenseable');
     // }
 
+    public function events(){
+        return $this->belongsToMany(Event::class,'event_user');
+    }
+
+    public function hostEvents(){
+        return $this->belongsToMany(Event::class,'id','host_worker_id');
+    }
+
+    public function leaveRequests():HasMany
+    {
+        return $this->hasMany(LeaveRequest::class);
+    }
+
     public function modifiedByUser():BelongsTo
     {
         return $this->belongsTo(User::class,'user_id_mod','id');
@@ -84,5 +103,14 @@ class UserProfile extends Model
     public function comercialActivities(){
         $regs = $this->user?$this->user->comercialActivities:null;
         return $regs;
+    }
+
+    public function profileImage():string
+    {
+        $profileImage = '/assets/images/profileimg.png';
+        if($this->photo){
+            $profileImage = Storage::url($this->photo);
+        }
+        return $profileImage;
     }
 }

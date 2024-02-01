@@ -50,19 +50,19 @@
                                         </span>
                                     @else
                                         <span class="avatar avatar-xxl brround bg-default mx-4">
-                                            @if ($user->userProfile)
-                                                {{ substr($user->userProfile->name,0,1).substr($user->userProfile->lastname,0,1) }}
+                                            @if ($user->worker)
+                                                {{ substr($user->worker->name,0,1).substr($user->worker->lastname,0,1) }}
                                             @else
                                                 {{ substr($user->name,0,1) }}
                                             @endif
                                         </span>
                                     @endif
 
-                                    @if ($user->userProfile)
+                                    @if ($user->worker)
                                         <div class="media-body mt-2 mx-3">
                                             <div class="text-dark">
                                                 <h3 class="h3 mb-2">
-                                                    {{ $user->userProfile->full_name }}
+                                                    {{ $user->worker->full_name }}
                                                 </h3>
                                                 <h5 class="text-muted">{{ $user->email }}</h5>
                                             </div>

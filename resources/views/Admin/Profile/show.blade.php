@@ -1,6 +1,6 @@
 @extends('layouts.admin.app')
-@section('sectiontitle') {{ trans('messages.EditUserProfile') }} @endsection
-@section('pagetitle') {{ trans('messages.UserProfile.UserProfile') }} @endsection
+@section('sectiontitle') {{ trans('messages.EditWorker') }} @endsection
+@section('pagetitle') {{ trans('messages.Worker.Worker') }} @endsection
 
 @section('main_container')
     <div class="main-container container-fluid">
@@ -15,9 +15,9 @@
 
         @include('Admin.Profile.Partials.menu')
 
-        <div class="row " id="edit_userProfile">
+        <div class="row " id="edit_worker">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                @if ($userProfile)
+                @if ($worker)
                     @include('Admin.Profile.Partials.form_profile_photo')
                     @include('Admin.Profile.Partials.form_profile_information')
                     @include('Admin.Profile.Partials.form_profile_address')

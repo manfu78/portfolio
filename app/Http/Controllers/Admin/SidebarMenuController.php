@@ -32,7 +32,7 @@ class SidebarMenuController extends Controller
         $sidebarMenuFatherSelect = sidebarMenuFatherSelect();
         $sidebarMenuFatherOrderMax =( (SidebarMenuFather::max('order')??0))+1;
 
-        return view('tenancy.SidebarMenuItem.index', compact(
+        return view('Admin.SidebarMenuItem.index', compact(
             'sidebarMenuFathers',
             'sidebarMenuFathersSelect',
             'sidebarMenuFatherOrderMax',

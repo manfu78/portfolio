@@ -12,10 +12,10 @@ class ProfileController extends Controller
     {
         // return (sidebarMenuFathers());
         $user = $request->user();
-        $userProfile = $user->userProfile;
+        $worker = $user->worker;
         return view('Admin.Profile.show', compact(
             'user',
-            'userProfile',
+            'worker',
         ));
     }
 }

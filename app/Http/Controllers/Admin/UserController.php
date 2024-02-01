@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\UserStoreRequest;
 use App\Http\Requests\UserUpdateRequest;
 use App\Models\User;
-use App\Models\UserProfile;
+use App\Models\Worker;
 use Exception;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -26,7 +26,7 @@ class UserController extends Controller
         $this->middleware('permission:users.create', ['only'=>['create', 'store']]);
         $this->middleware('permission:users.edit', ['only'=>[
             'edit', 'update',
-            'setUserProfile','unsetUserProfile'
+            'setWorker','unsetWorker'
         ]]);
         $this->middleware('permission:users.destroy', ['only'=>['destroy']]);
     }
@@ -39,15 +39,15 @@ class UserController extends Controller
 
     public function create(Request $request)
     {
-        $userProfiles = UserProfile::orderBy('name')->where('status','=',1)->get();
+        $workers = Worker::orderBy('name')->where('status','=',1)->get();
         $roles = Role::all();
 
-        $userProfileAsign = $request->userProfile_id?(UserProfile::find($request->userProfile_id)):null;
+        $workerAsign = $request->worker_id?(Worker::find($request->worker_id)):null;
 
         return view('Admin.Users.create',compact(
             'roles',
-            'userProfiles',
-            'userProfileAsign',
+            'workers',
+            'workerAsign',
         ));
     }
 
@@ -70,10 +70,10 @@ class UserController extends Controller
                 //'status'=>1,
             ]);
 
-            if($request->userProfile_id){
-                UserProfile::where('user_id','=',$user->id)->update(['user_id'=>null]);
-                $userProfile = UserProfile::find($request->userProfile_id);
-                $userProfile->update(['user_id'=>$user->id]);
+            if($request->worker_id){
+                Worker::where('user_id','=',$user->id)->update(['user_id'=>null]);
+                $worker = Worker::find($request->worker_id);
+                $worker->update(['user_id'=>$user->id]);
             }
 
             try {
@@ -101,7 +101,7 @@ class UserController extends Controller
 
     public function edit(User $user):View
     {
-        $userProfiles = UserProfile::orderBy('name')->where('status','=',1)->get();
+        $workers = Worker::orderBy('name')->where('status','=',1)->get();
         $roles = Role::all();
 
         $modules = $user->getAllPermissions()->whereNotNull('menu');
@@ -109,7 +109,7 @@ class UserController extends Controller
 
         return view('Admin.Users.edit',compact(
             'user',
-            'userProfiles',
+            'workers',
             'roles',
             'modules',
         ));
@@ -184,16 +184,16 @@ class UserController extends Controller
         }
     }
 
-    public function setUserProfile(Request $request,User $user, UserProfile $userProfile):RedirectResponse
+    public function setWorker(Request $request,User $user, Worker $worker):RedirectResponse
     {
         $logVars=logVars();
         $model = trans('messages.User.User');
-        $controllerFunction = 'UsersController.setUserProfile';
+        $controllerFunction = 'UsersController.setWorker';
         $route = $request->ubi?base64_decode($request->ubi):'admin.users.edit';
 
         try {
-            $userProfile->user_id = $user->id;
-            $userProfile->save();
+            $worker->user_id = $user->id;
+            $worker->save();
 
             $user->user_id_mod = auth()->user()->id;
             $user->save();
@@ -211,16 +211,16 @@ class UserController extends Controller
 
     }
 
-    public function unsetUserProfile(Request $request, User $user, UserProfile $userProfile):RedirectResponse
+    public function unsetWorker(Request $request, User $user, Worker $worker):RedirectResponse
     {
         $logVars=logVars();
         $model = trans('messages.User.User');
-        $controllerFunction = 'UserController.unsetUserProfile';
+        $controllerFunction = 'UserController.unsetWorker';
         $route = $request->ubi?base64_decode($request->ubi):'admin.users.edit';
 
         try {
-            $userProfile->user_id = null;
-            $userProfile->save();
+            $worker->user_id = null;
+            $worker->save();
 
             $user->user_id_mod = auth()->user()->id;
             $user->save();

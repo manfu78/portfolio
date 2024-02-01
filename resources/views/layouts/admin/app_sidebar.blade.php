@@ -99,11 +99,11 @@
                             </a>
 
                             <ul class="slide-menu">
-                                @foreach ($sidebarMenuFather->sidebarMenuItems as $sidebarMenu)
-                                    @can($sidebarMenu->permission)
+                                @foreach ($sidebarMenuFather->sidebarMenuItems as $sidebarMenuItem)
+                                    @can($sidebarMenuItem->permission)
                                         <li>
-                                            <a href="{{ route($sidebarMenu->route) }}" class="slide-item {{request()->routeIs($sidebarMenu->route) ? 'active fw-bold':''}}">
-                                                {{ trans('messages.'.$sidebarMenu->name) }}
+                                            <a href="{{ route($sidebarMenuItem->route) }}" class="slide-item {{request()->routeIs($sidebarMenuItem->route) ? 'active fw-bold':''}}">
+                                                {{ trans('messages.'.$sidebarMenuItem->name) }}
                                             </a>
                                         </li>
                                     @endcan

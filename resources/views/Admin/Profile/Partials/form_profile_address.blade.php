@@ -12,7 +12,7 @@
                                 <span class="text-muted">{{ trans('messages.Address') }}</span>
                             </small>
                             <div class="form-control" style="border-top: 0;border-right: 0;">
-                                {{ $userProfile->address }}&nbsp;
+                                {{ $worker->address }}&nbsp;
                             </div>
                         </div>
                     </div>
@@ -22,7 +22,7 @@
                                 <span class="text-muted">C.P.</span>
                             </small>
                             <div class="form-control" style="border-top: 0;border-right: 0;">
-                                {{ $userProfile->postal_code }}&nbsp;
+                                {{ $worker->postal_code }}&nbsp;
                             </div>
                         </div>
                     </div>
@@ -34,7 +34,7 @@
                                 <span class="text-muted">{{ trans('messages.City') }}</span>
                             </small>
                             <div class="form-control" style="border-top: 0;border-right: 0;">
-                                {{ $userProfile->city }}&nbsp;
+                                {{ $worker->city }}&nbsp;
                             </div>
                         </div>
                     </div>
@@ -44,7 +44,7 @@
                                 <span class="text-muted">{{ trans('messages.Province') }}</span>
                             </small>
                             <div class="form-control" style="border-top: 0;border-right: 0;">
-                                {{ $userProfile->province }}&nbsp;
+                                {{ $worker->province }}&nbsp;
                             </div>
                         </div>
                     </div>
@@ -56,7 +56,7 @@
                                 <span class="text-muted">{{ trans('messages.Country.Country') }}</span>
                             </small>
                             <div class="form-control" style="border-top: 0;border-right: 0;">
-                                {{ $userProfile->country->name }}&nbsp;
+                                {{ $worker->country->name }}&nbsp;
                             </div>
                         </div>
                     </div>
@@ -66,7 +66,7 @@
                                 <span class="text-muted">{{ trans('messages.Latitude') }}</span>
                             </small>
                             <div class="form-control" style="border-top: 0;border-right: 0;">
-                                {{ $userProfile->latitude }}&nbsp;
+                                {{ $worker->latitude }}&nbsp;
                             </div>
                         </div>
                     </div>
@@ -76,7 +76,7 @@
                                 <span class="text-muted">{{ trans('messages.Longitude') }}</span>
                             </small>
                             <div class="form-control" style="border-top: 0;border-right: 0;">
-                                {{ $userProfile->longitude }}&nbsp;
+                                {{ $worker->longitude }}&nbsp;
                             </div>
                         </div>
                     </div>

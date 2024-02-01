@@ -11,7 +11,7 @@ class SidebarMenuSubFather extends Model
 
     protected $with = ['sidebarMenuItems'];
 
-    protected $fillable = ['name', 'order','sidebar_menu_father_id'];
+    protected $fillable = ['name', 'active', 'order','sidebar_menu_father_id'];
 
     public function sidebarMenuItems(){
         return $this->hasMany(SidebarMenuItem::class);

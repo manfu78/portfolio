@@ -4,45 +4,54 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Collection;
 
 class SidebarMenuFather extends Model
 {
     use HasFactory;
 
     protected $with = ['sidebarMenuItems','sidebarMenuSubFathers'];
+    protected $fillable = ['name','icon','order','active'];
 
-    protected $fillable = ['name','icon','order'];
-
-    public function sidebarMenuItems(){
+    public function sidebarMenuItems():HasMany
+    {
         return $this->hasMany(SidebarMenuItem::class);
     }
 
-    public function sidebarMenuSubFathers(){
+    public function sidebarMenuActiveItems():HasMany
+    {
+        return $this->sidebarMenuItems->whereNull('sidebar_menu_sub_father_id')->where('active');
+    }
+
+    public function sidebarMenuSubFathers():HasMany
+    {
         return $this->hasMany(SidebarMenuSubFather::class);
     }
 
-    public function routesForExpandedMenu(){
+    public function routesForExpandedMenu():array
+    {
         $sidebarMenuSubFatherIds = $this->sidebarMenuSubFathers->pluck('id');
-        $sidebarMenus = SidebarMenuItem::orderBy('order','asc')
+        $activeSidebarMenus = SidebarMenuItem::where('active','=',1)
             ->where('sidebar_menu_father_id','=',$this->id)
             ->orWhereIn('sidebar_menu_sub_father_id',$sidebarMenuSubFatherIds)
             ->get();
 
-        if ($sidebarMenus) {
-            foreach ($sidebarMenus as $sidebarMenu) {
-                $sidebarMenu->route = str_replace('index','',$sidebarMenu->route).'*';
-            }
-            return $sidebarMenus->pluck('route')->toArray();
+        $routesForExpandedMenu = null;
+        foreach ($activeSidebarMenus as $activeSidebarMenu) {
+            $routesForExpandedMenu[] = routeForActiveMenu($activeSidebarMenu->route);
         }
-        return [];
+        return $routesForExpandedMenu;
     }
 
-    public function permissionsForMenu(){
+    public function permissionsForMenu():Collection
+    {
         $sidebarMenuSubFatherIds = $this->sidebarMenuSubFathers->pluck('id');
-        $permissionsForMenu = SidebarMenuItem::orderBy('order')
+        $permissionsForMenu = SidebarMenuItem::orderBy('permission')
             ->select('permission')
             ->where('sidebar_menu_father_id',$this->id)
             ->orWhereIn('sidebar_menu_sub_father_id',$sidebarMenuSubFatherIds)
+            ->where('active','=',1)
             ->pluck('permission');
         return $permissionsForMenu;
     }
