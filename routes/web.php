@@ -82,8 +82,8 @@ Route::name('admin.')->middleware(['auth'])->group(function() {
 
     Route::controller(UserConfigurationController::class)->group(function () {
         Route::get('userConfigurations.favorites', 'favorites')->name('userConfigurations.favorites');
-        Route::get('userConfigurations/favoriteAdd/{sidebarMenuItem}', 'favoriteAdd')->name('userConfigurations.favoriteAdd');
-        Route::DELETE('userConfigurations.favoriteDestroy/{id}', 'favoriteDestroy')->name('userConfigurations.favoriteDestroy');
+        Route::post('userConfigurations.favoriteAdd/{sidebarMenuItem}', 'favoriteAdd')->name('userConfigurations.favoriteAdd');
+        Route::DELETE('userConfigurations.favoriteDestroy/{userFavorite}', 'favoriteDestroy')->name('userConfigurations.favoriteDestroy');
         Route::get('userConfigurations.homepage', 'homepage')->name('userConfigurations.homepage');
         Route::get('userConfigurations/homeSet/{sidebarMenuItem}', 'homeSet')->name('userConfigurations.homeSet');
         Route::get('userConfigurations/homeUnset', 'homeUnset')->name('userConfigurations.homeUnset');

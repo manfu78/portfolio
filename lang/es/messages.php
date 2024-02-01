@@ -1379,7 +1379,7 @@ return [
 
     'InfoError'=>[
         'Create'=>'Error al crear el registro en la tabla :model',
-        'CreateReg'=>'Error creando registro',
+        'CreatingReg'=>'Error creando registro',
         'Created'=>'Registro creado pero se ha producido un error',
         'Update'=>'Error al modificar el registro en la tabla :model',
         'Delete'=>'Error al borrar el registro en la tabla :model',

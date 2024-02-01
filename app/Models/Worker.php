@@ -45,8 +45,9 @@ class Worker extends Model
         return $this->belongsTo(Business::class);
     }
 
-    public function leaveRequest(){
-        return $this->belongsToMany(LeaveRequest::class);
+    public function documents():MorphMany
+    {
+        return $this->morphMany('App\Models\Document','documentable');
     }
 
     // public function projects():BelongsToMany
@@ -64,28 +65,27 @@ class Worker extends Model
     //     return $this->hasMany(ProjectTime::class);
     // }
 
-    public function documents():MorphMany
-    {
-        return $this->morphMany('App\Models\Document','documentable');
-    }
-
     // public function expenses():MorphMany
     // {
     //     return $this->morphMany(Expense::class, 'expenseable');
     // }
 
-    public function events(){
-        return $this->belongsToMany(Event::class,'event_user');
-    }
+    // public function events(){
+    //     return $this->belongsToMany(Event::class,'event_user');
+    // }
 
-    public function hostEvents(){
-        return $this->belongsToMany(Event::class,'id','host_worker_id');
-    }
+    // public function hostEvents(){
+    //     return $this->belongsToMany(Event::class,'id','host_worker_id');
+    // }
 
-    public function leaveRequests():HasMany
-    {
-        return $this->hasMany(LeaveRequest::class);
-    }
+    // public function leaveRequests():HasMany
+    // {
+    //     return $this->hasMany(LeaveRequest::class);
+    // }
+
+    // public function leaveRequest(){
+    //     return $this->belongsToMany(LeaveRequest::class);
+    // }
 
     public function modifiedByUser():BelongsTo
     {

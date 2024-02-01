@@ -15,7 +15,7 @@
             <div class="col">
                     <div class="card">
                         <div class="card-header bg-info-transparent p-2">
-                            <h1 class="page-title"><i class="fa-solid fa-grip-vertical"></i>&nbsp;{{ trans('messages.AddMenu') }}</h1>
+                            <span class="fw-bold"><i class="fa-solid fa-grip-vertical"></i></span>&nbsp;{{ trans('messages.AddMenu') }}
                         </div>
                         <div class="card-body">
 
@@ -115,7 +115,7 @@
             <div class="col">
                     <div class="card">
                         <div class="card-header bg-info-transparent p-2">
-                            <h1 class="page-title"><i class="fa-solid fa-grip-vertical"></i>&nbsp;{{ trans('messages.EditMenu') }}</h1>
+                            <span class="fw-bold"><i class="fa-solid fa-grip-vertical"></i></span>&nbsp;{{ trans('messages.EditMenu') }}
                         </div>
                         <div class="card-body">
                             {{-- EDITAR MENU --}}
@@ -230,7 +230,7 @@
             <div class="col">
                     <div class="card">
                         <div class="card-header bg-info-transparent p-2">
-                            <h1 class="page-title"><i class="fa-solid fa-grip-vertical"></i>&nbsp;{{ trans('messages.MenuItems') }}</h1>
+                            <span class="fw-bold"><i class="fa-solid fa-grip-vertical"></i></span>&nbsp;{{ trans('messages.MenuItems') }}
                         </div>
                         <div class="card-body">
                             <div class="row row-sm">

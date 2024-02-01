@@ -19,9 +19,7 @@
 
             <div class="card card-primary">
                 <div class="card-header bg-info-transparent p-2">
-                    <h4 class="card-title">
-                        <span class="card-title fw-bold"><i class="fe fe-user"></i>&nbsp;{{ trans('messages.User.User') }}</span>
-                    </h4>
+                    <span class="fw-bold"><i class="fe fe-user"></i></span>&nbsp;{{ trans('messages.User.User') }}
                 </div>
                 {!! Form::model(auth()->user(),['route'=>['admin.profile.update',auth()->user()],'method'=>'patch','name'=>'frm_profile_update','enctype'=>'multipart/form-data']) !!}
                 @csrf

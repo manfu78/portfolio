@@ -30,7 +30,7 @@ class UserConfigurationController extends Controller
         ));
     }
 
-    public function favoriteAdd(Request $request, SidebarMenuItem $sidebarMenuItem)//:RedirectResponse
+    public function favoriteAdd(Request $request, SidebarMenuItem $sidebarMenuItem):RedirectResponse
     {
         $logVars=logVars();
         $model = trans('messages.Menu');
@@ -42,15 +42,15 @@ class UserConfigurationController extends Controller
             return back()->with('warning', trans("messages.InfoError.MenuAlreadyAdded"));
         }
 
-        try {
-            if ($sidebarMenuItem->id===null) {
-
-                return back()->with('error',trans("messages.InfoError.CreateReg"));
+        if ($sidebarMenuItem->id===null) {
+                return back()->with('error',trans("messages.InfoError.CreatingReg"));
             }
 
+        try {
             $inputs['user_id'] = $authUser->id;
             $inputs['sidebar_menu_item_id'] = $sidebarMenuItem->id;
-            $favorite = UserFavorite::crate($inputs);
+            $favorite = UserFavorite::create($inputs);
+
 
             Log::info("Favorite Store. ".trans('messages.InfoSuccess.Created'),array('context'=>$favorite,'logVars'=>$logVars));
             return redirect()->route($route)->with('info',trans('messages.InfoSuccess.Created'));
@@ -63,7 +63,7 @@ class UserConfigurationController extends Controller
         }
     }
 
-    public function favoriteDestroy(string $id)
+    public function favoriteDestroy(UserFavorite $userFavorite)
     {
         $logVars=logVars();
         $model = trans('messages.Favorite.Favorite');
@@ -71,7 +71,7 @@ class UserConfigurationController extends Controller
         $route = 'admin.userConfigurations.favorites';
 
         try {
-            //UserFavorite::where('user_id',auth()->user()->id)->where('sidebar_menu_item_id',$id)->delete();
+            $userFavorite->delete();
 
             Log::info("UserFavorite Destroy. ".trans('messages.InfoSuccess.Deleted'),array('logVars'=>$logVars));
             return redirect()->route($route)->with('info',trans('messages.InfoSuccess.Deleted'));

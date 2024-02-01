@@ -23,7 +23,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header bg-info-transparent p-2">
-                        <h1 class="page-title"><i class="fa-solid fa-home"></i>&nbsp;{{ trans('messages.Home.SetHomepage') }}</h1>
+                        <span class="fw-bold"><i class="fa-solid fa-home"></i></span>&nbsp;{{ trans('messages.Home.SetHomepage') }}
                     </div>
                     <div class="card-body">
                         @if (userHome())
@@ -59,7 +59,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header bg-info-transparent p-2">
-                        <h1 class="page-title"><i class="fa-solid fa-star"></i>&nbsp;{{ trans('messages.Menu') }}&nbsp;{{ trans('messages.Favorites') }}</h1>
+                        <span class="fw-bold"><i class="fa-solid fa-star"></i></span>&nbsp;{{ trans('messages.Menu') }}&nbsp;{{ trans('messages.Favorites') }}
                     </div>
                     <div class="card-body">
                         <div class="">
@@ -70,7 +70,7 @@
                                             <form name="formDeleteUserFavorite{{ $userFavorite->id }}" id="formDeleteUserFavorite{{ $userFavorite->id }}" method="POST" action="{{ route('admin.userConfigurations.favoriteDestroy',$userFavorite->id ) }}">
                                                 @csrf @method('DELETE')
                                                 <li class="list-group-item justify-content-between">
-                                                    <span><i class="fa-regular fa-angle-right"></i>&nbsp;{{ $userFavorite->sidebarMenuItem->name }}</span>
+                                                    <span><i class="fa-regular fa-angle-right"></i>&nbsp;{{ trans('messages.'.$userFavorite->sidebarMenuItem->name) }}</span>
                                                     <button type="submit" class="badgetext badge bg-danger rounded-pill border-0">
                                                         <i class="fa-solid fa-minus"></i>
                                                     </button>
@@ -92,7 +92,7 @@
                     <div class="col">
                             <div class="card">
                                 <div class="card-header bg-info-transparent p-2">
-                                    <h1 class="page-title"><i class="fa-solid fa-grip-vertical"></i>&nbsp;{{ trans('messages.Add') }}&nbsp;{{ trans('messages.Favorites') }}</h1>
+                                    <span class="fw-bold"><i class="fa-solid fa-grip-vertical"></i></span>&nbsp;{{ trans('messages.Add') }}&nbsp;{{ trans('messages.Favorites') }}
                                 </div>
                                 <div class="card-body">
                                     <div class="row row-sm">
@@ -117,23 +117,17 @@
                                                                             @foreach ($sidebarMenuFather->sidebarMenuItems as $sidebarMenuItem)
                                                                                 @can($sidebarMenuItem->permission)
                                                                                     @if ($arrayUserFavorites&&in_array($sidebarMenuItem->id,$arrayUserFavorites) )
-                                                                                        <form name="formDeleteFavorite{{ $sidebarMenuItem->id }}" id="formDeleteFavorite{{ $sidebarMenuItem->id }}" method="POST" action="{{ route('admin.userConfigurations.favoriteDestroy',$sidebarMenuItem->id ) }}">
-                                                                                        @csrf @method('DELETE')
-                                                                                            <li class="list-group-item justify-content-between">
-                                                                                                <span><i class="fa-regular fa-angle-right"></i>&nbsp;{{ trans('messages.'.$sidebarMenuItem->name) }}</span>
-                                                                                                <button type="submit" class="badgetext badge bg-danger rounded-pill border-0">
-                                                                                                    <i class="fa-solid fa-minus"></i>
-                                                                                                </button>
-                                                                                            </li>
-                                                                                        </form>
+                                                                                        @continue
                                                                                     @else
                                                                                         <li class="list-group-item justify-content-between">
                                                                                             <span><i class="fa-regular fa-angle-right"></i>&nbsp;{{ trans('messages.'.$sidebarMenuItem->name) }}</span>
-                                                                                            <a href="{{ route('admin.userConfigurations.favoriteAdd',$sidebarMenuItem) }}">
-                                                                                                <button type="button" class="badgetext badge bg-success rounded-pill border-0">
-                                                                                                    <i class="fa-solid fa-plus"></i>
-                                                                                                </button>
-                                                                                            </a>
+                                                                                            <form action="{{ route('admin.userConfigurations.favoriteAdd',$sidebarMenuItem->id) }}" method="post" name="form_additem_{{ $sidebarMenuItem->id }}">
+                                                                                                @csrf
+                                                                                                @method('POST')
+                                                                                                    <button type="submit" class="badgetext badge bg-success rounded-pill border-0">
+                                                                                                        <i class="fa-solid fa-plus"></i>
+                                                                                                    </button>
+                                                                                            </form>
                                                                                         </li>
                                                                                     @endif
                                                                                 @endcan
@@ -161,23 +155,17 @@
                                                                                                         @foreach ($sidebarMenuSubFather->sidebarMenuItems as $sidebarMenuItem)
                                                                                                             @can($sidebarMenuItem->permission)
                                                                                                                 @if ($arrayUserFavorites&&in_array($sidebarMenuItem->id,$arrayUserFavorites) )
-                                                                                                                    <form name="formDeleteFavorite{{ $sidebarMenuItem->id }}" id="formDeleteFavorite{{ $sidebarMenuItem->id }}" method="POST" action="{{ route('admin.userConfigurations.favoriteDestroy',$sidebarMenuItem->id ) }}">
-                                                                                                                    @csrf @method('DELETE')
-                                                                                                                        <li class="list-group-item justify-content-between">
-                                                                                                                            <span><i class="fa-regular fa-angle-right"></i>&nbsp;{{ $sidebarMenuItem->name }}</span>
-                                                                                                                            <button type="submit" class="badgetext badge bg-danger rounded-pill border-0">
-                                                                                                                                <i class="fa-solid fa-minus"></i>
-                                                                                                                            </button>
-                                                                                                                        </li>
-                                                                                                                    </form>
+                                                                                                                    @continue
                                                                                                                 @else
                                                                                                                     <li class="list-group-item justify-content-between">
                                                                                                                         <span><i class="fa-regular fa-angle-right"></i>&nbsp;{{ $sidebarMenuItem->name }}</span>
-                                                                                                                        <a href="{{ route('admin.userConfigurations.favoriteAdd',$sidebarMenuItem) }}">
-                                                                                                                            <button type="button" class="badgetext badge bg-success rounded-pill border-0">
-                                                                                                                                    <i class="fa-solid fa-plus"></i>
-                                                                                                                            </button>
-                                                                                                                        </a>
+                                                                                                                        <form action="{{ route('admin.userConfigurations.favoriteAdd',$sidebarMenuItem->id) }}" method="post" name="form_additem_{{ $sidebarMenuItem->id }}">
+                                                                                                                            @csrf
+                                                                                                                            @method('POST')
+                                                                                                                                <button type="submit" class="badgetext badge bg-success rounded-pill border-0">
+                                                                                                                                        <i class="fa-solid fa-plus"></i>
+                                                                                                                                </button>
+                                                                                                                        </form>
                                                                                                                     </li>
                                                                                                                 @endif
                                                                                                             @endcan

@@ -1380,7 +1380,7 @@ return [
 
     'InfoError'=>[
         'Create'=>'Error to create record in table :model',
-        'CreateReg'=>'Error creating record',
+        'CreatingReg'=>'Error creating record',
         'Created'=>'Record created but an error occurred',
         'Update'=>'Error to update record in table :model',
         'Delete'=>'Error to delete record in table :model',

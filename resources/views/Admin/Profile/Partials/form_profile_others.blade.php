@@ -2,7 +2,7 @@
     <div class="col">
         <div class="card">
             <div class="card-header bg-info-transparent p-2">
-                <h3 class="card-title fw-bold"><i class="fe fe-file-text"></i>&nbsp;{{ trans('messages.OtherData') }}</h3>
+                <span class="fw-bold"><i class="fe fe-file-text"></i></span>&nbsp;{{ trans('messages.OtherData') }}
             </div>
             <div class="card-body">
                 <div class="row">

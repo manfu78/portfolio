@@ -23,7 +23,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-header bg-info-transparent p-2">
-                        <h1 class="page-title"><i class="fa-solid fa-home"></i>&nbsp;{{ trans('messages.Home.SetHomepage') }}</h1>
+                        <span class="fw-bold"><i class="fa-solid fa-home"></i></span>&nbsp;{{ trans('messages.Home.SetHomepage') }}
                     </div>
                     <div class="card-body">
                         @if (userHome())
@@ -61,7 +61,7 @@
                     <div class="col">
                             <div class="card">
                                 <div class="card-header bg-info-transparent p-2">
-                                    <h1 class="page-title"><i class="fa-solid fa-grip-vertical"></i>&nbsp;{{ trans('messages.Add') }}&nbsp;{{ trans('messages.Home.Homepage') }}</h1>
+                                    <span class="fw-bold"><i class="fa-solid fa-grip-vertical"></i></span>&nbsp;{{ trans('messages.Add') }}&nbsp;{{ trans('messages.Home.Homepage') }}
                                 </div>
                                 <div class="card-body">
                                     <div class="row row-sm">

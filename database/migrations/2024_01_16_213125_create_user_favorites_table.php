@@ -14,14 +14,14 @@ return new class extends Migration
         Schema::create('user_favorites', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('user_id')->nullable()->default(null);
+            $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users')
                 ->onDelete('set null')
                 ->onUpdate('cascade');
 
-            $table->unsignedBigInteger('sidebar_menu_item_id')->nullable()->default(null);
+            $table->unsignedBigInteger('sidebar_menu_item_id');
             $table->foreign('sidebar_menu_item_id')
                 ->references('id')
                 ->on('sidebar_menu_items')
