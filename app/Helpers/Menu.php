@@ -9,7 +9,11 @@ use Illuminate\Support\Facades\DB;
 if(!function_exists('sidebarMenuFathers')){
     function sidebarMenuFathers (){
         try {
-            $sidebarMenuFathers = SidebarMenuFather::orderBy('order')->get();
+            $sidebarMenuFathers = SidebarMenuFather::orderBy('order')
+                ->where('active','=',1)
+                ->with('sidebarMenuItems')
+                ->with('sidebarMenuSubFathers')
+                ->get();
             return $sidebarMenuFathers;
         } catch (\Throwable $th) {
             return [];
@@ -22,9 +26,9 @@ if(!function_exists('sidebarMenuFavorites')){
     function sidebarMenuFavorites (){
         try {
             $sidebarMenuFavorites = DB::table('user_favorites')
-                ->leftJoin('sidebar_menus', 'sidebar_menus.id', '=', 'user_favorites.sidebar_menu_id')
-                ->select('sidebar_menus.*')
-                ->orderBy('sidebar_menus.name')
+                ->leftJoin('sidebar_menu_items', 'sidebar_menu_items.id', '=', 'user_favorites.sidebar_menu_item_id')
+                ->select('sidebar_menu_items.*')
+                ->orderBy('sidebar_menu_items.name')
                 ->get();
             return $sidebarMenuFavorites;
         } catch (\Throwable $th) {
@@ -33,13 +37,4 @@ if(!function_exists('sidebarMenuFavorites')){
     }
 }
 
-// menuActiveForRoute()
-if(!function_exists('menuActiveForRoute')){
-    function menuActiveForRoute ($route){
-
-        $routeArray = explode('.', $route);
-        $menuActiveForRoute = implode('.', array_slice($routeArray, 0, 2));
-        return $menuActiveForRoute;
-    }
-}
 

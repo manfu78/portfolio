@@ -33,7 +33,7 @@ Route::get('/', function () {
 
 Route::get('/set_language/{lang}', [Controller::class, 'set_language'])->name('set_language');
 
-Auth::routes();
+Auth::routes(["register" => false,"reset"=>false]);
 
 
 

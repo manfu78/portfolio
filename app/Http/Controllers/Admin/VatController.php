@@ -24,12 +24,12 @@ class VatController extends Controller
     public function index():View
     {
         $vats = Vat::all();
-        return view('common.Vats.index', compact('vats'));
+        return view('Admin.Vats.index', compact('vats'));
     }
 
     public function create():View
     {
-        return view('common.Vats.create');
+        return view('Admin.Vats.create');
     }
 
     public function store(VatStoreRequest $request):RedirectResponse
@@ -62,7 +62,7 @@ class VatController extends Controller
 
     public function edit(Vat $vat):View
     {
-        return view('common.Vats.edit',compact('vat'));
+        return view('Admin.Vats.edit',compact('vat'));
     }
 
     public function update(VatUpdateRequest $request, Vat $vat):RedirectResponse

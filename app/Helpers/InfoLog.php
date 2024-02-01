@@ -3,7 +3,7 @@
 
 if(!function_exists('logVars')){
     function logVars (){
-        $userAuth = auth()->user();
+        $userAuth = auth()->user()->id.' '.auth()->user()->name.' '.auth()->user()->email;
 
         $ipRemote = null;
         if (getenv('HTTP_CLIENT_IP')) {
@@ -22,11 +22,7 @@ if(!function_exists('logVars')){
 
         $ipClient = request()->ip();
 
-        // $userName = $userAuth?$userAuth->name:'';
 
-        // if ($userAuth&&$userAuth->userProfile) {
-        //     $userName = $userAuth->userProfile->name.' '.$userAuth->userProfile->lastname;
-        // }
 
         $logVars = [
             'userAuth'  => $userAuth,

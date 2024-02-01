@@ -25,12 +25,12 @@ class PaymentMethodController extends Controller
     public function index():View
     {
         $paymentMethods = PaymentMethod::all();
-        return view('common.PaymentMethods.index', compact('paymentMethods'));
+        return view('Admin.PaymentMethods.index', compact('paymentMethods'));
     }
 
     public function create():View
     {
-        return view('common.PaymentMethods.create');
+        return view('Admin.PaymentMethods.create');
     }
 
     public function store(PaymentMethodStoreRequest $request):RedirectResponse
@@ -60,7 +60,7 @@ class PaymentMethodController extends Controller
 
     public function edit(PaymentMethod $paymentMethod):View
     {
-        return view('common.PaymentMethods.edit',compact('paymentMethod'));
+        return view('Admin.PaymentMethods.edit',compact('paymentMethod'));
     }
 
     public function update(PaymentMethodUpdateRequest $request, PaymentMethod $paymentMethod):RedirectResponse

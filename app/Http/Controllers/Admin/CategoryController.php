@@ -24,12 +24,12 @@ class CategoryController extends Controller
     public function index():View
     {
         $categories = Category::all();
-        return view('common.Categories.index', compact('categories'));
+        return view('Admin.Categories.index', compact('categories'));
     }
 
     public function create():View
     {
-        return view('common.Categories.create');
+        return view('Admin.Categories.create');
     }
 
     public function store(CategoryStoreRequest $request):RedirectResponse
@@ -63,7 +63,7 @@ class CategoryController extends Controller
 
     public function edit(Category $category):View
     {
-        return view('common.categories.edit',compact('category'));
+        return view('Admin.categories.edit',compact('category'));
     }
 
     public function update(CategoryUpdateRequest $request, Category $category):RedirectResponse

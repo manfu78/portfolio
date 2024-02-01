@@ -1,4 +1,4 @@
-@extends('layouts.common.app')
+@extends('layouts.admin.app')
 @section('sectiontitle') {{ trans('messages.UserProfile.EditUserProfile') }} @endsection
 @section('pagetitle') {{ trans('messages.UserProfile.UserProfile') }} @endsection
 
@@ -13,7 +13,7 @@
             </div>
         </div>
 
-        @include('common.Profile.Partials.menu')
+        @include('Admin.Profile.Partials.menu')
 
         <div class="row ">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
@@ -137,12 +137,12 @@
 
     </div>
     @can('userProfiles.edit')
-        @include('layouts.common.modal.delete-reg-html')
+        @include('layouts.admin.modal.delete-reg-html')
     @endcan
 @endsection
 
 @section('scripts_js')
-    @include('layouts.common.scripts_js.datatable')
+    @include('layouts.admin.scripts_js.datatable')
 @endsection
 
 @section('scripts')
@@ -198,6 +198,6 @@
         });
     </script>
     @can('userProfiles.destroy')
-        @include('layouts.common.modal.delete-reg-scritp')
+        @include('layouts.admin.modal.delete-reg-scritp')
     @endcan
 @endsection

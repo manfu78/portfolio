@@ -1,11 +1,13 @@
 <?php
 
+// workerSelect()
+
 use App\Models\CoinType;
 
 if(!function_exists('defaultCoin')){
     function defaultCoin (){
 
-        $defaultCoin = CoinType::where('default_coin','=',1)->first();
+        $defaultCoin = CoinType::where('default','=',1)->first();
         if (!$defaultCoin) {
             $defaultCoin = CoinType::first();
         }
@@ -14,7 +16,7 @@ if(!function_exists('defaultCoin')){
 }
 if(!function_exists('defaultCoinId')){
     function defaultCoinId (){
-        $defaultCoin = CoinType::select('id')->where('default_coin','=',1)->first();
+        $defaultCoin = CoinType::select('id')->where('default','=',1)->first();
         if (!$defaultCoin) {
             $defaultCoin = CoinType::first();
         }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Event;
+use App\Models\LeaveRequest;
 use App\Models\WorkCalendar;
 
 if(!function_exists('calendarEvent')){
@@ -14,6 +15,7 @@ if(!function_exists('calendarEvent')){
         if ($event->all_day) {
             $calendarEvent['allDay']=true;
             if ($event->recurring) {
+                // $calendarEvent['daysOfWeek']=explode(',',$event->days_of_week);
                 $calendarEvent['daysOfWeek']=$event->days_of_week;
                 $calendarEvent['startRecur']=$event->start_recur;
                 $calendarEvent['endRecur']=$event->end_recur;
@@ -22,6 +24,7 @@ if(!function_exists('calendarEvent')){
             }
         }else{
             if ($event->recurring) {
+                // $calendarEvent['daysOfWeek']=explode(',',$event->days_of_week);
                 $calendarEvent['daysOfWeek']=$event->days_of_week;
                 $calendarEvent['startRecur']=$event->start_recur;
                 $calendarEvent['endRecur']=$event->end_recur;
@@ -35,13 +38,13 @@ if(!function_exists('calendarEvent')){
 
         if($event->url){$calendarEvent['eventUrl']=$event->url;}
         if($event->description){$calendarEvent['description']=$event->description;}
-        // if($event->color){$calendarEvent['color']=$event->color;}
+        if($event->color){$calendarEvent['color']=$event->color;}
 
-        $users = $event->users;
-        $usersArray = $users->map(function ($user) {
+        $workers = $event->workers;
+        $workersArray = $workers->map(function ($worker) {
             return [
-                'id' => $user->id,
-                'name' => $user->nameUserProfile(),
+                'id' => $worker->id,
+                'name' => $worker->full_name,
             ];
         });
 
@@ -53,7 +56,9 @@ if(!function_exists('calendarEvent')){
             ];
         });
 
-        $calendarEvent['eventUsers']=json_encode($usersArray);
+        $calendarEvent['hostWorkerId']=$event->host_worker_id;
+        $calendarEvent['hostWorkerName']=$event->hostWorker->full_name;
+        $calendarEvent['eventWorkers']=json_encode($workersArray);
         $calendarEvent['eventResources']=json_encode($resourcesArray);
 
 

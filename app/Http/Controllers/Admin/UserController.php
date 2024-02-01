@@ -34,7 +34,7 @@ class UserController extends Controller
     public function index():View
     {
         $users = User::all();
-        return view('common.Users.index',compact('users'));
+        return view('Admin.Users.index',compact('users'));
     }
 
     public function create(Request $request)
@@ -44,7 +44,7 @@ class UserController extends Controller
 
         $userProfileAsign = $request->userProfile_id?(UserProfile::find($request->userProfile_id)):null;
 
-        return view('common.Users.create',compact(
+        return view('Admin.Users.create',compact(
             'roles',
             'userProfiles',
             'userProfileAsign',
@@ -107,7 +107,7 @@ class UserController extends Controller
         $modules = $user->getAllPermissions()->whereNotNull('menu');
         $modules = $modules->sortBy('selectMenu')->pluck('selectMenu','name');
 
-        return view('common.Users.edit',compact(
+        return view('Admin.Users.edit',compact(
             'user',
             'userProfiles',
             'roles',

@@ -36,7 +36,7 @@ class BusinessController extends Controller
     public function index():View
     {
         $businesses = Business::all();
-        return view('common.Businesses.index', compact('businesses'));
+        return view('Admin.Businesses.index', compact('businesses'));
     }
 
     public function create():View
@@ -44,7 +44,7 @@ class BusinessController extends Controller
         $bankAccounts = BankAccount::all();
         $countries = countrySelect();
         $vats = vatSelect();
-        return view('common.Businesses.create',compact(
+        return view('Admin.Businesses.create',compact(
             'countries',
             'bankAccounts',
             'vats',
@@ -136,7 +136,7 @@ class BusinessController extends Controller
 
     public function show(Business $business):View
     {
-        return view('common.Businesses.show',compact(
+        return view('Admin.Businesses.show',compact(
             'business',
         ));
     }
@@ -146,7 +146,7 @@ class BusinessController extends Controller
         $bankAccounts = BankAccount::all();
         $countries = countrySelect();
         $vats = vatSelect();
-        return view('common.Businesses.edit',compact(
+        return view('Admin.Businesses.edit',compact(
             'business',
             'countries',
             'bankAccounts',
@@ -353,7 +353,7 @@ class BusinessController extends Controller
         $documents = $business->documents;
         $documentTypeSelect = documentTypeSelect();
 
-        return view('common.Businesses.documents',compact(
+        return view('Admin.Businesses.documents',compact(
             'documents',
             'business',
             'documentTypeSelect',

@@ -2,9 +2,7 @@
     <div class="modal-dialog modal-dialog-centered text-center" role="document">
         <div class="modal-content modal-content-demo">
             <div class="modal-header py-2 bg-danger-transparent">
-                <h4 class="m-0">
-                    <i class="fe fe-alert-triangle"></i>&nbsp;<span class="modal-title"><!-- Message Titulo --></span>
-                </h4>
+                <span class="fw-bold"><i class="fe fe-alert-triangle"></i></span>&nbsp;<span class="modal-title"><!-- Message Titulo --></span>
                 <button aria-label="Close" class="btn-close" data-bs-dismiss="modal">
                     <span aria-hidden="true">&times;</span>
                 </button>

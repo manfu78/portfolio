@@ -33,6 +33,7 @@ class SuperAdminSeeder extends Seeder
             $superAdmin->assignRole($role->name);
         }
 
+
         // $user = User::create([
         //     'name'=>'admin',
         //     'password'=>bcrypt('kordino2023crm')

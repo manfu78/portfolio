@@ -20,7 +20,7 @@ use App\Models\ProjectRate;
 use App\Models\SidebarMenuFather;
 use App\Models\User;
 use App\Models\Vat;
-use App\Models\UserProfile;
+use App\Models\Worker;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 
@@ -40,39 +40,39 @@ if(!function_exists('userSelect')){
     }
 }
 
-if(!function_exists('userUserProfileSelect')){
-    function userUserProfileSelect ():array
+if(!function_exists('userWorkerSelect')){
+    function userWorkerSelect ():array
     {
         try {
-            $userUserProfileSelect = User::orderBy('name')->with('userProfile')
+            $userWorkerSelect = User::orderBy('name')->with('worker')
                 ->get();
 
-            foreach ($userUserProfileSelect as $key => $user) {
-                if ($user->userPerfile) {
-                    $userUserProfileSelect[$key]->name = $user->userProfile->name.' '.$user->userProfile->lastname;
+            foreach ($userWorkerSelect as $key => $user) {
+                if ($user->worker) {
+                    $userWorkerSelect[$key]->name = $user->worker->name.' '.$user->worker->lastname;
                 }
             }
-            return $userUserProfileSelect->pluck('name','id')->toarray();
+            return $userWorkerSelect->pluck('name','id')->toarray();
         } catch (\Throwable $th) {
             return [];
         }
     }
 }
 
-if(!function_exists('userProfileSelect')){
-    function userProfileSelect ( $except = null):array
+if(!function_exists('workerSelect')){
+    function workerSelect ( $except = null):array
     {
         try {
-            $userProfileSelect = UserProfile::where('status','=',1);
+            $workerSelect = Worker::where('status','=',1);
             if ($except) {
-                $userProfileSelect = $userProfileSelect->whereNotIn('id',$except);
+                $workerSelect = $workerSelect->whereNotIn('id',$except);
             }
-            $userProfileSelect = $userProfileSelect->select("id",
+            $workerSelect = $workerSelect->select("id",
                 DB::raw('CONCAT(id,"-",name," ",lastname) AS name_sel'))
                     ->orderBy('name_sel')
                     ->pluck('name_sel','id')
                     ->toarray();
-            return $userProfileSelect;
+            return $workerSelect;
         } catch (\Throwable $th) {
             return [];
         }
@@ -292,7 +292,7 @@ if(!function_exists('commercialSelect')){
     function commercialSelect ():array
     {
         try {
-            $commercialSelect = UserProfile::select("id",
+            $commercialSelect = Worker::select("id",
             DB::raw('CONCAT(id,"-",name," ",lastname) AS name_sel'))
                 ->where('status','=',1)
                 ->where('is_commercial','=',1)
@@ -311,11 +311,11 @@ if(!function_exists('projectManagerSelect')){
     {
         try {
             $projectManagerSelect = DB::table('project_managers')
-                ->leftJoin('userProfiles', 'userProfiles.id', '=', 'project_managers.user_profile_id')
+                ->leftJoin('workers', 'workers.id', '=', 'project_managers.worker_id')
                 ->select('project_managers.id',
-                    DB::raw('CONCAT(userProfiles.name," ",userProfiles.lastname) AS user_profile_full_name')
+                    DB::raw('CONCAT(workers.name," ",workers.lastname) AS worker_full_name')
                 )
-                ->pluck('user_profile_full_name','id');
+                ->pluck('worker_full_name','id');
             return $projectManagerSelect;
         } catch (\Throwable $th) {
             return [];

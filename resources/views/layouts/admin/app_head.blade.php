@@ -9,11 +9,6 @@
 <!-- CSRF Token -->
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
-<meta name="description" content="Kordino CRM Gestión Projectos">
-<meta name="author" content="Germán R. García Full Stack Developer">
-<meta name="keywords" content="windvalley,crm,gestion,proyectos,tareas,leads,oportunidades,opportunities,project,admin,admin dashboard,admin panel,bootstrap,clean,dashboard,flat,jquery,modern,responsive,responsive admin,ui,ui kit,porfolio,cv,curriculum">
-
-
 <!-- FAVICON -->
 <link rel="apple-touch-icon" sizes="57x57" href="/assets/images/brand/apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="/assets/images/brand/apple-icon-60x60.png">
