@@ -84,7 +84,7 @@ class WorkerController extends Controller
         $users = User::all();
         $countrySelect = countrySelect();
         $categorySelect = categorySelect();
-        $businessesSelect = businessSelect();
+        $businessSelect = businessSelect();
         $departmentSelect = departmentSelect();
         $areaSelect = areaSelect();
 
@@ -93,7 +93,7 @@ class WorkerController extends Controller
         return view('Admin.Workers.create',compact(
             'countrySelect',
             'categorySelect',
-            'businessesSelect',
+            'businessSelect',
             'users',
             'userAsign',
             'departmentSelect',
@@ -158,7 +158,7 @@ class WorkerController extends Controller
     {
         $countrySelect = countrySelect();
         $categorySelect = categorySelect();
-        $businessesSelect = businessSelect();
+        $businessSelect = businessSelect();
         $documentTypeSelect = documentTypeSelect();
         $coinTypeSelect = coinTypeSelect();
         $departmentSelect = departmentSelect();
@@ -170,7 +170,7 @@ class WorkerController extends Controller
             'worker',
             'countrySelect',
             'categorySelect',
-            'businessesSelect',
+            'businessSelect',
             'documentTypeSelect',
             'coinTypeSelect',
             'departmentSelect',

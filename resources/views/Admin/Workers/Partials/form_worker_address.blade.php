@@ -61,7 +61,7 @@
                             </small>
                             <select name="country_id" class="form-control select2-show-search form-select {{ (($errors)->has('country_id')?'is-invalid':'') }}" data-bs-placeholder="{{ "Select ".trans('messages.Country.Country') }}">
                                 @foreach($countrySelect as $countryId => $countryName)
-                                    <option value="{{ $countryId }}" @if (isset($customer)){{ $countryId == $worker->country_id ? 'selected' : 73 }}@endif>
+                                    <option value="{{ $countryId }}" @if (isset($worker) && $countryId == $worker->country_id) selected @else {{ $countryId == 73?'selected':'' }} @endif>
                                     {{ $countryName }}
                                     </option>
                                 @endforeach

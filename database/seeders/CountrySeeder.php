@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\SeederFunctions\SeederProcessCreator;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-
-// include 'database/seeders/Functions/SeederFunctions.php';
 
 class CountrySeeder extends Seeder
 {
@@ -23,6 +22,13 @@ class CountrySeeder extends Seeder
         $menuSubFather      = 'Aux';
 
 
-        createSeeders($roleName,$modelName,$modelNamePlural,$modelNamespace,$menuFather,$menuSubFather);
+        SeederProcessCreator::createSeeders(
+            $roleName,
+            $modelName,
+            $modelNamePlural,
+            $modelNamespace,
+            $menuFather,
+            $menuSubFather
+        );
     }
 }

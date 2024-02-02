@@ -331,6 +331,7 @@ return [
     'Repeat'=>'Repetir',
     'MorOptions'=>'Más Opciones',
     'ClearChecks'=>'Limpiar Checks',
+    'GoBack'=>'Volver',
 
     'AppModels'=>'Módulos',
     'AppModel'=>[
@@ -1413,6 +1414,8 @@ return [
         'CreatedWithSendMailError'=>'Registro creado pero se ha producido un error en el envío del correo',
         'CreatedWithNotificationError'=>'Registro creado pero se ha producido un error al crear la notificación',
         'CreatedWithAttachFileError'=>'Registro creado pero se ha producido un error al Adjuntar un archivo',
+        'FillInYourDetails'=>'Por favor, rellene sus datos.',
+        'AlreadyApproved'=>'Esta solicitud ya está aprovada',
     ],
 
     'TermsUse'=>'Terminos de Uso',

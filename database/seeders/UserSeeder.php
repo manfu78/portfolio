@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\SeederFunctions\SeederProcessCreator;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -23,6 +24,13 @@ class UserSeeder extends Seeder
         $menuSubFather      = null;
 
 
-        createSeeders($roleName,$modelName,$modelNamePlural,$modelNamespace,$menuFather,$menuSubFather);
+        SeederProcessCreator::createSeeders(
+            $roleName,
+            $modelName,
+            $modelNamePlural,
+            $modelNamespace,
+            $menuFather,
+            $menuSubFather
+        );
     }
 }

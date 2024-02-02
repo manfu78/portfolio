@@ -257,7 +257,7 @@ class CountrySeederDat extends Seeder
         );
 
         foreach($countrys as $country){
-            Country::create([
+            Country::firstOrCreate([
                 'code'=>$country[0],
                 'iso1'=>$country[1],
                 'iso2'=>$country[2],

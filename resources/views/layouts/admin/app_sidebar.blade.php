@@ -17,7 +17,16 @@
                     <h3>Main</h3>
                 </li>
                 <li class="slide">
-                    <a class="side-menu__item has-link" data-bs-toggle="slide" href="{{ route('admin.dashboard') }}"><i class="side-menu__icon fe fe-home"></i><span class="side-menu__label">Dashboard</span></a>
+                    <a class="side-menu__item has-link" data-bs-toggle="slide" href="{{ route('admin.dashboard') }}">
+                        <i class="side-menu__icon fe fe-home"></i>
+                        <span class="side-menu__label">
+                            @if (userHome())
+                                {{ trans('messages.'.userHome()->name) }}
+                            @else
+                                Dashboard
+                            @endif
+                        </span>
+                    </a>
                 </li>
 
                 @if (sidebarMenuFavorites())
@@ -58,7 +67,7 @@
                         {{-- <li class="side-menu-label1"><a href="javascript:void(0)">Pages</a></li> --}}
 
                         <li>
-                            <a href="{{ route('admin.profile.show') }}" class="slide-item {{request()->routeIs('admin.profile') ? 'active fw-bold':''}}">
+                            <a href="{{ route('admin.profile.show') }}" class="slide-item {{request()->routeIs('admin.profile.*') ? 'active fw-bold':''}}">
                                 {{ trans('messages.Profile') }}
                             </a>
                         </li>

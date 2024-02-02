@@ -16,7 +16,7 @@
             </div>
         </div>
 
-        @include('admin.UserConfigurations.Partials.menu')
+        @include('Admin.UserConfigurations.Partials.menu')
 
         {{-- HOME PAGE --}}
         <div class="row row-sm">

@@ -16,7 +16,7 @@
             </div>
         </div>
 
-        @include('admin.UserConfigurations.Partials.menu')
+        @include('Admin.UserConfigurations.Partials.menu')
 
         {{-- HOME PAGE --}}
         <div class="row row-sm">
@@ -83,12 +83,12 @@
                                                                 <div class="accordion-body">
                                                                     <div class="">
                                                                         <ul class="list-group">
-                                                                            @foreach ($sidebarMenuFather->sidebarMenus as $sidebarMenu)
-                                                                                @can($sidebarMenu->permission)
+                                                                            @foreach ($sidebarMenuFather->sidebarMenuItems as $sidebarMenuItem)
+                                                                                @can($sidebarMenuItem->permission)
                                                                                     <li class="list-group-item justify-content-between">
-                                                                                        <span><i class="fa-regular fa-angle-right"></i>&nbsp;{{ $sidebarMenu->name }}</span>
+                                                                                        <span><i class="fa-regular fa-angle-right"></i>&nbsp;{{ $sidebarMenuItem->name }}</span>
 
-                                                                                        <a href="{{ route('admin.userConfigurations.homeSet',$sidebarMenu) }}">
+                                                                                        <a href="{{ route('admin.userConfigurations.homeSet',$sidebarMenuItem) }}">
                                                                                             <button type="button" class="badgetext badge bg-default rounded-pill border-0 mx-2">
                                                                                                 <i class="fa-solid fa-house"></i>
                                                                                             </button>
@@ -116,12 +116,12 @@
                                                                                             <div class="accordion-body">
                                                                                                 <div class="">
                                                                                                     <ul class="list-group">
-                                                                                                        @foreach ($sidebarMenuSubFather->sidebarMenus as $sidebarSubMenu)
-                                                                                                            @can($sidebarSubMenu->permission)
+                                                                                                        @foreach ($sidebarMenuSubFather->sidebarMenuItems as $sidebarMenuItem)
+                                                                                                            @can($sidebarMenuItem->permission)
                                                                                                                 <li class="list-group-item justify-content-between">
-                                                                                                                    <span><i class="fa-regular fa-angle-right"></i>&nbsp;{{ $sidebarSubMenu->name }}</span>
+                                                                                                                    <span><i class="fa-regular fa-angle-right"></i>&nbsp;{{ $sidebarMenuItem->name }}</span>
 
-                                                                                                                    <a href="{{ route('admin.userConfigurations.homeSet',$sidebarMenu) }}">
+                                                                                                                    <a href="{{ route('admin.userConfigurations.homeSet',$sidebarMenuItem) }}">
                                                                                                                         <button type="button" class="badgetext badge bg-default rounded-pill border-0 mx-2">
                                                                                                                             <i class="fa-solid fa-house"></i>
                                                                                                                         </button>

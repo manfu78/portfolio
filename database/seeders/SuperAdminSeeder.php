@@ -27,11 +27,10 @@ class SuperAdminSeeder extends Seeder
             'password'=>bcrypt('PicaPica23'),
         ];
 
-        $superAdmin = User::where('email','=',$superAdminData['email'])->first();
-        if (!$superAdmin) {
-            $superAdmin = User::create($superAdminData);
-            $superAdmin->assignRole($role->name);
-        }
+
+        $superAdmin = User::firstOrCreate($superAdminData);
+        $superAdmin->assignRole($role->name);
+
 
 
         // $user = User::create([

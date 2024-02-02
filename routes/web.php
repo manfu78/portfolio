@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\BankAccountController;
 use App\Http\Controllers\Admin\BusinessController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\admin\CoinTypeController;
 use App\Http\Controllers\Admin\CountryController;
 use App\Http\Controllers\Admin\PaymentMethodController;
 use App\Http\Controllers\Admin\ProfileController;
@@ -44,9 +45,8 @@ Route::name('admin.')->middleware(['auth'])->group(function() {
     Route::resource('roles', RoleController::class)->except(['show']);
 
     Route::resource('countries', CountryController::class)->except(['show']);
-    // Route::resource('vats', VatController::class);
-
     Route::resource('categories', CategoryController::class)->except(['show']);
+    Route::resource('coinTypes', CoinTypeController::class)->except(['show']);
     Route::resource('bankAccounts', BankAccountController::class)->except(['show']);
     Route::resource('vats', VatController::class)->except(['show']);
     Route::resource('paymentMethods', PaymentMethodController::class)->except(['show']);

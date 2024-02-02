@@ -23,7 +23,7 @@ class UserConfigurationController extends Controller
 
         $sidebarMenuFathers = sidebarMenuFathers();
 
-        return view('admin.UserConfigurations.favorites', compact(
+        return view('Admin.UserConfigurations.favorites', compact(
             'userFavorites',
             'sidebarMenuFathers',
             'arrayUserFavorites',
@@ -90,7 +90,7 @@ class UserConfigurationController extends Controller
 
         $sidebarMenuFathers = sidebarMenuFathers();
 
-        return view('admin.UserConfigurations.homepage', compact(
+        return view('Admin.UserConfigurations.homepage', compact(
             'sidebarMenuFathers',
         ));
     }

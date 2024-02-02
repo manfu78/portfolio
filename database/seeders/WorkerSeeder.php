@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\SeederFunctions\SeederProcessCreator;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -22,9 +23,7 @@ class WorkerSeeder extends Seeder
 
         $modelNamespace     = 'App\Models\\'.$modelName;
 
-
-
-        createSeeders(
+        SeederProcessCreator::createSeeders(
             $roleName,
             $modelName,
             $modelNamePlural,

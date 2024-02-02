@@ -22,20 +22,12 @@ class SidebarMenuSubFather extends Model
     }
 
     public function routesForExpandedMenu(){
-        $sidebarMenus = $this->sidebarMenus;
+        $sidebarMenuItems = $this->sidebarMenuItems;
 
-        if ($sidebarMenus) {
-           return $sidebarMenus->pluck('route')->toArray();
+        if ($sidebarMenuItems) {
+           return $sidebarMenuItems->pluck('route')->toArray();
         }
         return [];
-
-
-
-        // $routesForExpandedMenu = null;
-        // foreach ($sidebarMenus as $sidebarMenu) {
-        //     $routesForExpandedMenu[] = routeForActiveMenu($sidebarMenu->route);
-        // }
-        // return $routesForExpandedMenu;
     }
 
     public function permissionsForMenu(){
@@ -44,5 +36,4 @@ class SidebarMenuSubFather extends Model
 
         return $permissionsForMenu;
     }
-
 }

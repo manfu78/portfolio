@@ -15,14 +15,30 @@
 
         @include('Admin.Profile.Partials.menu')
 
-        <div class="row " id="edit_worker">
+        @if (!$worker)
+            <div class="row mb-4">
+                <div class="col">
+                    <div class="alert alert-danger mb-0 text-center" role="alert">
+                        <span class="alert-inner--icon"><i class="fa-solid fa-circle-exclamation"></i></span>
+                        <span class="alert-inner--text">{{ trans('messages.InfoWarning.FillInYourDetails') }}</span>
+                    </div>
+                </div>
+            </div>
+        @endif
+        <div class="row ">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                @if ($worker)
-                    @include('Admin.Profile.Partials.form_profile_photo')
-                    @include('Admin.Profile.Partials.form_profile_information')
-                    @include('Admin.Profile.Partials.form_profile_address')
-                    @include('Admin.Profile.Partials.form_profile_others')
-                @endif
+                {{-- @if ($worker) --}}
+                    @include('Admin.Workers.Partials.form_worker_photo')
+                    @include('Admin.Workers.Partials.form_worker_information')
+                    @include('Admin.Workers.Partials.form_worker_address')
+                {{-- @endif --}}
+                <div class="card-footer">
+                    <div class="row">
+                        <div class="col text-center">
+                            <a class="btn btn-sm btn-outline-default text-uppercase" href="{{ route('admin.categories.index') }}"><i class="fa fa-reply"></i>&nbsp;&nbsp;{{ trans('messages.GoBack') }}</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 

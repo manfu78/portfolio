@@ -158,7 +158,7 @@
                             <div class="col">
                                 <div class="form-group">
                                     <select name="business_id" class="form-control select2 form-select {{ (($errors)->has('business_id')?'is-invalid':'') }}" data-bs-placeholder="{{ "Select ".trans('messages.Business.Business') }}">
-                                        @foreach($businessesSelect as $businessId => $businessName)
+                                        @foreach($businessSelect as $businessId => $businessName)
                                             <option value="{{ $businessId }}" @if (isset($worker)){{ $businessId == $worker->business_id ? 'selected' : '' }}@endif>
                                             {{ $businessName }}
                                             </option>

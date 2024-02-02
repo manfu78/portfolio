@@ -332,6 +332,7 @@ return [
     'Repeat'=>'Repeat',
     'MorOptions'=>'Mor Options',
     'ClearChecks'=>'Clear Checks',
+    'GoBack'=>'Go Back',
 
     'AppModels'=>'AppModels',
     'AppModel'=>[
@@ -1414,6 +1415,8 @@ return [
         'CreatedWithSendMailError'=>'Registration created but there was an error sending the email',
         'CreatedWithNotificationError'=>'Record created but an error occurred while creating the notification',
         'CreatedWithAttachFileError'=>'Record created but an error occurred while Attaching a File',
+        'FillInYourDetails'=>'Please fill in your details',
+        'AlreadyApproved'=>'This request is already approved',
     ],
 
     'TermsUse'=>'Terms of Use',

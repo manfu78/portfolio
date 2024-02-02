@@ -1,4 +1,7 @@
 <div class="card">
+    <div class="card-header bg-info-transparent p-2">
+        <span class="fw-bold"><i class="fa-solid fa-image"></i></span>&nbsp;{{ trans('messages.Image') }}
+    </div>
     @if (isset($worker)&&$worker->user)
         <div class="card-body pb-1">
             <div class="row mb-4">

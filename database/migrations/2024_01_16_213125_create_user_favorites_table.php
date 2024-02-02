@@ -18,14 +18,14 @@ return new class extends Migration
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users')
-                ->onDelete('set null')
+                ->onDelete('cascade')
                 ->onUpdate('cascade');
 
             $table->unsignedBigInteger('sidebar_menu_item_id');
             $table->foreign('sidebar_menu_item_id')
                 ->references('id')
                 ->on('sidebar_menu_items')
-                ->onDelete('set null')
+                ->onDelete('cascade')
                 ->onUpdate('cascade');
 
             $table->timestamps();
