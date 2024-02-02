@@ -24,8 +24,12 @@ class SidebarMenuSubFather extends Model
     public function routesForExpandedMenu(){
         $sidebarMenuItems = $this->sidebarMenuItems;
 
+
         if ($sidebarMenuItems) {
-           return $sidebarMenuItems->pluck('route')->toArray();
+            foreach ($sidebarMenuItems as $sidebarMenuItem) {
+                $routesForExpandedMenu[] = routeForActiveMenu($sidebarMenuItem->route);
+            }
+           return $routesForExpandedMenu;
         }
         return [];
     }

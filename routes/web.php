@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\VatController;
 use App\Http\Controllers\admin\WorkerController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -51,7 +52,7 @@ Route::name('admin.')->middleware(['auth'])->group(function() {
     Route::resource('vats', VatController::class)->except(['show']);
     Route::resource('paymentMethods', PaymentMethodController::class)->except(['show']);
 
-    Route::resource('businesses', BusinessController::class)->except(['show']);
+    Route::resource('businesses', BusinessController::class);
         Route::controller(BusinessController::class)->group(function () {
             Route::get('businesses/{business}/deleteLogo', 'deleteLogo')->name('businesses.deleteLogo');
             Route::put('businesses/{business}/addBankAccount/{bankAccount}', 'addBankAccount')->name('businesses.addBankAccount');
@@ -102,6 +103,19 @@ Route::name('admin.')->middleware(['auth'])->group(function() {
         Route::DELETE('sidebarMenus.destroyMenuFather/{sidebarMenuFather}', 'destroyMenuFather')->name('sidebarMenus.destroyMenuFather');
         Route::DELETE('sidebarMenus.destroyMenuSubFather/{sidebarMenuSubFather}', 'destroyMenuSubFather')->name('sidebarMenus.destroyMenuSubFather');
     });
+
+    Route::get('/clear-cache', function () {
+        try {
+            Artisan::call('config:clear');
+            Artisan::call('config:cache');
+            Artisan::call('cache:clear');
+            Artisan::call('route:clear');
+            return back()->with('info','Caché Limpiado');
+        } catch (\Throwable $th) {
+            return back();
+        }
+     });
+
 
 });
 

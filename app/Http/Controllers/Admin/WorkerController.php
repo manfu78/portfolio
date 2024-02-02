@@ -130,7 +130,7 @@ class WorkerController extends Controller
 
         if($request->hasFile('photo')){
             try {
-                $fieldName  = 'photo';
+                $fieldName  = $worker->id.'_photo';
                 $folderName = 'wrk';
                 $worker->photo = setImage600($request,$fieldName,$folderName);
                 $worker->save();
@@ -202,7 +202,7 @@ class WorkerController extends Controller
 
         if($request->hasFile('photo')){
             try {
-                $fieldName  = 'photo';
+                $fieldName  = $worker->id.'_photo';
                 $folderName = 'wrk';
                 $worker->photo = setImage600($request,$fieldName,$folderName);
                 $worker->save();

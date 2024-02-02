@@ -332,6 +332,7 @@ return [
     'MorOptions'=>'Más Opciones',
     'ClearChecks'=>'Limpiar Checks',
     'GoBack'=>'Volver',
+    'DeleteImage'=>'Borrar Imagen',
 
     'AppModels'=>'Módulos',
     'AppModel'=>[
@@ -439,6 +440,7 @@ return [
         'CreateBusiness'=>'Crear Empresa',
         'EditBusiness'=>'Editar Empresa',
         'DestroyBusiness'=>'Eliminar Empresa',
+        'BusinessDefault'=>'Empresa por defecto',
     ],
 
     'PaymentMethods'=>'Metodos de pago',

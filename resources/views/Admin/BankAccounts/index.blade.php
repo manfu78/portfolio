@@ -36,7 +36,7 @@
                             <table id="bankAccounts_table" class="table table-bordered text-nowrap border-bottom">
                                 <thead>
                                     <tr>
-                                        <th class="border-bottom-0"><small>id</small></th>
+                                        <th class="border-bottom-0" style="width: 10px;"><small>#</small></th>
                                         <th class="border-bottom-0"><small>{{ trans('messages.Name') }}</small></th>
                                         <th class="border-bottom-0"><small>{{ trans('messages.Phone') }}</small></th>
                                         <th class="border-bottom-0"><small>{{ trans('messages.Email') }}</small></th>
@@ -47,7 +47,7 @@
                                 <tbody>
                                     @foreach($bankAccounts as $bankAccount)
                                         <tr>
-                                            <td class="py-1" style="width: 10px;">{{ $bankAccount->id }}</td>
+                                            <td class="py-1" style="width: 10px;"><small>#{{ $bankAccount->id }}</small></td>
                                             <td class="py-1"><span class="fw-bold">{{ $bankAccount->name }}</span></td>
                                             <td class="py-1"><span><a href="tel:{{$bankAccount->phone}}">{{ $bankAccount->phone }}</a></span></td>
                                             <td class="py-1"><span><a href="mailto:{{$bankAccount->email}}">{{ $bankAccount->email }}</a></span></td>

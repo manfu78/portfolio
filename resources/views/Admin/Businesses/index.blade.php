@@ -49,12 +49,12 @@
                                 <tbody>
                                     @foreach($businesses as $business)
                                         <tr>
-                                            <td class="py-1">{{ $business->id }}</td>
+                                            <td class="py-1"><small>#{{ $business->id }}</small></td>
                                             <td class="py-1 text-center">
                                                 @if ($business->logo)
                                                     <span class="avatar avatar-sm cover-image" data-bs-image-src="{{ Storage::url($business->logo) }}"></span>
                                                 @else
-                                                    <span class="avatar avatar-sm cover-image" data-bs-image-src="/dist/img/nophoto.jpeg"></span>
+                                                    <span class="avatar avatar-sm cover-image" data-bs-image-src="/assets/images/nophoto.jpeg"></span>
                                                 @endif
                                             </td>
                                             <td class="py-1">

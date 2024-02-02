@@ -111,7 +111,7 @@
                                 @foreach ($sidebarMenuFather->sidebarMenuItems as $sidebarMenuItem)
                                     @can($sidebarMenuItem->permission)
                                         <li>
-                                            <a href="{{ route($sidebarMenuItem->route) }}" class="slide-item {{request()->routeIs($sidebarMenuItem->route) ? 'active fw-bold':''}}">
+                                            <a href="{{ route($sidebarMenuItem->route) }}" class="slide-item {{request()->routeIs(routeForActiveMenu($sidebarMenuItem->route)) ? 'active fw-bold':''}}">
                                                 {{ trans('messages.'.$sidebarMenuItem->name) }}
                                             </a>
                                         </li>
@@ -131,7 +131,7 @@
                                                     @foreach ($sidebarMenuSubFather->sidebarMenuItems as $subSidebarMenu)
                                                         @can($subSidebarMenu->permission)
                                                             <li>
-                                                                <a href="{{ route($subSidebarMenu->route) }}" class="sub-slide-item {{ request()->routeIs($subSidebarMenu->route) ? 'active fw-bold':''}}">
+                                                                <a href="{{ route($subSidebarMenu->route) }}" class="sub-slide-item {{ request()->routeIs(routeForActiveMenu($subSidebarMenu->route)) ? 'active fw-bold':''}}">
                                                                     {{ trans('messages.'.$subSidebarMenu->name) }}
                                                                 </a>
                                                             </li>

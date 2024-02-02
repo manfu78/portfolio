@@ -36,7 +36,7 @@
                             <table id="vats_table" class="table table-bordered text-nowrap border-bottom">
                                 <thead>
                                     <tr>
-                                        <th class="border-bottom-0"><small>id</small></th>
+                                        <th class="border-bottom-0"><small>#</small></th>
                                         <th class="border-bottom-0"><small>{{ trans('messages.Vat.Vat') }}</small></th>
                                         <th class="border-bottom-0"><small>{{ trans('messages.Vat.Surcharge') }}</small></th>
                                         <th class="border-bottom-0"><small>{{ trans('messages.Description') }}</small></th>
@@ -46,8 +46,8 @@
                                 <tbody>
                                     @foreach($vats as $vat)
                                         <tr>
-                                            <td class="py-1 text-end" style="width: 10px;">{{ $vat->id }}</td>
-                                            <td class="py-1">{{ $vat->vat }}</td>
+                                            <td class="py-1 text-end" style="width: 10px;"><small>#{{ $vat->id }}</small></td>
+                                            <td class="py-1 fw-bold">{{ $vat->vat }}</td>
                                             <td class="py-1"><span class="fw-bold">{{ $vat->surcharge }}</span></td>
                                             <td class="py-1">{{ $vat->description }}</td>
                                             <td class="py-1" style="width: 60px;text-align: right;">

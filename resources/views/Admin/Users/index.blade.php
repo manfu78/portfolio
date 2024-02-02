@@ -41,7 +41,7 @@
                             <table id="users_table" class="table table-bordered text-nowrap border-bottom">
                                 <thead>
                                     <tr>
-                                        <th class="border-bottom-0"><small>id</small></th>
+                                        <th class="border-bottom-0" style="width: 10px;"><small>#</small></th>
                                         <th class="border-bottom-0"><small>{{ trans('messages.User.User') }}</small></th>
                                         <th class="border-bottom-0"><small>{{ trans('messages.Worker.Worker') }}</small></th>
                                         <th class="border-bottom-0"><small>{{ trans('messages.Role.Roles') }}</small></th>
@@ -51,7 +51,7 @@
                                 <tbody>
                                     @foreach($users as $user)
                                         <tr>
-                                            <td class="py-1" style="width: 10px;">{{$user->id}}</td>
+                                            <td class="py-1 text-center" style="width: 10px;"><small>#{{$user->id}}</small></td>
                                             <td class="py-1"><span class="fw-bold">{{$user->name}}</span></td>
                                             <td class="py-1">
                                                 @if ($user->worker)

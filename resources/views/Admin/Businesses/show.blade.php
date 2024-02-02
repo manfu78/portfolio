@@ -48,7 +48,7 @@
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                 <div class="card">
                     <div class="card-header bg-info-transparent p-2">
-                        <h3 class="card-title fw-bold"><i class="fa-solid fa-building"></i>&nbsp;{{ trans('messages.Business.Business') }}</h3>
+                        <span class="fw-bold"><i class="fa-solid fa-building"></i></span>&nbsp;{{ trans('messages.Business.Business') }}
                     </div>
                     <div class="card-body">
                         <div class="row">
@@ -56,7 +56,7 @@
                                 @if ($business->logo)
                                     <img id="business-img" src="{{ Storage::url($business->logo) }}" class="img-responsive br-5" style="width: 100px;">
                                 @else
-                                    <img id="business-img" src="/dist/img/nophoto.jpeg" class="img-responsive br-5" style="width: 100px;">
+                                    <img id="business-img" src="/assets/images/nophoto.jpeg" class="img-responsive br-5" style="width: 100px;">
                                 @endif
                             </div>
                         </div>

@@ -162,7 +162,7 @@
         <div class="row">
             <div class="col-12 text-end">
                 <button type="submit" class="btn btn-sm btn-outline-primary text-uppercase"><i class="fa fa-save"></i>&nbsp;&nbsp;{{ trans('messages.Save') }}</button>
-                <a class="btn btn-sm btn-outline-default text-uppercase" href="{{ route('admin.roles.index') }}"><i class="fa fa-close"></i>&nbsp;&nbsp;{{ trans('messages.Cancel') }}</a>
+                <a class="btn btn-sm btn-outline-default text-uppercase" href="{{ route('admin.users.index') }}"><i class="fa fa-reply"></i>&nbsp;&nbsp;{{ trans('messages.GoBack') }}</a>
             </div>
         </div>
     </div>

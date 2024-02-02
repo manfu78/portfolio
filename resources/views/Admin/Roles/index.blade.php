@@ -32,7 +32,7 @@
                             <table id="roles_table" class="table table-bordered text-nowrap border-bottom">
                                 <thead>
                                     <tr>
-                                        <th class="border-bottom-0"><small>id</small></th>
+                                        <th class="border-bottom-0" style="width: 10px;"><small>#</small></th>
                                         <th class="border-bottom-0"><small>Rol</small></th>
                                         <th class="border-bottom-0"></th>
                                     </tr>
@@ -40,7 +40,7 @@
                                 <tbody>
                                     @foreach($roles as $role)
                                         <tr>
-                                            <td class="py-1 text-end" style="width: 10px;">{{$role->id}}</td>
+                                            <td class="py-1 text-end" style="width: 10px;"><small>#{{$role->id}}</small></td>
                                             <td class="py-1">
                                                 <span class="fw-bold">{{$role->name}}</span>
                                             </td>

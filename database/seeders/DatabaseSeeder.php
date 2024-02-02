@@ -33,6 +33,7 @@ class DatabaseSeeder extends Seeder
         $this->call(SuperAdminSeeder::class);
         $this->call(CoinTypeSeederDat::class);
         $this->call(VatSeederDat::class);
+        $this->call(PaymentMethodSeederDat::class);
 
         $this->call(BusinessSeederDat::class);
         // \App\Models\User::factory(10)->create();

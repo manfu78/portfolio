@@ -45,7 +45,7 @@
                                 <tbody>
                                     @foreach($paymentMethods as $paymentMethod)
                                         <tr>
-                                            <td class="py-1 text-end" style="width: 10px;">{{ $paymentMethod->id }}</td>
+                                            <td class="py-1 text-end" style="width: 10px;"><small>#{{ $paymentMethod->id }}</small></td>
                                             <td class="py-1">{{ $paymentMethod->name }}</td>
                                             <td class="py-1"><span class="fw-bold">{{ $paymentMethod->postponement_days }}</span></td>
                                             <td class="py-1" style="width: 60px;text-align: right;">

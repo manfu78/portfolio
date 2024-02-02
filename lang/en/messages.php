@@ -333,6 +333,7 @@ return [
     'MorOptions'=>'Mor Options',
     'ClearChecks'=>'Clear Checks',
     'GoBack'=>'Go Back',
+    'DeleteImage'=>'Delete Image',
 
     'AppModels'=>'AppModels',
     'AppModel'=>[
@@ -440,6 +441,7 @@ return [
         'CreateBusiness'=>'Create Business',
         'EditBusiness'=>'Edit Business',
         'DestroyBusiness'=>'Destroy Business',
+        'BusinessDefault'=>'Business Default',
     ],
 
     'PaymentMethods'=>'Payment Methods',

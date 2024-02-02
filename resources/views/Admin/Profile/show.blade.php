@@ -14,7 +14,9 @@
         </div>
 
         @include('Admin.Profile.Partials.menu')
-
+        @if ($user->worker)
+            @include('Admin.Profile.Partials.form_profile_info')
+        @endif
         @if (!$worker)
             <div class="row mb-4">
                 <div class="col">
@@ -27,15 +29,13 @@
         @endif
         <div class="row ">
             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                {{-- @if ($worker) --}}
-                    @include('Admin.Workers.Partials.form_worker_photo')
-                    @include('Admin.Workers.Partials.form_worker_information')
-                    @include('Admin.Workers.Partials.form_worker_address')
-                {{-- @endif --}}
+
+                @include('Admin.Workers.Partials.form_worker_information')
+                @include('Admin.Workers.Partials.form_worker_address')
                 <div class="card-footer">
                     <div class="row">
                         <div class="col text-center">
-                            <a class="btn btn-sm btn-outline-default text-uppercase" href="{{ route('admin.categories.index') }}"><i class="fa fa-reply"></i>&nbsp;&nbsp;{{ trans('messages.GoBack') }}</a>
+                            <a class="btn btn-sm btn-outline-default text-uppercase" href="{{ route('admin.profile.show') }}"><i class="fa fa-reply"></i>&nbsp;&nbsp;{{ trans('messages.GoBack') }}</a>
                         </div>
                     </div>
                 </div>

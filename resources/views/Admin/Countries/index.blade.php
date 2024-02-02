@@ -36,7 +36,7 @@
                             <table id="countries_table" class="table table-bordered text-nowrap border-bottom">
                                 <thead>
                                     <tr>
-                                        <th class="border-bottom-0"><small>id</small></th>
+                                        <th class="border-bottom-0" style="width: 10px;"><small>#</small></th>
                                         <th class="border-bottom-0"><small>{{ trans('messages.Name') }}</small></th>
                                         <th class="border-bottom-0"><small>{{ trans('messages.Code') }}</small></th>
                                         <th class="border-bottom-0"><small>ISO1</small></th>
@@ -47,7 +47,7 @@
                                 <tbody>
                                     @foreach($countries as $country)
                                         <tr>
-                                            <td class="py-1" style="width: 10px;">{{ $country->id }}</td>
+                                            <td class="py-1" style="width: 10px;"><small>#{{ $country->id }}</small></td>
                                             <td class="py-1"><span class="fw-bold">{{ $country->name }}</span></td>
                                             <td class="py-1">{{ $country->code }}</td>
                                             <td class="py-1">{{ $country->iso1 }}</td>

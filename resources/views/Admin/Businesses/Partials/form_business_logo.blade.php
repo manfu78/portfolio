@@ -6,10 +6,10 @@
                     @if ($business->logo)
                         <img id="business-img" src="{{ Storage::url($business->logo) }}" class="img-responsive br-5" style="height: 110px;object-fit: contain;">
                     @else
-                        <img id="business-img" src="/assets/images/nophoto.jpeg" class="img-responsive br-5">
+                        <img id="business-img" src="/assets/images/nophoto.jpeg" class="img-responsive br-5" style="height: 110px;object-fit: contain;">
                     @endif
                 @else
-                    <img id="business-img" src="/assets/images/nophoto.jpeg" class="img-responsive br-5">
+                    <img id="business-img" src="/assets/images/nophoto.jpeg" class="img-responsive br-5" style="height: 110px;object-fit: contain;">
                 @endif
             </div>
             <div class="col-10">

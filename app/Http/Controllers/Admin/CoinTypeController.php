@@ -25,12 +25,12 @@ class CoinTypeController extends Controller
     public function index():View
     {
         $coinTypes = CoinType::all();
-        return view('common.CoinTypes.index', compact('coinTypes'));
+        return view('Admin.CoinTypes.index', compact('coinTypes'));
     }
 
     public function create():View
     {
-        return view('common.CoinTypes.create');
+        return view('Admin.CoinTypes.create');
     }
 
     public function store(CoinTypeStoreRequest $request):RedirectResponse
@@ -70,7 +70,7 @@ class CoinTypeController extends Controller
 
     public function edit(CoinType $coinType):View
     {
-        return view('common.CoinTypes.edit',compact('coinType'));
+        return view('Admin.CoinTypes.edit',compact('coinType'));
     }
 
     public function update(CoinTypeUpdateRequest $request, CoinType $coinType):RedirectResponse
@@ -120,7 +120,6 @@ class CoinTypeController extends Controller
         }
 
         try {
-
             $coinType->delete();
 
             Log::info("CoinType Destroy. ".trans('messages.InfoSuccess.Deleted'),array('context'=>$coinType,'logVars'=>$logVars));

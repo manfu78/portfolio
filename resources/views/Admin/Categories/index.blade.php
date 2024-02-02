@@ -36,7 +36,7 @@
                             <table id="categories_table" class="table table-bordered text-nowrap border-bottom">
                                 <thead>
                                     <tr>
-                                        <th class="border-bottom-0"><small>id</small></th>
+                                        <th class="border-bottom-0" style="width: 10px;"><small>#</small></th>
                                         <th class="border-bottom-0"><small>{{ trans('messages.Name') }}</small></th>
                                         <th class="border-bottom-0"><small>{{ trans('messages.HourPrice') }}</small></th>
                                         <th class="border-bottom-0"><small>{{ trans('messages.UnitPrice') }}</small></th>
@@ -47,7 +47,7 @@
                                 <tbody>
                                     @foreach($categories as $category)
                                         <tr>
-                                            <td class="py-1" style="width: 10px;">{{ $category->id }}</td>
+                                            <td class="py-1" style="width: 10px;"><small>#{{ $category->id }}</small></td>
                                             <td class="py-1"><span class="fw-bold">{{ $category->name }}</span></td>
                                             <td class="py-1">{{ number_format(( $category->hour_price ), 2, ',','.') }}&nbsp;&euro;</td>
                                             <td class="py-1">{{ number_format(( $category->unit_price ), 2, ',','.') }}&nbsp;&euro;</td>
