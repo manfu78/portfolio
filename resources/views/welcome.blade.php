@@ -84,8 +84,8 @@
   <section id="about" class="about">
     <div class="about-me container">
       <div class="section-title">
-        <h2>Sobre mi</h2>
-        <p>Más sobre mi</p>
+        <h2>Sobre mí</h2>
+        <p>Más sobre mí</p>
       </div>
 
       <div class="row">
@@ -115,7 +115,7 @@
             </div>
           </div>
           <p>
-            Con una extendida formación en y años de experiencia en el desarrollo de software, he destacado por mi habilidad para traducir ideas creativas en productos funcionales y eficientes.
+            Con una extendida formación y años de experiencia en el desarrollo de software, he destacado por mi habilidad para traducir ideas creativas en productos funcionales y eficientes.
             A lo largo de mi carrera profesional he contribuido al éxito de diversos proyectos reflejando mi capacidad para abordar desafíos complejos y ofrecer soluciones que superan las expectativas.
           </p>
         </div>
@@ -787,10 +787,10 @@
                 </div>
 
                 <div class="resume-item">
-                    <h4>Master SQL</h4>
+                    <h4>Máster SQL</h4>
                     <!-- <h5>2019 - 2019</h5> -->
                     <!-- <p><em>Udemy</em></p> -->
-                    <p>Master en SQL. Desde Cero a Profesional</p>
+                    <p>Máster en SQL. Desde Cero a Profesional</p>
                 </div>
 
             </div>
@@ -807,7 +807,7 @@
                             <li>Full-Stack developer</li>
                             <li>Desarrollo de aplicaciones web</li>
                             <li>PHP, MySQL, Laravel, Javascript, Java, Docker, Bootstrap, CSS, Adobe Photoshop</li>
-                            <li>Jornada completa, hibrido</li>
+                            <li>Jornada completa, Híbrido</li>
                         </ul>
                     </p>
                 </div>
@@ -844,7 +844,7 @@
                 <div class="resume-item">
                     <h4>Técnico Informático</h4>
                     <h5>2016 - 2019</h5>
-                    <p><em>OFILOGICA SL, Puerto Lumbreras, Murcia, España </em></p>
+                    <p><em>OFILÓGICA SL, Puerto Lumbreras, Murcia, España </em></p>
                     <p>
                         <ul>
                             <li>Técnico informático para empresas</li>
@@ -891,7 +891,7 @@
                     <p>
                         <ul>
                             <li>Desarrollador de aplicaciones. Ampliación y mantenimiento de la aplicación de gestión de la empresa</li>
-                            <li>Creacion de pagina web de la empresa</li>
+                            <li>Creación de página web de la empresa</li>
                             <li>Responsable del departamento de informática</li>
                             <li>Mantenimiento de equipos, red y servidores de la empresa</li>
                             <li>COSMOS, SQL, Javascript, Bootstrap, CSS, Adobe Photoshop, Adobe Illustrato</li>

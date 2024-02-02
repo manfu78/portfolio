@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\BusinessController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\admin\CoinTypeController;
 use App\Http\Controllers\Admin\CountryController;
+use App\Http\Controllers\admin\CustomerController;
 use App\Http\Controllers\Admin\PaymentMethodController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\RoleController;
@@ -104,6 +105,15 @@ Route::name('admin.')->middleware(['auth'])->group(function() {
         Route::DELETE('sidebarMenus.destroyMenuSubFather/{sidebarMenuSubFather}', 'destroyMenuSubFather')->name('sidebarMenus.destroyMenuSubFather');
     });
 
+    Route::resource('customers', CustomerController::class)->except(['show']);
+    Route::controller(CustomerController::class)->group(function () {
+        Route::put('customers.addContact/{customer}', 'addContact')->name('customers.addContact');
+        Route::DELETE('customers.deleteContact/{customerContact}', 'deleteContact')->name('customers.deleteContact');
+        Route::get('customers/{customer}/editDocuments', 'editDocuments')->name('customers.editDocuments');
+        Route::post('customers.addDocument/{customer}', 'addDocument')->name('customers.addDocument');
+        Route::delete('customers.deleteDocument/{document}', 'deleteDocument')->name('customers.deleteDocument');
+    });
+
     Route::get('/clear-cache', function () {
         try {
             Artisan::call('config:clear');
@@ -115,8 +125,6 @@ Route::name('admin.')->middleware(['auth'])->group(function() {
             return back();
         }
      });
-
-
 });
 
 
