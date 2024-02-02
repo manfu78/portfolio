@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\PaymentMethodController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\SidebarMenuController;
+use App\Http\Controllers\Admin\SupplierController;
 use App\Http\Controllers\Admin\UserConfigurationController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\VatController;
@@ -112,6 +113,15 @@ Route::name('admin.')->middleware(['auth'])->group(function() {
         Route::get('customers/{customer}/editDocuments', 'editDocuments')->name('customers.editDocuments');
         Route::post('customers.addDocument/{customer}', 'addDocument')->name('customers.addDocument');
         Route::delete('customers.deleteDocument/{document}', 'deleteDocument')->name('customers.deleteDocument');
+    });
+
+    Route::resource('suppliers', SupplierController::class)->except(['show']);
+    Route::controller(SupplierController::class)->group(function () {
+        Route::put('suppliers.addContact/{supplier}', 'addContact')->name('suppliers.addContact');
+        Route::DELETE('suppliers.deleteContact/{supplierContact}', 'deleteContact')->name('suppliers.deleteContact');
+        Route::get('suppliers/{supplier}/editDocuments', 'editDocuments')->name('suppliers.editDocuments');
+        Route::post('suppliers.addDocument/{supplier}', 'addDocument')->name('suppliers.addDocument');
+        Route::delete('suppliers.deleteDocument/{document}', 'deleteDocument')->name('suppliers.deleteDocument');
     });
 
     Route::get('/clear-cache', function () {

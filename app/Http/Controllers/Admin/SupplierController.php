@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CustomerContactStoreRequest;
-use App\Http\Requests\CustomerStoreRequest;
-use App\Http\Requests\CustomerUpdateRequest;
-use App\Models\Customer;
-use App\Models\CustomerContact;
+use App\Http\Requests\SupplierContactStoreRequest;
+use App\Http\Requests\SupplierStoreRequest;
+use App\Http\Requests\SupplierUpdateRequest;
+use App\Models\Supplier;
+use App\Models\SupplierContact;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -15,18 +15,18 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\View\View;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;
 
-class CustomerController extends Controller
+class SupplierController extends Controller
 {
     function __construct()
     {
-        $this->middleware('permission:customers.index|customers.create|customers.edit|customers.destroy',['only'=>['index','show']]);
-        $this->middleware('permission:customers.create', ['only'=>['create', 'store']]);
-        $this->middleware('permission:customers.edit', ['only'=>[
+        $this->middleware('permission:suppliers.index|suppliers.create|suppliers.edit|suppliers.destroy',['only'=>['index','show']]);
+        $this->middleware('permission:suppliers.create', ['only'=>['create', 'store']]);
+        $this->middleware('permission:suppliers.edit', ['only'=>[
             'edit', 'update',
             'addContact','deleteContact',
             'editDocuments','addDocument','deleteDocument'
         ]]);
-        $this->middleware('permission:customers.destroy', ['only'=>['destroy']]);
+        $this->middleware('permission:suppliers.destroy', ['only'=>['destroy']]);
     }
 
     public function index(Request $request):View
@@ -36,20 +36,20 @@ class CustomerController extends Controller
 
         switch ($status) {
             case '1':
-                $customers = Customer::orderBy('name')->where('status','=',$status)->get();
+                $suppliers = Supplier::orderBy('name')->where('status','=',$status)->get();
                 $selectedStatus = trans('messages.Actives');
                 break;
             case '0':
-                $customers = Customer::orderBy('name')->where('status','=',$status)->get();
+                $suppliers = Supplier::orderBy('name')->where('status','=',$status)->get();
                 $selectedStatus = trans('messages.NoActives');
                 break;
             default:
-                $customers = Customer::orderBy('name')->get();
+                $suppliers = Supplier::orderBy('name')->get();
                 break;
         }
 
-        return view('Admin.Customers.index',compact(
-            'customers',
+        return view('Admin.Suppliers.index',compact(
+            'suppliers',
             'selectedStatus',
             'status',
         ));
@@ -60,65 +60,65 @@ class CustomerController extends Controller
         $countrySelect = countrySelect();
         $vatSelect = vatSelect();
         $paymentMethods = paymentMethodSelect();
-        return view('Admin.Customers.create',compact(
+        return view('Admin.Suppliers.create',compact(
             'countrySelect',
             'vatSelect',
             'paymentMethods'
         ));
     }
 
-    public function store(CustomerStoreRequest $request):RedirectResponse
+    public function store(SupplierStoreRequest $request):RedirectResponse
     {
         $logVars=logVars();
-        $model = trans('messages.Customer.Customers');
-        $controllerFunction = 'CustomerController.store';
-        $route = $request->ubi?base64_decode($request->ubi):'admin.customers.edit';
+        $model = trans('messages.Supplier.Suppliers');
+        $controllerFunction = 'SupplierController.store';
+        $route = $request->ubi?base64_decode($request->ubi):'admin.suppliers.edit';
 
         $input = $request->all();
         $input['email'] = strtolower($input['email']);
         $input['user_id_mod'] = auth()->user()->id;
 
         try {
-            $customer = Customer::create($input);
+            $supplier = Supplier::create($input);
 
-            Log::info("Customer Store. ".trans('messages.InfoSuccess.Created'),array('context'=>$customer,'logVars'=>$logVars));
-            return redirect()->route($route,$customer)->with('info',trans('messages.InfoSuccess.Created'));
+            Log::info("Supplier Store. ".trans('messages.InfoSuccess.Created'),array('context'=>$supplier,'logVars'=>$logVars));
+            return redirect()->route($route,$supplier)->with('info',trans('messages.InfoSuccess.Created'));
         } catch (RouteNotFoundException $re) {
             createErrorExceptionLog($re,$controllerFunction);
-            return redirect()->route('admin.countries.edit',$customer)->with('warning',trans('messages.InfoSuccess.CreatedButError'));
+            return redirect()->route('admin.countries.edit',$supplier)->with('warning',trans('messages.InfoSuccess.CreatedButError'));
         } catch (\Throwable $th) {
             createErrorExceptionLog($th,$controllerFunction);
             return back()->with('error',trans("messages.InfoError.Create",['model'=>$model]));
         }
     }
 
-    public function show(Customer $customer):View
+    public function show(Supplier $supplier):View
     {
-        return view('Admin.Customers.show',compact(
-            'customer',
+        return view('Admin.Suppliers.show',compact(
+            'supplier',
         ));
     }
 
-    public function edit(Customer $customer):View
+    public function edit(Supplier $supplier):View
     {
         $countrySelect = countrySelect();
         $vatSelect = vatSelect();
         $paymentMethods = paymentMethodSelect();
 
-        return view('Admin.Customers.edit',compact(
-            'customer',
+        return view('Admin.Suppliers.edit',compact(
+            'supplier',
             'countrySelect',
             'vatSelect',
             'paymentMethods',
         ));
     }
 
-    public function update(CustomerUpdateRequest $request,Customer $customer):RedirectResponse
+    public function update(SupplierUpdateRequest $request,Supplier $supplier):RedirectResponse
     {
         $logVars=logVars();
-        $model = trans('messages.Customer.Customers');
-        $controllerFunction = 'CustomerController.Update';
-        $route = $request->ubi?base64_decode($request->ubi):'admin.customers.edit';
+        $model = trans('messages.Supplier.Suppliers');
+        $controllerFunction = 'SupplierController.Update';
+        $route = $request->ubi?base64_decode($request->ubi):'admin.suppliers.edit';
 
         $input = $request->all();
 
@@ -129,29 +129,29 @@ class CustomerController extends Controller
         $input['user_id_mod'] = auth()->user()->id;
 
         try {
-            $customer->update($input);
+            $supplier->update($input);
 
-            Log::info("Customer Update. ".trans('messages.InfoSuccess.Updated'),array('context'=>$customer,'logVars'=>$logVars));
-            return redirect()->route($route,$customer)->with('info',trans('messages.InfoSuccess.Updated'));
+            Log::info("Supplier Update. ".trans('messages.InfoSuccess.Updated'),array('context'=>$supplier,'logVars'=>$logVars));
+            return redirect()->route($route,$supplier)->with('info',trans('messages.InfoSuccess.Updated'));
 
         } catch (RouteNotFoundException $re) {
             createErrorExceptionLog($re,$controllerFunction);
-            return redirect()->route('admin.countries.edit',$customer)->with('warning',trans('messages.InfoSuccess.CreatedButError'));
+            return redirect()->route('admin.countries.edit',$supplier)->with('warning',trans('messages.InfoSuccess.CreatedButError'));
         } catch (\Throwable $th) {
             createErrorExceptionLog($th,$controllerFunction);
             return back()->with('error',trans("messages.InfoError.Update",['model'=>$model]));
         }
     }
 
-    public function destroy(Request $request,Customer $customer):RedirectResponse
+    public function destroy(Request $request,Supplier $supplier):RedirectResponse
     {
         $logVars=logVars();
-        $model = trans('messages.Customer.Customers');
-        $controllerFunction = 'CustomerController.destroy';
-        $route = $request->ubi?base64_decode($request->ubi):'admin.customers.index';
+        $model = trans('messages.Supplier.Suppliers');
+        $controllerFunction = 'SupplierController.destroy';
+        $route = $request->ubi?base64_decode($request->ubi):'admin.suppliers.index';
 
         try {
-            $documents = $customer->documents;
+            $documents = $supplier->documents;
             if ($documents) {
                 foreach ($documents as $document) {
                     if (Storage::disk('public')->exists($document->file)) {
@@ -161,9 +161,9 @@ class CustomerController extends Controller
                 $documents->delete();
             }
 
-            $customer->delete();
+            $supplier->delete();
 
-            Log::info("Customer Destroy. ".trans('messages.InfoSuccess.Deleted'),array('context'=>$customer,'logVars'=>$logVars));
+            Log::info("Supplier Destroy. ".trans('messages.InfoSuccess.Deleted'),array('context'=>$supplier,'logVars'=>$logVars));
             return redirect()->route($route)->with('info',trans('messages.InfoSuccess.Deleted'));
         } catch (RouteNotFoundException $re) {
             createErrorExceptionLog($re,$controllerFunction);
@@ -174,71 +174,71 @@ class CustomerController extends Controller
         }
     }
 
-    public function addContact(CustomerContactStoreRequest $request,Customer $customer):RedirectResponse
+    public function addContact(SupplierContactStoreRequest $request,Supplier $supplier):RedirectResponse
     {
         $logVars=logVars();
-        $controllerFunction = 'CustomerController.addContact';
-        $model = trans('messages.Customer.Customers');
-        $route = $request->ubi?base64_decode($request->ubi):'admin.customers.edit';
+        $controllerFunction = 'SupplierController.addContact';
+        $model = trans('messages.Supplier.Suppliers');
+        $route = $request->ubi?base64_decode($request->ubi):'admin.suppliers.edit';
 
         $inputs = $request->all();
         $inputs['email'] = strtolower($inputs['email']);
-        $inputs['customer_id'] = $customer->id;
+        $inputs['supplier_id'] = $supplier->id;
         $inputs['user_id_mod'] = auth()->user()->id;
 
         try {
-            CustomerContact::create($inputs);
+            SupplierContact::create($inputs);
 
-            Log::info("Customers.Update. Añadido contacto a la tabla Customers.",array('context'=>$customer,'info'=>$logVars,));
-            return redirect()->route($route,$customer)->with('info',trans('messages.InfoSuccess.Updated'));
+            Log::info("Suppliers.Update. Añadido contacto a la tabla Suppliers.",array('context'=>$supplier,'info'=>$logVars,));
+            return redirect()->route($route,$supplier)->with('info',trans('messages.InfoSuccess.Updated'));
         } catch (RouteNotFoundException $re) {
             createErrorExceptionLog($re,$controllerFunction);
-            return redirect()->route($route,$customer)->with('warning',trans('messages.InfoSuccess.CreatedButError'));
+            return redirect()->route($route,$supplier)->with('warning',trans('messages.InfoSuccess.CreatedButError'));
         } catch (\Throwable $th) {
             createErrorExceptionLog($th,$controllerFunction);
             return back()->with('error',trans("messages.InfoError.Update",['model'=>$model]));
         }
     }
 
-    public function deleteContact(Request $request, CustomerContact $customerContact):RedirectResponse
+    public function deleteContact(Request $request, SupplierContact $supplierContact):RedirectResponse
     {
         $logVars=logVars();
-        $model = trans('messages.Customer.Customers');
+        $model = trans('messages.Supplier.Suppliers');
         $controllerFunction = 'SupplierController.deleteContact';
-        $route = $request->ubi?base64_decode($request->ubi):'admin.customers.edit';
+        $route = $request->ubi?base64_decode($request->ubi):'admin.suppliers.edit';
 
         try {
-            $customer = $customerContact->customer;
+            $supplier = $supplierContact->supplier;
 
-            $customerContact->delete();
+            $supplierContact->delete();
 
-            $customer->user_id_mod = auth()->user()->id;
-            $customer->save();
+            $supplier->user_id_mod = auth()->user()->id;
+            $supplier->save();
 
-            Log::info("Customer.Update. Eliminado contacto de la tabla Customers.",array('context'=>$customer,'info'=>$logVars,));
-            return redirect()->route($route,$customer)->with('info',trans('messages.InfoSuccess.Updated'));
+            Log::info("Supplier.Update. Eliminado contacto de la tabla Suppliers.",array('context'=>$supplier,'info'=>$logVars,));
+            return redirect()->route($route,$supplier)->with('info',trans('messages.InfoSuccess.Updated'));
         } catch (RouteNotFoundException $re) {
             createErrorExceptionLog($re,$controllerFunction);
-            return redirect()->route('admin.countries.edit',$customer)->with('warning',trans('messages.InfoSuccess.CreatedButError'));
+            return redirect()->route('admin.countries.edit',$supplier)->with('warning',trans('messages.InfoSuccess.CreatedButError'));
         } catch (\Throwable $th) {
             createErrorExceptionLog($th,$controllerFunction);
             return back()->with('error',trans("messages.InfoError.Update",['model'=>$model]));
         }
     }
 
-    public function editDocuments(Customer $customer):View
+    public function editDocuments(Supplier $supplier):View
     {
-        $documents = $customer->documents;
+        $documents = $supplier->documents;
         $documentTypeSelect = documentTypeSelect();
 
-        return view('Admin.Customers.documents',compact(
-            'customer',
+        return view('Admin.Suppliers.documents',compact(
+            'supplier',
             'documents',
             'documentTypeSelect',
         ));
     }
 
-    public function addDocument(Request $request,Customer $customer)
+    public function addDocument(Request $request,Supplier $supplier)
     {
         $this->validate($request, [
             'name'                  => 'required|string|max:191',
@@ -248,24 +248,24 @@ class CustomerController extends Controller
         ]);
 
         $logVars=logVars();
-        $model = trans('messages.Customer.Customers');
-        $controllerFunction = 'CustomerController.addDocument';
-        $route = $request->ubi?base64_decode($request->ubi):'admin.customers.editDocuments';
+        $model = trans('messages.Supplier.Suppliers');
+        $controllerFunction = 'SupplierController.addDocument';
+        $route = $request->ubi?base64_decode($request->ubi):'admin.suppliers.editDocuments';
 
         try {
             $document = $request->file('document');
-            $documentName = 'Customer_'.$customer->id.'_'.date('YmdHis').'.'.$document->getClientOriginalExtension();
+            $documentName = 'Supplier_'.$supplier->id.'_'.date('YmdHis').'.'.$document->getClientOriginalExtension();
             $documentNamePath = $request->document->storeAs('documents',$documentName,'public');
 
             $documentInputs['name'] = $request->name;
             $documentInputs['file'] = $documentNamePath;
             $documentInputs['extension'] = $document->getClientOriginalExtension();
-            $documentInputs['description'] = $request->description??trans('messages.Customer.Customer').':'.$customer->id.'-'.$customer->full_name;
+            $documentInputs['description'] = $request->description??trans('messages.Supplier.Supplier').':'.$supplier->id.'-'.$supplier->full_name;
             $documentInputs['document_type_id'] = $request->document_type_id;
-            $documentInputs['customer_id'] = $customer->id;
+            $documentInputs['supplier_id'] = $supplier->id;
             $documentInputs['user_id_mod'] = auth()->user()->id;
 
-            $document = $customer->documents()->create($documentInputs);
+            $document = $supplier->documents()->create($documentInputs);
 
             $tagsArray = null;
             if ($request->tags) {
@@ -274,10 +274,10 @@ class CustomerController extends Controller
             }
 
             Log::info("Document.Create. Añadido documento a ".$model,array('context'=>$document,'info'=>$logVars,));
-            return redirect()->route($route,$customer)->with('info',trans('messages.InfoSuccess.Updated'));
+            return redirect()->route($route,$supplier)->with('info',trans('messages.InfoSuccess.Updated'));
         } catch (RouteNotFoundException $re) {
             createErrorExceptionLog($re,$controllerFunction);
-            return redirect()->route('admin.countries.edit',$customer)->with('warning',trans('messages.InfoSuccess.CreatedButError'));
+            return redirect()->route('admin.countries.edit',$supplier)->with('warning',trans('messages.InfoSuccess.CreatedButError'));
         } catch (\Throwable $th) {
             createErrorExceptionLog($th,$controllerFunction);
             return back()->with('error',trans("messages.InfoError.Update",['model'=>$model]));
@@ -287,10 +287,10 @@ class CustomerController extends Controller
     public function deleteDocument(Document $document):RedirectResponse
     {
         $logVars=logVars();
-        $model = trans('messages.Customer.Customers');
-        $controllerFunction = 'CustomerController.deleteDocument';
-        $route = 'admin.customers.editDocuments';
-        $customer = $document->documentable;
+        $model = trans('messages.Supplier.Suppliers');
+        $controllerFunction = 'SupplierController.deleteDocument';
+        $route = 'admin.suppliers.editDocuments';
+        $supplier = $document->documentable;
 
         try {
             if ($document->file) {
@@ -301,14 +301,14 @@ class CustomerController extends Controller
 
             $document->delete();
 
-            $customer->user_id_mod = auth()->user()->id;
-            $customer->save();
+            $supplier->user_id_mod = auth()->user()->id;
+            $supplier->save();
 
-            Log::info("Customer.Update. Eliminado contacto de la tabla Customers.",array('context'=>$customer,'info'=>$logVars,));
-            return redirect()->route($route,$customer)->with('info',trans('messages.InfoSuccess.Updated'));
+            Log::info("Supplier.Update. Eliminado contacto de la tabla Suppliers.",array('context'=>$supplier,'info'=>$logVars,));
+            return redirect()->route($route,$supplier)->with('info',trans('messages.InfoSuccess.Updated'));
         } catch (RouteNotFoundException $re) {
             createErrorExceptionLog($re,$controllerFunction);
-            return redirect()->route('admin.countries.edit',$customer)->with('warning',trans('messages.InfoSuccess.CreatedButError'));
+            return redirect()->route('admin.countries.edit',$supplier)->with('warning',trans('messages.InfoSuccess.CreatedButError'));
         } catch (\Throwable $th) {
             createErrorExceptionLog($th,$controllerFunction);
             return back()->with('error',trans("messages.InfoError.Update",['model'=>$model]));

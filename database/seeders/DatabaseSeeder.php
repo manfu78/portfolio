@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PaymentMethodSeeder::class);
         $this->call(WorkerSeeder::class);
         $this->call(CustomerSeeder::class);
+        $this->call(SupplierSeeder::class);
 
 
         $this->call(CountrySeederDat::class);
@@ -36,6 +37,8 @@ class DatabaseSeeder extends Seeder
         $this->call(PaymentMethodSeederDat::class);
 
         $this->call(BusinessSeederDat::class);
+
+
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([
