@@ -77,9 +77,4 @@ class Customer extends Model
     {
         return $this->belongsTo(User::class,'user_id_mod','id');
     }
-
-    public function tenant():BelongsTo
-    {
-        return $this->belongsTo(Tenant::class);
-    }
 }
