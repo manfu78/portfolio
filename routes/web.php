@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CoinTypeController;
 use App\Http\Controllers\Admin\CountryController;
 use App\Http\Controllers\Admin\CustomerController;
+use App\Http\Controllers\Admin\DocumentTypeController;
 use App\Http\Controllers\Admin\PaymentMethodController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\RoleController;
@@ -123,6 +124,8 @@ Route::name('admin.')->middleware(['auth'])->group(function() {
         Route::post('suppliers.addDocument/{supplier}', 'addDocument')->name('suppliers.addDocument');
         Route::delete('suppliers.deleteDocument/{document}', 'deleteDocument')->name('suppliers.deleteDocument');
     });
+
+    Route::resource('documentTypes', DocumentTypeController::class)->except(['show']);
 
     Route::get('/clear-cache', function () {
         try {

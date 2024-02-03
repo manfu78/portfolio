@@ -22,16 +22,28 @@ class SuperAdminSeeder extends Seeder
         }
 
         $superAdminData = [
-            'name'=>'SuperAdmin',
             'email'=>'admin@germanraulgarcia.es',
+            'name'=>'SuperAdmin',
             'password'=>bcrypt('PicaPica23'),
         ];
 
+        $userDemoData = [
+            'email'=>'demo@gmail.com',
+            'name'=>'DEMO',
+            'password'=>bcrypt('123456789'),
+        ];
 
-        $superAdmin = User::firstOrCreate($superAdminData);
+        $superAdmin = User::where('email', 'admin@germanraulgarcia.es')->first();
+        if (!$superAdmin) {
+            $superAdmin = User::firstOrCreate($superAdminData);
+        }
         $superAdmin->assignRole($role->name);
 
-
+        $userDemo = User::where('email', 'demo@gmail.com')->first();
+        if (!$userDemo) {
+            $userDemo = User::firstOrCreate($userDemoData);
+        }
+        $userDemo->assignRole($role->name);
 
         // $user = User::create([
         //     'name'=>'admin',

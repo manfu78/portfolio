@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
         $this->call(WorkerSeeder::class);
         $this->call(CustomerSeeder::class);
         $this->call(SupplierSeeder::class);
+        $this->call(DocumentTypeSeeder::class);
 
 
         $this->call(CountrySeederDat::class);
@@ -35,6 +36,7 @@ class DatabaseSeeder extends Seeder
         $this->call(CoinTypeSeederDat::class);
         $this->call(VatSeederDat::class);
         $this->call(PaymentMethodSeederDat::class);
+        $this->call(DocumentTypeSeederDat::class);
 
         $this->call(BusinessSeederDat::class);
 
