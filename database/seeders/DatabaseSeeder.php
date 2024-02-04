@@ -24,6 +24,8 @@ class DatabaseSeeder extends Seeder
         $this->call(BankAccountSeeder::class);
         $this->call(BusinessSeeder::class);
         $this->call(PaymentMethodSeeder::class);
+        $this->call(AreaSeeder::class);
+        $this->call(DepartmentSeeder::class);
         $this->call(WorkerSeeder::class);
         $this->call(CustomerSeeder::class);
         $this->call(SupplierSeeder::class);

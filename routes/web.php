@@ -1,11 +1,13 @@
 <?php
 
+use App\Http\Controllers\Admin\AreaController;
 use App\Http\Controllers\Admin\BankAccountController;
 use App\Http\Controllers\Admin\BusinessController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CoinTypeController;
 use App\Http\Controllers\Admin\CountryController;
 use App\Http\Controllers\Admin\CustomerController;
+use App\Http\Controllers\Admin\DepartmentController;
 use App\Http\Controllers\Admin\DocumentController;
 use App\Http\Controllers\Admin\DocumentTypeController;
 use App\Http\Controllers\Admin\PaymentMethodController;
@@ -71,6 +73,10 @@ Route::name('admin.')->middleware(['auth'])->group(function() {
         Route::get('users/{user}/unsetWorker', 'unsetWorker')->name('users.unsetWorker');
         Route::get('users/{user}/setWorker/{worker}', 'setWorker')->name('users.setWorker');
     });
+
+
+    Route::resource('areas', AreaController::class)->except(['show']);
+    Route::resource('departments', DepartmentController::class)->except(['show']);
 
     Route::resource('workers', WorkerController::class)->except(['show']);
     Route::controller(WorkerController::class)->group(function () {
@@ -139,6 +145,7 @@ Route::name('admin.')->middleware(['auth'])->group(function() {
             Route::post('documents.massiveUploadStoreWorkers', 'massiveUploadStoreWorkers')->name('documents.massiveUploadStoreWorkers');
             Route::post('documents.massiveUploadStoreBusiness', 'massiveUploadStoreBusiness')->name('documents.massiveUploadStoreBusiness');
         });
+
 
     Route::get('/clear-cache', function () {
         try {
