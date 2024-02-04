@@ -333,6 +333,7 @@ return [
     'ClearChecks'=>'Limpiar Checks',
     'GoBack'=>'Volver',
     'DeleteImage'=>'Borrar Imagen',
+    'DocumentsOf'=>'Documentos de:',
 
     'AppModels'=>'Módulos',
     'AppModel'=>[

@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CoinTypeController;
 use App\Http\Controllers\Admin\CountryController;
 use App\Http\Controllers\Admin\CustomerController;
+use App\Http\Controllers\Admin\DocumentController;
 use App\Http\Controllers\Admin\DocumentTypeController;
 use App\Http\Controllers\Admin\PaymentMethodController;
 use App\Http\Controllers\Admin\ProfileController;
@@ -126,6 +127,18 @@ Route::name('admin.')->middleware(['auth'])->group(function() {
     });
 
     Route::resource('documentTypes', DocumentTypeController::class)->except(['show']);
+
+    Route::resource('documents', DocumentController::class)->except(['show','create','store']);
+        Route::controller(DocumentController::class)->group(function () {
+            Route::get('documents.customerProjects/{id}','customerProjects')->name('documents.customerProjects');
+            Route::get('documents.customerOpportunities/{customer}','customerOpportunities')->name('documents.customerOpportunities');
+            Route::get('documents.projectProjectChores/{project}','projectProjectChores')->name('documents.projectProjectChores');
+            Route::get('documents.workerOpportunities/{worker}','workerOpportunities')->name('documents.workerOpportunities');
+            Route::get('documents.massiveUpload','massiveUpload')->name('documents.massiveUpload');
+            Route::post('documents.massiveUploadStoreWorker', 'massiveUploadStoreWorker')->name('documents.massiveUploadStoreWorker');
+            Route::post('documents.massiveUploadStoreWorkers', 'massiveUploadStoreWorkers')->name('documents.massiveUploadStoreWorkers');
+            Route::post('documents.massiveUploadStoreBusiness', 'massiveUploadStoreBusiness')->name('documents.massiveUploadStoreBusiness');
+        });
 
     Route::get('/clear-cache', function () {
         try {

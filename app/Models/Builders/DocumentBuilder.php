@@ -13,12 +13,7 @@ final class DocumentBuilder extends Builder
         $fromDate,
         $toDate,
         $documentTypeSelected,
-        $businessSelected,
-        $customerSelected,
-        $workerSelected,
-        $projectSelected,
-        $projectChoreSelected,
-        $opportunitySelected,
+        $modelSelected,
         $words,
 
     ): self
@@ -37,29 +32,20 @@ final class DocumentBuilder extends Builder
             $this->where('document_type_id','=',$documentTypeSelected);
         }
 
-        if ($businessSelected!=null) {
-            $this->where('business_id','=',$businessSelected);
+        if ($modelSelected!=null) {
+            $this->where('documentable_type','=',$modelSelected);
         }
 
-        if ($customerSelected!=null) {
-            $this->where('customer_id','=',$customerSelected);
-        }
+        // if ($businessSelected!=null) {
+        //     $this->where('business_id','=',$businessSelected);
+        // }
 
-        if ($workerSelected!=null) {
-            $this->where('worker_id','=',$workerSelected);
-        }
+        // if ($businessSelected!=null) {
+        //     $this->whereHas('documentable', function ($query) use ($businessSelected) {
+        //         $query->where('id', $businessSelected)->where('documentable_type', 'App\\Business');
+        //     });
+        // }
 
-        if ($projectSelected!=null) {
-            $this->where('project_id','=',$projectSelected);
-        }
-
-        if ($projectChoreSelected!=null) {
-            $this->where('project_chore_id','=',$projectChoreSelected);
-        }
-
-        if ($opportunitySelected!=null) {
-            $this->where('opportunity_id','=',$opportunitySelected);
-        }
 
         if ($words!=null) {
             $opportunityIdArray = Document::withAnyTag($words)->pluck('id');

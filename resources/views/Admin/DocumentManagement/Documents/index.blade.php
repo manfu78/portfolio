@@ -37,8 +37,8 @@
                         <i class="fa-solid fa-filter"></i>&nbsp;{{ trans('messages.Filter') }}
                     </div>
                     <form action="{{ route('admin.documents.index') }}" method="GET" name="form_documents_filter" id="form_documents_filter">
-                        @csrf
-                        @method('GET')
+                        {{-- @csrf
+                        @method('GET') --}}
                         <div class="card-body py-3">
                             <div class="row">
                                 <div class="col-12 col-sm-4 col-md-4 col-lg-3 col-xl-2">
@@ -60,7 +60,10 @@
                                         <label class="form-label m-0">
                                             <small> {{ trans('messages.Type') }}</small>
                                         </label>
-                                        <select name="document_type_id" id="document_type_id" class="form-control form-select" placeholder="{{ trans('messages.All'), }}" style="width: 100%">
+                                        <select name="document_type_id" id="document_type_id"
+                                            class="form-control type-show-search form-select type "
+                                            style="width: 100%">
+                                            <option value="">{{ trans('messages.All') }}...</option>
                                             @foreach($documentTypeSelect as $documentTypeId => $documentTypeName)
                                                 <option value="{{ $documentTypeId }}" {{ $documentTypeId == $documentTypeSelected? 'selected' : '' }}>
                                                     {{ $documentTypeName }}
@@ -69,32 +72,18 @@
                                         </select>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row mt-3">
                                 <div class="col-12 col-sm-6 col-md-6">
                                     <div class="form-group m-0">
                                         <label class="form-label m-0">
-                                            <small> {{ trans('messages.Business.Business') }}</small>
+                                            <small> {{ trans('messages.DocumentsOf') }}</small>
                                         </label>
-                                        <select name="business_id" id="business_id" class="form-control business-show-search form-select business " placeholder="{{ trans('messages.SelectBusiness') }}" style="width: 100%">
-                                            @foreach($businessSelect as $businessId => $businessName)
-                                                <option value="{{ $businessId }}" {{ $businessId == $businessSelected ? 'selected' : '' }}>
-                                                    {{ $businessName }}
-                                                </option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="col-12 col-sm-6 col-md-6">
-                                    <div class="form-group m-0">
-                                        <label class="form-label m-0">
-                                            <small> {{ trans('messages.Worker.Workers') }}</small>
-                                        </label>
-                                        <select name="worker_id" id="worker_id" class="form-control worker-show-search form-select worker " placeholder="{{ trans('messages.SelectWorker') }}" style="width: 100%">
-                                            @foreach($workerSelect as $workerSelectId => $workerSelectName)
-                                                <option value="{{ $workerSelectId }}" {{ $workerSelectId == $workerSelected ? 'selected' : '' }}>
-                                                    {{ $workerSelectName }}
+                                        <select name="document_of" id="document_of"
+                                            class="form-control model-show-search form-select model "
+                                            style="width: 100%">
+                                            <option value="">{{ trans('messages.All') }}...</option>
+                                            @foreach($documentOfSelect as $model)
+                                                <option value="{{ $model }}" {{ $model == $modelSelected ? 'selected' : '' }}>
+                                                    {{ trans('messages.'.class_basename($model).'.'.class_basename($model)) }}
                                                 </option>
                                             @endforeach
                                         </select>
@@ -129,7 +118,7 @@
                             <table id="documents_table" class="table table-bordered border-bottom">
                                 <thead>
                                     <tr class="text-nowrap">
-                                        <th class="border-bottom-0">#</th>
+                                        <th class="border-bottom-0" style="width: 10px;">#</th>
                                         <th class="border-bottom-0"><small>{{ trans('messages.Date') }}</small></th>
                                         <th class="border-bottom-0"><small>{{ trans('messages.Name') }}</small></th>
                                         <th class="border-bottom-0"><small>{{ trans('messages.Type') }}</small></th>
@@ -141,7 +130,7 @@
                                 <tbody>
                                     @foreach($documents as $document)
                                         <tr>
-                                            <td class="py-1" style="width: 10px;">{{ $document->id }}</td>
+                                            <td class="py-1 text-end" style="width: 10px;"><small>#{{ $document->id }}</small></td>
                                             <td class="py-1">
                                                 <div class="fw-bold">
                                                     <span class="d-none">{{ date('Y/m/d',strtotime($document->date)) }}</span>
@@ -323,16 +312,16 @@
         $(function(e) {
             "use strict";
 
-            // Worker
-            $('.worker').select2({
+            // type
+            $('.type').select2({
                 minimumResultsForSearch: Infinity,
                 width: '100%'
             });
-            $('.worker-show-search').select2({
+            $('.type-show-search').select2({
                 minimumResultsForSearch: '',
                 width: '100%'
             });
-            $('.worker').on('click', () => {
+            $('.type').on('click', () => {
                 let selectField = document.querySelectorAll('.select2-search__field')
                 selectField.focus();
                 selectField.forEach((element, index) => {
@@ -341,16 +330,16 @@
             });
 
 
-            // Businesss
-            $('.business').select2({
+            // Model
+            $('.model').select2({
                 minimumResultsForSearch: Infinity,
                 width: '100%'
             });
-            $('.business-show-search').select2({
+            $('.model-show-search').select2({
                 minimumResultsForSearch: '',
                 width: '100%'
             });
-            $('.business').on('click', () => {
+            $('.model').on('click', () => {
                 let selectField = document.querySelectorAll('.select2-search__field')
                 selectField.focus();
                 selectField.forEach((element, index) => {

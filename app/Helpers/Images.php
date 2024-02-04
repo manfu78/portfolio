@@ -9,10 +9,6 @@ use Illuminate\Support\Facades\Storage;
 
 if(!function_exists('setImage600')){
     function setImage600 (Request $request, string $fieldName,string $folderName){
-
-        // if (tenant()){
-        //     $folderName = tenant()->id.'_'.$folderName;
-        // }
         if (!Storage::disk('public')->exists($folderName)) {
             Storage::disk('public')->makeDirectory($folderName);
         }
@@ -27,11 +23,9 @@ if(!function_exists('setImage600')){
         });
 
         $image->save($storagePath.'/'.$imageName);
-
         $imageFormatedName = $folderName.'/'.$imageName;
 
         return $imageFormatedName;
-
     }
 }
 

@@ -32,7 +32,7 @@
                             <table id="documentTypes_table" class="table table-bordered text-nowrap border-bottom">
                                 <thead>
                                     <tr>
-                                        <th class="border-bottom-0"><small>id</small></th>
+                                        <th class="border-bottom-0" style="width: 10px;"><small>#</small></th>
                                         <th class="border-bottom-0"><small>{{ trans('messages.Name') }}</small></th>
                                         <th class="border-bottom-0"></th>
                                     </tr>
@@ -40,7 +40,7 @@
                                 <tbody>
                                     @foreach($documentTypes as $documentType)
                                         <tr>
-                                            <td class="py-1" style="width: 10px;">{{ $documentType->id }}</td>
+                                            <td class="py-1 text-end" style="width: 10px;"><small>#{{ $documentType->id }}</small></td>
                                             <td class="py-1"><span class="fw-bold">{{ $documentType->type }}</span></td>
                                             <td class="py-1" style="width: 60px;text-align: right;">
                                                 @can('documentTypes.edit')

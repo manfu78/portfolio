@@ -31,35 +31,6 @@ class Document extends Model
         return $this->belongsTo(DocumentType::class);
     }
 
-    // public function customer():BelongsTo
-    // {
-    //     return $this->belongsTo(Customer::class);
-    // }
-
-    public function worker():BelongsTo
-    {
-        return $this->belongsTo(Worker::class);
-    }
-
-    public function business():BelongsTo
-    {
-        return $this->belongsTo(Business::class);
-    }
-
-    // public function project():BelongsTo
-    // {
-    //     return $this->belongsTo(Project::class);
-    // }
-
-    // public function projectChore():BelongsTo
-    // {
-    //     return $this->belongsTo(ProjectChore::class);
-    // }
-    // public function opportunity():BelongsTo
-    // {
-    //     return $this->belongsTo(Opportunity::class);
-    // }
-
     public function modifiedByUser():BelongsTo
     {
         return $this->belongsTo(User::class,'user_id_mod','id');
@@ -74,6 +45,7 @@ class Document extends Model
 
     public function getModelName():string
     {
+        //class_basename($model)
         $documentableModelArray = explode('\\',$this->documentable_type);
         $model = $documentableModelArray[2];
         $langModel = trans('messages.'.$model.'.'.$model);

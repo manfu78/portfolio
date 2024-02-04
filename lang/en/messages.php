@@ -334,6 +334,7 @@ return [
     'ClearChecks'=>'Clear Checks',
     'GoBack'=>'Go Back',
     'DeleteImage'=>'Delete Image',
+    'DocumentsOf'=>'Documents Of:',
 
     'AppModels'=>'AppModels',
     'AppModel'=>[
