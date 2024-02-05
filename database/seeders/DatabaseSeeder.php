@@ -31,6 +31,7 @@ class DatabaseSeeder extends Seeder
         $this->call(SupplierSeeder::class);
         $this->call(DocumentTypeSeeder::class);
         $this->call(DocumentSeeder::class);
+        $this->call(NotificationSeeder::class);
 
 
         $this->call(CountrySeederDat::class);

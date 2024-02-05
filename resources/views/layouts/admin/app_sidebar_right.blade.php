@@ -13,7 +13,7 @@
                     {{-- <li class=""><a href="#side1" class="active" data-bs-toggle="tab"><i class="fe fe-settings me-1"></i>Feeds</a></li> --}}
 
                     <li class=""><a href="#notifications_slide" class="active" data-bs-toggle="tab"><i class="fe fe-anchor me-1"></i>{{ trans('messages.Notification.Notifications') }}</a></li>
-                    <li><a href="#chat_slide" data-bs-toggle="tab"><i class="fe fe-message-circle"></i> Chat</a></li>
+                    {{-- <li><a href="#chat_slide" data-bs-toggle="tab"><i class="fe fe-message-circle"></i> Chat</a></li> --}}
                 </ul>
             </div>
             <div class="tab-content">
@@ -180,7 +180,7 @@
                     </div> --}}
                 </div>
 
-                <div class="tab-pane" id="chat_slide">
+                <div class="tab-pane d-none" id="chat_slide">
                     <div class="list-group list-group-flush">
                         <div class="pt-3 fw-semibold ps-5">Today</div>
                         <div class="list-group-item d-flex align-items-center">

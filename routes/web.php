@@ -10,6 +10,8 @@ use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\DepartmentController;
 use App\Http\Controllers\Admin\DocumentController;
 use App\Http\Controllers\Admin\DocumentTypeController;
+use App\Http\Controllers\Admin\MyNotificationController;
+use App\Http\Controllers\Admin\NotificationController;
 use App\Http\Controllers\Admin\PaymentMethodController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\RoleController;
@@ -135,16 +137,27 @@ Route::name('admin.')->middleware(['auth'])->group(function() {
     Route::resource('documentTypes', DocumentTypeController::class)->except(['show']);
 
     Route::resource('documents', DocumentController::class)->except(['show','create','store']);
-        Route::controller(DocumentController::class)->group(function () {
-            Route::get('documents.customerProjects/{id}','customerProjects')->name('documents.customerProjects');
-            Route::get('documents.customerOpportunities/{customer}','customerOpportunities')->name('documents.customerOpportunities');
-            Route::get('documents.projectProjectChores/{project}','projectProjectChores')->name('documents.projectProjectChores');
-            Route::get('documents.workerOpportunities/{worker}','workerOpportunities')->name('documents.workerOpportunities');
-            Route::get('documents.massiveUpload','massiveUpload')->name('documents.massiveUpload');
-            Route::post('documents.massiveUploadStoreWorker', 'massiveUploadStoreWorker')->name('documents.massiveUploadStoreWorker');
-            Route::post('documents.massiveUploadStoreWorkers', 'massiveUploadStoreWorkers')->name('documents.massiveUploadStoreWorkers');
-            Route::post('documents.massiveUploadStoreBusiness', 'massiveUploadStoreBusiness')->name('documents.massiveUploadStoreBusiness');
-        });
+    Route::controller(DocumentController::class)->group(function () {
+        Route::get('documents.customerProjects/{id}','customerProjects')->name('documents.customerProjects');
+        Route::get('documents.customerOpportunities/{customer}','customerOpportunities')->name('documents.customerOpportunities');
+        Route::get('documents.projectProjectChores/{project}','projectProjectChores')->name('documents.projectProjectChores');
+        Route::get('documents.workerOpportunities/{worker}','workerOpportunities')->name('documents.workerOpportunities');
+        Route::get('documents.massiveUpload','massiveUpload')->name('documents.massiveUpload');
+        Route::post('documents.massiveUploadStoreWorker', 'massiveUploadStoreWorker')->name('documents.massiveUploadStoreWorker');
+        Route::post('documents.massiveUploadStoreWorkers', 'massiveUploadStoreWorkers')->name('documents.massiveUploadStoreWorkers');
+        Route::post('documents.massiveUploadStoreBusiness', 'massiveUploadStoreBusiness')->name('documents.massiveUploadStoreBusiness');
+    });
+
+    Route::resource('notifications', NotificationController::class);
+    Route::controller(NotificationController::class)->group(function () {
+        Route::get('notifications.markAsRead/{notification}','markAsRead')->name('notifications.markAsRead');
+        Route::get('notifications/{notification}/sendEmail','sendEmail')->name('notifications.sendEmail');
+    });
+
+    Route::get('myNotifications', [MyNotificationController::class, 'index'])->name('myNotifications');
+    Route::controller(MyNotificationController::class)->group(function () {
+        Route::get('myNotifications/{notification}/markAsRead','markAsRead')->name('myNotifications.markAsRead');
+    });
 
 
     Route::get('/clear-cache', function () {
