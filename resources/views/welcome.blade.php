@@ -1012,6 +1012,8 @@
                         <li data-filter=".filter-crm">CRM</li>
                         <li data-filter=".filter-proyectos">Gestión de Proyectos</li>
                         <li data-filter=".filter-portal">Portales</li>
+                        <li data-filter=".filter-presupuestos">Presupuestos</li>
+                        <li data-filter=".filter-informes">Infórmes</li>
                     </ul>
                 </div>
             </div>
@@ -1032,6 +1034,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col-lg-4 col-md-6 portfolio-item filter-portal">
                     <div class="portfolio-wrap">
                         <img src="/assets/project_details/procuba.jpg" class="img-fluid" alt="">
@@ -1047,6 +1050,7 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="col-lg-4 col-md-6 portfolio-item filter-becas filter-portal">
                     <div class="portfolio-wrap">
                         <img src="/assets/project_details/car.jpg" class="img-fluid" alt="">
@@ -1062,6 +1066,23 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="col-lg-4 col-md-6 portfolio-item filter-becas filter-informes filter-presupuestos">
+                    <div class="portfolio-wrap">
+                        <img src="/assets/project_details/frimaq.png" class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h2>
+                                <a href="#">FRIMAQ</a>
+                            </h2>
+                            <p><span class="h6">Máquinas para envasado industrial</span></p>
+                            <div class="portfolio-links">
+                                <a href="/assets/project_details/frimaq.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Creación y gestión de presupuestos e informes de maquinaria industrial personalizada. Gestión y control de agentes comerciales."><i class="bx bx-plus"></i></a>
+                                <a href="/assets/project_details/project_frimaq.php" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Frimaq"><i class="bx bx-link"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
         </div>
