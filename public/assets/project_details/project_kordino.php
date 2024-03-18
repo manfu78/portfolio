@@ -21,6 +21,6 @@
 </style>
 </head>
 <body>
-    <img src="/assets/project_details/kordino.png" alt="Imagen">
+    <img src="/assets/project_details/project_kordino.png" alt="Imagen">
 </body>
 </html>

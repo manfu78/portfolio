@@ -21,6 +21,6 @@
 </style>
 </head>
 <body>
-    <img src="/assets/project_details/car.jpeg" alt="Imagen">
+    <img src="/assets/project_details/project_car.jpeg" alt="Imagen">
 </body>
 </html>

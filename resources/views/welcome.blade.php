@@ -999,7 +999,6 @@
   <!-- ======= Portfolio Section ======= -->
     <section id="proyectos" class="portfolio">
         <div class="container">
-
             <div class="section-title">
                 <h2>Proyectos</h2>
                 <p>Proyectos Destacados</p>
@@ -1009,60 +1008,62 @@
                 <div class="col-lg-12 d-flex justify-content-center">
                     <ul id="portfolio-flters">
                         <li data-filter="*" class="filter-active">All</li>
-                        <li data-filter=".filter-kordino">Kordino</li>
-                        <li data-filter=".filter-card">CRM</li>
-                        <li data-filter=".filter-web">Gestión de Proyectos</li>
+                        <li data-filter=".filter-multiempresa">Multiempresa</li>
+                        <li data-filter=".filter-crm">CRM</li>
+                        <li data-filter=".filter-proyectos">Gestión de Proyectos</li>
+                        <li data-filter=".filter-portal">Portales</li>
                     </ul>
                 </div>
             </div>
 
             <div class="row portfolio-container">
-                <div class="col-lg-4 col-md-6 portfolio-item filter-kordino">
+                <div class="col-lg-4 col-md-6 portfolio-item filter-multiempresa filter-crm filter-proyectos">
                     <div class="portfolio-wrap">
-                        <img src="landing-assets/img/portfolio/kordino.jpg" class="img-fluid" alt="">
+                        <img src="/assets/project_details/kordino.jpg" class="img-fluid" alt="">
                         <div class="portfolio-info">
                             <h2>
                                 <a href="#">kordino</a>
                             </h2>
                             <p><span class="h6">Aplicación Web Multiempresa.</span><br><span class="h7">CRM y Gestión de proyectos.</span></p>
                             <div class="portfolio-links">
-                                <a href="/landing-assets/img/portfolio/kordino.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Solución integral para organizar y administrar proyectos de manera eficiente, así como la gestion de todas las relaciones con clientes. Tendrás toda la trazabilidad de un proyecto desde el primer contácto con el cliente hasta la finalización del proyecto. Además de un control económico exaustivo y la gestión documental del mismo."><i class="bx bx-plus"></i></a>
+                                <a href="/assets/project_details/kordino.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Solución integral para organizar y administrar proyectos de manera eficiente, así como la gestion de todas las relaciones con clientes. Tendrás toda la trazabilidad de un proyecto desde el primer contácto con el cliente hasta la finalización del proyecto. Además de un control económico exaustivo y la gestión documental del mismo."><i class="bx bx-plus"></i></a>
                                 <a href="/assets/project_details/project_kordino.php" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Kordino.com"><i class="bx bx-link"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 portfolio-item filter-kordino">
+                <div class="col-lg-4 col-md-6 portfolio-item filter-portal">
                     <div class="portfolio-wrap">
-                        <img src="landing-assets/img/portfolio/procuba.jpg" class="img-fluid" alt="">
+                        <img src="/assets/project_details/procuba.jpg" class="img-fluid" alt="">
                         <div class="portfolio-info">
                             <h2>
                                 <a href="#">Procuba</a>
                             </h2>
-                            <p><span class="h6">Portal de Inteligencia Comercial</span><br><span class="h7">Información estratégica de Inteligencia Comercial e Internacionalización<br>- Ministerio de Comercio de Cuba -</span></p>
+                            <p><span class="h6">Portal de Inteligencia Comercial</span><br><span class="h7"><br>- Ministerio de Comercio de Cuba -</span></p>
                             <div class="portfolio-links">
-                                <a href="/landing-assets/img/portfolio/procuba.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Portal de Inteligencia Comercial, herramienta esencial para la actividad de comercio exterior. Entre los objetivos de la herramienta se encuentra promover la autonomía de los equipos comerciales, mejorar el proceso de seguimiento de detección de oportunidades y optimizar la efectividad y eficacia comercial por medio del análisis de mercado."><i class="bx bx-plus"></i></a>
+                                <a href="/assets/project_details/procuba.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Portal de Inteligencia Comercial, herramienta esencial para la actividad de comercio exterior. Entre los objetivos de la herramienta se encuentra promover la autonomía de los equipos comerciales, mejorar el proceso de seguimiento de detección de oportunidades y optimizar la efectividad y eficacia comercial por medio del análisis de mercado."><i class="bx bx-plus"></i></a>
                                 <a href="/assets/project_details/project_procuba.php" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Procuba"><i class="bx bx-link"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 portfolio-item filter-kordino">
+                <div class="col-lg-4 col-md-6 portfolio-item filter-becas filter-portal">
                     <div class="portfolio-wrap">
-                        <img src="landing-assets/img/portfolio/car.jpg" class="img-fluid" alt="">
+                        <img src="/assets/project_details/car.jpg" class="img-fluid" alt="">
                         <div class="portfolio-info">
                             <h2>
                                 <a href="#">CAR</a>
                             </h2>
                             <p><span class="h6">Centro de Alto Rendimiento</span><br><span class="h7">Región de Murcia</span></p>
                             <div class="portfolio-links">
-                                <a href="/landing-assets/img/portfolio/car.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Gestión de deportistas y clubes deportivos. Tramitación de becas e información de las mismas. Aplicación creada para el Centro de Tecnificación Deportiva de la región de Murcia."><i class="bx bx-plus"></i></a>
+                                <a href="/assets/project_details/car.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Gestión de deportistas y clubes deportivos. Tramitación de becas e información de las mismas. Aplicación creada para el Centro de Tecnificación Deportiva de la región de Murcia."><i class="bx bx-plus"></i></a>
                                 <a href="/assets/project_details/project_car.php" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Procuba"><i class="bx bx-link"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
 

@@ -21,6 +21,6 @@
 </style>
 </head>
 <body>
-    <img src="/assets/project_details/procuba.png" alt="Imagen">
+    <img src="/assets/project_details/project_procuba.png" alt="Imagen">
 </body>
 </html>
