@@ -1082,7 +1082,7 @@
           <div class="info-box">
             <i class="bx bx-map"></i>
             <h3>Mi Dirección</h3>
-            <p>Calle Gerardo Diego, 24, Puerto Lumbreras, Murcia</p>
+            <p>Puerto Lumbreras, Murcia</p>
           </div>
         </div>
 
@@ -1107,13 +1107,13 @@
             <p>germansoy@gmail.com</p>
           </div>
         </div>
-        <div class="col-md-6 mt-4 d-flex align-items-stretch">
-          <div class="info-box">
-            <i class="bx bx-phone-call"></i>
-            <h3>Llamame</h3>
-            <p>+34 676 980 401</p>
-          </div>
-        </div>
+        {{-- <div class="col-md-6 mt-4 d-flex align-items-stretch">
+            <div class="info-box">
+                <i class="bx bx-phone-call"></i>
+                <h3>Llamame</h3>
+                <p>+34 676 980 401</p>
+            </div>
+        </div> --}}
       </div>
 
       <form action="/forms/contact.php" method="post" role="form" class="php-email-form mt-4">
