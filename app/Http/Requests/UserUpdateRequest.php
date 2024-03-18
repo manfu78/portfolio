@@ -25,7 +25,7 @@ class UserUpdateRequest extends FormRequest
         if (!empty($this->password)) {
             $rules = [
                 'name'  => 'required|string|max:255|unique:users,name,'.$this->user->id,
-                'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email'],
+                'email' => 'required|string|email|max:255|unique:users,email,'.$this->user->id,
                 // 'password' => ['required', 'confirmed', Rules\Password::defaults()],
                 'password'  =>['same:password_confirmation',
                                 Password::min(4)

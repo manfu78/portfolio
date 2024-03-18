@@ -334,6 +334,15 @@ return [
     'GoBack'=>'Volver',
     'DeleteImage'=>'Borrar Imagen',
     'DocumentsOf'=>'Documentos de:',
+    'Aux'=>'Aux',
+    'Guest'=>'Invitado',
+    'Guests'=>'Invitados',
+    'HostWorker'=>'Anfitrión',
+    'NotAttend'=>'No asistir',
+    'RequestLeave'=>'Solicitar Ausencia',
+    'Motive'=>'Motivo',
+    'ValidFrom'=>'Valido desde',
+    'ValidTo'=>'Valido hasta',
 
     'AppModels'=>'Módulos',
     'AppModel'=>[
@@ -1168,7 +1177,7 @@ return [
         'DestroyEvent'=>'Eliminar Evento',
     ],
 
-    'WorkCalendars'=>'Calendarios Lavorales',
+    'WorkCalendars'=>'Calendarios Laborales',
     'WorkCalendar'=>[
         'WorkCalendar'=>'Calendario Laboral',
         'WorkCalendars'=>'Calendarios Laborales',

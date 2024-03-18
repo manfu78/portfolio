@@ -160,6 +160,15 @@ Route::name('admin.')->middleware(['auth'])->group(function() {
     });
 
 
+    Route::middleware(['profile.completed'])->group(function () {
+        // Route::resource('events', EventController::class);
+        // Route::resource('leaveRequests', LeaveRequestController::class)->except(['show']);
+        // Route::controller(LeaveRequestController::class)->group(function () {
+        //     Route::get('leaveRequests/{leaveRequest}/approve', 'approve')->name('leaveRequests.approve');
+        // });
+        // Route::resource('workerLeaveRequests', WorkerLeaveRequestController::class)->except(['show','create','edit','update','delete']);
+    });
+
     Route::get('/clear-cache', function () {
         try {
             Artisan::call('config:clear');

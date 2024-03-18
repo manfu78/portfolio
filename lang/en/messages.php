@@ -335,6 +335,15 @@ return [
     'GoBack'=>'Go Back',
     'DeleteImage'=>'Delete Image',
     'DocumentsOf'=>'Documents Of:',
+    'Aux'=>'Aux',
+    'Guest'=>'Guest',
+    'Guests'=>'Guests',
+    'HostWorker'=>'HostWorker',
+    'NotAttend'=>'Not attend',
+    'RequestLeave'=>'Request Leave',
+    'Motive'=>'Motive',
+    'ValidFrom'=>'Valid From',
+    'ValidTo'=>'Valid To',
 
     'AppModels'=>'AppModels',
     'AppModel'=>[

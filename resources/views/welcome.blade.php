@@ -997,185 +997,74 @@
   </section><!-- End Clientes Section -->
 
   <!-- ======= Portfolio Section ======= -->
-  <section id="proyectos" class="portfolio">
-    <div class="container">
+    <section id="proyectos" class="portfolio">
+        <div class="container">
 
-      <div class="section-title">
-        <h2>Proyectos</h2>
-        <p>Proyectos Destacados</p>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-12 d-flex justify-content-center">
-          <ul id="portfolio-flters">
-            <li data-filter="*" class="filter-active">All</li>
-            <li data-filter=".filter-kordino">Kordino</li>
-            <li data-filter=".filter-card">CRM</li>
-            <li data-filter=".filter-web">Gestión de Proyectos</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="row portfolio-container">
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-kordino">
-          <div class="portfolio-wrap">
-            <img src="landing-assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4><a href="portfolio-details.html" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Detalles">kordino</a></h4>
-              <p>Aplicación Web Multiempresa</p>
-              <div class="portfolio-links">
-                <a href="landing-assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Mas Proyectos"><i class="bx bx-plus"></i></a>
-                <!-- <a href="portfolio-details.html" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a> -->
-              </div>
+            <div class="section-title">
+                <h2>Proyectos</h2>
+                <p>Proyectos Destacados</p>
             </div>
-          </div>
-        </div>
 
-        <!-- <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-          <div class="portfolio-wrap">
-            <img src="landing-assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Web 3</h4>
-              <p>Web</p>
-              <div class="portfolio-links">
-                <a href="landing-assets/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-          <div class="portfolio-wrap">
-            <img src="landing-assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>App 2</h4>
-              <p>App</p>
-              <div class="portfolio-links">
-                <a href="landing-assets/img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 2"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-          <div class="portfolio-wrap">
-            <img src="landing-assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Card 2</h4>
-              <p>Card</p>
-              <div class="portfolio-links">
-                <a href="landing-assets/img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 2"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-          <div class="portfolio-wrap">
-            <img src="landing-assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Web 2</h4>
-              <p>Web</p>
-              <div class="portfolio-links">
-                <a href="landing-assets/img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 2"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-          <div class="portfolio-wrap">
-            <img src="landing-assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>App 3</h4>
-              <p>App</p>
-              <div class="portfolio-links">
-                <a href="landing-assets/img/portfolio/portfolio-6.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 3"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-          <div class="portfolio-wrap">
-            <img src="landing-assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Card 1</h4>
-              <p>Card</p>
-              <div class="portfolio-links">
-                <a href="landing-assets/img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 1"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>-->
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-          <div class="portfolio-wrap">
-            <img src="landing-assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Card 3</h4>
-              <p>Card</p>
-              <div class="portfolio-links">
-                <a href="landing-assets/img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 3"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-          <div class="portfolio-wrap">
-            <img src="landing-assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4>Web 3</h4>
-              <p>Web</p>
-              <div class="portfolio-links">
-                <a href="landing-assets/img/portfolio/portfolio-9.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
-                <a href="portfolio-details.html" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-wrap">
-              <img src="landing-assets/img/portfolio/portfolio-10.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Web 3</h4>
-                <p>Web</p>
-                <div class="portfolio-links">
-                  <a href="landing-assets/img/portfolio/portfolio-10.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
+            <div class="row">
+                <div class="col-lg-12 d-flex justify-content-center">
+                    <ul id="portfolio-flters">
+                        <li data-filter="*" class="filter-active">All</li>
+                        <li data-filter=".filter-kordino">Kordino</li>
+                        <li data-filter=".filter-card">CRM</li>
+                        <li data-filter=".filter-web">Gestión de Proyectos</li>
+                    </ul>
                 </div>
-              </div>
             </div>
-          </div>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-wrap">
-              <img src="landing-assets/img/portfolio/portfolio-11.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Web 3</h4>
-                <p>Web</p>
-                <div class="portfolio-links">
-                  <a href="landing-assets/img/portfolio/portfolio-11.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Portfolio Details"><i class="bx bx-link"></i></a>
+            <div class="row portfolio-container">
+                <div class="col-lg-4 col-md-6 portfolio-item filter-kordino">
+                    <div class="portfolio-wrap">
+                        <img src="landing-assets/img/portfolio/kordino.jpg" class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h2>
+                                <a href="#">kordino</a>
+                            </h2>
+                            <p><span class="h6">Aplicación Web Multiempresa.</span><br><span class="h7">CRM y Gestión de proyectos.</span></p>
+                            <div class="portfolio-links">
+                                <a href="/landing-assets/img/portfolio/kordino.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Solución integral para organizar y administrar proyectos de manera eficiente, así como la gestion de todas las relaciones con clientes. Tendrás toda la trazabilidad de un proyecto desde el primer contácto con el cliente hasta la finalización del proyecto. Además de un control económico exaustivo y la gestión documental del mismo."><i class="bx bx-plus"></i></a>
+                                <a href="/assets/project_details/project_kordino.php" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Kordino.com"><i class="bx bx-link"></i></a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
+                <div class="col-lg-4 col-md-6 portfolio-item filter-kordino">
+                    <div class="portfolio-wrap">
+                        <img src="landing-assets/img/portfolio/procuba.jpg" class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h2>
+                                <a href="#">Procuba</a>
+                            </h2>
+                            <p><span class="h6">Portal de Inteligencia Comercial</span><br><span class="h7">Información estratégica de Inteligencia Comercial e Internacionalización<br>- Ministerio de Comercio de Cuba -</span></p>
+                            <div class="portfolio-links">
+                                <a href="/landing-assets/img/portfolio/procuba.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Portal de Inteligencia Comercial, herramienta esencial para la actividad de comercio exterior. Entre los objetivos de la herramienta se encuentra promover la autonomía de los equipos comerciales, mejorar el proceso de seguimiento de detección de oportunidades y optimizar la efectividad y eficacia comercial por medio del análisis de mercado."><i class="bx bx-plus"></i></a>
+                                <a href="/assets/project_details/project_procuba.php" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Procuba"><i class="bx bx-link"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 portfolio-item filter-kordino">
+                    <div class="portfolio-wrap">
+                        <img src="landing-assets/img/portfolio/car.jpg" class="img-fluid" alt="">
+                        <div class="portfolio-info">
+                            <h2>
+                                <a href="#">CAR</a>
+                            </h2>
+                            <p><span class="h6">Centro de Alto Rendimiento</span><br><span class="h7">Región de Murcia</span></p>
+                            <div class="portfolio-links">
+                                <a href="/landing-assets/img/portfolio/car.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Gestión de deportistas y clubes deportivos. Tramitación de becas e información de las mismas. Aplicación creada para el Centro de Tecnificación Deportiva de la región de Murcia."><i class="bx bx-plus"></i></a>
+                                <a href="/assets/project_details/project_car.php" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Procuba"><i class="bx bx-link"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-
-      </div>
-
-    </div>
-  </section>
+        </div>
+    </section>
 
 
   <section id="contact" class="contact">

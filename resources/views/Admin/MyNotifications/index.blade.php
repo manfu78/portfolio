@@ -26,7 +26,7 @@
                             <table id="notifications_table" class="table table-bordered text-nowrap border-bottom">
                                 <thead>
                                     <tr>
-                                        <th class="border-bottom-0" style="width: 10px;"><small>id</small></th>
+                                        <th class="border-bottom-0" style="width: 10px;"><small>#</small></th>
                                         <th class="border-bottom-0"><small>{{ trans('messages.Date') }}</small></th>
                                         <th class="border-bottom-0"><small>{{ trans('messages.Notification.Notification') }}</small></th>
                                         <th class="border-bottom-0"><small>{{ trans('messages.Description') }}</small></th>
@@ -38,7 +38,7 @@
                                 <tbody>
                                     @foreach($notifications as $notification)
                                         <tr>
-                                            <td class="py-1" style="width: 10px;">{{ $notification->id }}</td>
+                                            <td class="py-1" style="width: 10px;"><small>#{{ $notification->id }}</small></td>
                                             <td class="py-1 no-wrap" style="width: 10px;">
                                                 <span class="d-none">{{ date('Y/m/d h:i',strtotime($notification->date)) }}</span>
                                                 {{ date('d/m/Y h:i',strtotime($notification->date)) }}</div>
