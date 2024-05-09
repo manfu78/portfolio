@@ -71,11 +71,11 @@
             <div class="page">
                 <div class="">
                     <!-- CONTAINER OPEN -->
-                    <div class="col col-login mx-auto mt-7">
+                    {{-- <div class="col col-login mx-auto mt-7">
                         <div class="text-center">
                             <a href="/"><img src="/assets/images/brand/logo-white.png" class="header-brand-img" alt="" style="height: 50px;"></a>
                         </div>
-                    </div>
+                    </div> --}}
                     @yield('content')
                 </div>
             </div>

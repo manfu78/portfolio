@@ -50,8 +50,8 @@
 
       <h1><a href="index.html">Germán R. García</a></h1>
       <!-- <a href="index.html" class="mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a> -->
-      <h2>Soy un apasionado de la <span>programación </span>. </h2>
-        <h2>Full-Stack developer con una sólida experiencia <br>en el desarrollo de aplicaciones web.</h2>
+      <h2>Full-Stack Developer </h2>
+        <h2> Apasionado de la programación <br>con una sólida experiencia <br>en el desarrollo de aplicaciones web.</h2>
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link active" href="#header">Inicio</a></li>
@@ -594,7 +594,7 @@
 
             <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
                 <div class="icon-box" style="margin-bottom: 5px;">
-                    <img src="assets/img/customers/CAR_t.png" alt="" style="height: 35px;">
+                    <img src="assets/img/customers/car_t.png" alt="" style="height: 35px;">
                     <h3>&nbsp; CAR MURCIA</h3>
                 </div>
             </div>
@@ -806,7 +806,7 @@
                 </div>
 
                 <div class="resume-item">
-                    <h4>Ayudante Programador Backend</h4>
+                    <h4>Programador Backend</h4>
                     <h5>2021 - 2021</h5>
                     <p><em>Nivimu, Murcia, España </em></p>
                     <p>
@@ -829,7 +829,7 @@
                             <li>Desarrollo de aplicaciones web</li>
                             <li>Diseño y creación de catalogos</li>
                             <li>ASP, PHP, SQL, Javascript, Bootstrap, CSS, Adobe Photoshop, Adobe Illustrator</li>
-                            <li>Jornada completa, presencial.</li>
+                            <li>Jornada completa, presencial</li>
                         </ul>
                     </p>
                 </div>

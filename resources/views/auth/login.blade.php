@@ -72,7 +72,7 @@
 
                             <div class="row mb-0">
                                 <div class="col text-end">
-                                    <button type="submit" class="btn btn-primary btn-blok">
+                                    <button type="submit" class="btn btn-outline-primary btn-blok">
                                         {{ __('Login') }}
                                     </button>
 

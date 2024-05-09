@@ -50,8 +50,8 @@
 
       <h1><a href="/">Germán R. García</a></h1>
       <!-- <a href="index.html" class="mr-auto"><img src="landing-assets/img/logo.png" alt="" class="img-fluid"></a> -->
-      <h2>Soy un apasionado de la <span>programación </span>. </h2>
-        <h2>Full-Stack developer con una sólida experiencia <br>en el desarrollo de aplicaciones web.</h2>
+      <h2><span>Full-Stack Developer</span></h2>
+        <h2>Apasionado de la programación <br>con una sólida experiencia <br>en el desarrollo de aplicaciones</h2>
       <nav id="navbar" class="navbar">
         <ul>
             <li><a class="nav-link active" href="#header">Inicio</a></li>
@@ -95,7 +95,7 @@
         <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
           <h3>Senior Developer</h3>
           <p class="fst-italic">
-            Programador Full-Stack a tiempo completo, actualmente programando en PHP, utilizando el Framework de Laravel.
+            Programador Full-Stack a tiempo completo, actualmente programando en PHP, utilizando el Framework de Laravel
           </p>
           <div class="row">
             <div class="col-lg-6">
@@ -601,7 +601,7 @@
 
             <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
                 <div class="icon-box" style="margin-bottom: 5px;">
-                    <img src="landing-assets/img/customers/CAR_t.png" alt="" style="height: 35px;">
+                    <img src="landing-assets/img/customers/car_t.png" alt="" style="height: 35px;">
                     <h3>&nbsp; CAR MURCIA</h3>
                 </div>
             </div>
@@ -750,26 +750,33 @@
                 <h3 class="resume-title">Educación</h3>
 
                 <div class="resume-item">
-                        <h4>TÉCNICO EN GESTIÓN ADMINISTRATIVA</h4>
-                        <h5>1996 - 1998</h5>
-                        <p><em>I.E.S. RAMBLA DE NOGALTEI.E.S. RAMBLA DE NOGALTE</em></p>
-                        <p>Técnico en Administración y Gestión de Empresas</p>
-                </div>
-
-                <div class="resume-item">
                     <h4>TÉCNICO ESPECIALISTA PROGRAMADOR</h4>
                     <h5>1998 - 2000</h5>
                     <p><em>I.E.S. SAN JUAN BOSCO</em></p>
                     <p>Técnico especialista Programador</p>
                 </div>
 
+                <div class="resume-item">
+                        <h4>TÉCNICO EN GESTIÓN ADMINISTRATIVA</h4>
+                        <h5>1996 - 1998</h5>
+                        <p><em>I.E.S. RAMBLA DE NOGALTEI.E.S. RAMBLA DE NOGALTE</em></p>
+                        <p>Técnico en Administración y Gestión de Empresas</p>
+                </div>
+
                 <h3 class="resume-title">Formación Adicional</h3>
+
+                <div class="resume-item">
+                    <h4>JAVA</h4>
+                    <!-- <h5>2019 - 2019</h5> -->
+                    <!-- <p><em>Udemy</em></p> -->
+                    <p>Máster Completo de en JAVA</p>
+                </div>
 
                 <div class="resume-item">
                     <h4>ASP.NET MVC</h4>
                     <!-- <h5>2019 - 2019</h5> -->
                     <!-- <p><em>Udemy</em></p> -->
-                    <p>Curso Completo de Desarrollo ASP.NET MVC.</p>
+                    <p>Curso Completo de Desarrollo ASP.NET MVC</p>
                 </div>
 
                 <div class="resume-item">
@@ -790,7 +797,48 @@
                     <h4>Máster SQL</h4>
                     <!-- <h5>2019 - 2019</h5> -->
                     <!-- <p><em>Udemy</em></p> -->
-                    <p>Máster en SQL. Desde Cero a Profesional</p>
+                    <p>Máster en SQL Server</p>
+                </div>
+
+                <div class="resume-item">
+                    <h4>PHP</h4>
+                    <!-- <h5>2019 - 2019</h5> -->
+                    <!-- <p><em>Udemy</em></p> -->
+                    <p>Creación de sistemas administrativios con PHP</p>
+                </div>
+
+                <div class="resume-item">
+                    <h4>PHP Y MYSQL</h4>
+                    <!-- <h5>2019 - 2019</h5> -->
+                    <!-- <p><em>Udemy</em></p> -->
+                    <p>Creación de aplicaciones y sition web desde cero con PHP Y MYSQL</p>
+                </div>
+
+                <div class="resume-item">
+                    <h4>ANÁLISIS Y PROGRAMACIÓN AVANZADA EN MULTIBASE COSMOS</h4>
+                    <!-- <h5>2019 - 2019</h5> -->
+                    <!-- <p><em>Udemy</em></p> -->
+                    <p>Master de análisis y programación avanzada en Multibase Cosmos</p>
+                </div>
+
+                <div class="resume-item">
+                    <h4>MULTIBASE COSMOS Y SQL</h4>
+                    <!-- <h5>2019 - 2019</h5> -->
+                    <!-- <p><em>Udemy</em></p> -->
+                    <p>Programación orientada a objetos y lenguage SQL Multibase Cosmos</p>
+                </div>
+
+                <div class="resume-item">
+                    <h4>Otras formaciones</h4>
+                    <!-- <h5>2019 - 2019</h5> -->
+                    <!-- <p><em>Udemy</em></p> -->
+                    <p>Gestión de recursos humanos y técnicas de dirección</p>
+                    <p>Habilidades directivas</p>
+                    <p>Dirección y desarrollo de equipos de trabajo</p>
+                    <p>Estructura y organización de la empresa</p>
+                    <p>Prevención de riesgos laborales</p>
+                    <p>Diseño gráfico pack Adobe</p>
+                    <p>>Inglés comercial</p>
                 </div>
 
             </div>
@@ -813,7 +861,7 @@
                 </div>
 
                 <div class="resume-item">
-                    <h4>Ayudante Programador Backend</h4>
+                    <h4>Programador Backend</h4>
                     <h5>2021 - 2021</h5>
                     <p><em>Nivimu, Murcia, España </em></p>
                     <p>
@@ -836,7 +884,7 @@
                             <li>Desarrollo de aplicaciones web</li>
                             <li>Diseño y creación de catalogos</li>
                             <li>ASP, PHP, SQL, Javascript, Bootstrap, CSS, Adobe Photoshop, Adobe Illustrator</li>
-                            <li>Jornada completa, presencial.</li>
+                            <li>Jornada completa, presencial</li>
                         </ul>
                     </p>
                 </div>
@@ -998,7 +1046,9 @@
 
   <!-- ======= Portfolio Section ======= -->
     <section id="proyectos" class="portfolio">
-        <div class="container">
+
+
+        <div class="interests container">
             <div class="section-title">
                 <h2>Proyectos</h2>
                 <p>Proyectos Destacados</p>
@@ -1014,77 +1064,71 @@
                         <li data-filter=".filter-portal">Portales</li>
                         <li data-filter=".filter-presupuestos">Presupuestos</li>
                         <li data-filter=".filter-informes">Infórmes</li>
+                        <li data-filter=".filter-produccion">Producción</li>
+                        <li data-filter=".filter-horario">Control Horario</li>
+                        <li data-filter=".filter-partestrabajo">Partes de trabajo</li>
+                        <li data-filter=".filter-maquinaria">Maquinaria</li>
+                        <li data-filter=".filter-trabajadores">Trabajadores</li>
+                        <li data-filter=".filter-partestrabajo">Partes de trabajo</li>
+                        <li data-filter=".filter-gestionvehiculos">Gestión de vehiculos</li>
+                        <li data-filter=".filter-granjas">Gestion de Granjas</li>
+                        <li data-filter=".filter-blog">Blog</li>
                     </ul>
                 </div>
             </div>
 
             <div class="row portfolio-container">
-                <div class="col-lg-4 col-md-6 portfolio-item filter-multiempresa filter-crm filter-proyectos">
-                    <div class="portfolio-wrap">
-                        <img src="/assets/project_details/kordino.jpg" class="img-fluid" alt="">
-                        <div class="portfolio-info">
-                            <h2>
-                                <a href="#">kordino</a>
-                            </h2>
-                            <p><span class="h6">Aplicación Web Multiempresa.</span><br><span class="h7">CRM y Gestión de proyectos.</span></p>
-                            <div class="portfolio-links">
-                                <a href="/assets/project_details/kordino.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Solución integral para organizar y administrar proyectos de manera eficiente, así como la gestion de todas las relaciones con clientes. Tendrás toda la trazabilidad de un proyecto desde el primer contácto con el cliente hasta la finalización del proyecto. Además de un control económico exaustivo y la gestión documental del mismo."><i class="bx bx-plus"></i></a>
-                                <a href="/assets/project_details/project_kordino.php" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Kordino.com"><i class="bx bx-link"></i></a>
-                            </div>
-                        </div>
+
+                <div class="col-lg-3 col-md-4 portfolio-item filter-multiempresa filter-crm filter-proyectos filter-informes filter-presupuestos">
+                    <div class="icon-box" style="margin-bottom: 5px;align-item: center;">
+                        <a href="/assets/prjdetails/project_kordino.php" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="kordino"><img src="/assets/prj_logos/kordino.png" alt="" style="height: 60px;"></a>
                     </div>
                 </div>
 
-                <div class="col-lg-4 col-md-6 portfolio-item filter-portal">
-                    <div class="portfolio-wrap">
-                        <img src="/assets/project_details/procuba.jpg" class="img-fluid" alt="">
-                        <div class="portfolio-info">
-                            <h2>
-                                <a href="#">Procuba</a>
-                            </h2>
-                            <p><span class="h6">Portal de Inteligencia Comercial</span><br><span class="h7"><br>- Ministerio de Comercio de Cuba -</span></p>
-                            <div class="portfolio-links">
-                                <a href="/assets/project_details/procuba.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Portal de Inteligencia Comercial, herramienta esencial para la actividad de comercio exterior. Entre los objetivos de la herramienta se encuentra promover la autonomía de los equipos comerciales, mejorar el proceso de seguimiento de detección de oportunidades y optimizar la efectividad y eficacia comercial por medio del análisis de mercado."><i class="bx bx-plus"></i></a>
-                                <a href="/assets/project_details/project_procuba.php" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Procuba"><i class="bx bx-link"></i></a>
-                            </div>
-                        </div>
+                <div class="col-lg-3 col-md-4 mb-4 portfolio-item filter-portal filter-infografias filter-noticias filter-blog">
+                    <div class="icon-box" style="margin-bottom: 5px;align-item: center;">
+                        <a href="/assets/prjdetails/project_procuba.php" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="procuba"><img src="/assets/prj_logos/procuba.png" alt="" style="height: 60px;"></a>
                     </div>
                 </div>
 
-                <div class="col-lg-4 col-md-6 portfolio-item filter-becas filter-portal">
-                    <div class="portfolio-wrap">
-                        <img src="/assets/project_details/car.jpg" class="img-fluid" alt="">
-                        <div class="portfolio-info">
-                            <h2>
-                                <a href="#">CAR</a>
-                            </h2>
-                            <p><span class="h6">Centro de Alto Rendimiento</span><br><span class="h7">Región de Murcia</span></p>
-                            <div class="portfolio-links">
-                                <a href="/assets/project_details/car.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Gestión de deportistas y clubes deportivos. Tramitación de becas e información de las mismas. Aplicación creada para el Centro de Tecnificación Deportiva de la región de Murcia."><i class="bx bx-plus"></i></a>
-                                <a href="/assets/project_details/project_car.php" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Procuba"><i class="bx bx-link"></i></a>
-                            </div>
-                        </div>
+                <div class="col-lg-3 col-md-4 mb-4 portfolio-item filter-becas filter-portal">
+                    <div class="icon-box" style="margin-bottom: 5px;align-item: center;">
+                        <a href="/assets/prjdetails/project_car.php" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="car"><img src="/assets/prj_logos/car.png" alt="" style="height: 60px;"></a>
                     </div>
                 </div>
 
-                <div class="col-lg-4 col-md-6 portfolio-item filter-becas filter-informes filter-presupuestos">
-                    <div class="portfolio-wrap">
-                        <img src="/assets/project_details/frimaq.png" class="img-fluid" alt="">
-                        <div class="portfolio-info">
-                            <h2>
-                                <a href="#">FRIMAQ</a>
-                            </h2>
-                            <p><span class="h6">Máquinas para envasado industrial</span></p>
-                            <div class="portfolio-links">
-                                <a href="/assets/project_details/frimaq.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Creación y gestión de presupuestos e informes de maquinaria industrial personalizada. Gestión y control de agentes comerciales."><i class="bx bx-plus"></i></a>
-                                <a href="/assets/project_details/project_frimaq.php" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="Frimaq"><i class="bx bx-link"></i></a>
-                            </div>
-                        </div>
+                <div class="col-lg-3 col-md-4 mb-4 portfolio-item filter-informes filter-presupuestos">
+                    <div class="icon-box" style="margin-bottom: 5px;align-item: center;">
+                        <a href="/assets/prjdetails/project_frimaq.php" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="frimaq"><img src="/assets/prj_logos/frimaq.png" alt="" style="height: 60px;"></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4 mb-4 portfolio-item filter-horario filter-informes filter-trabajadores filter-produccion">
+                    <div class="icon-box" style="margin-bottom: 5px;align-item: center;">
+                        <a href="/assets/prjdetails/project_campolor.php" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="campolor"><img src="/assets/prj_logos/campolor.png" alt="" style="height: 60px;"></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4 mb-4 portfolio-item filter-horario filter-informes filter-trabajadores filter-produccion filter-gestionvehiculos">
+                    <div class="icon-box" style="margin-bottom: 5px;align-item: center;">
+                        <a href="/assets/prjdetails/project_plantiagro.php" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="plantiagro"><img src="/assets/prj_logos/plantiagro.png" alt="" style="height: 60px;"></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4 mb-4 portfolio-item filter-gestion filter-informes filter-maquinaria filter-partestrabajo">
+                    <div class="icon-box" style="margin-bottom: 5px;align-item: center;">
+                        <a href="/assets/prjdetails/project_almerimur.php" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="almerimur"><img src="/assets/prj_logos/almerimur.png" alt="" style="height: 60px;"></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-4 mb-4 portfolio-item filter-gestionvehiculos filter-granjas filter-partestrabajo">
+                    <div class="icon-box" style="margin-bottom: 5px;align-item: center;">
+                        <a href="/assets/prjdetails/project_trescampanas.php" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="trescampanas"><img src="/assets/prj_logos/trescampanas.png" alt="" style="height: 60px;"></a>
                     </div>
                 </div>
 
             </div>
-
+          </div>
         </div>
     </section>
 
@@ -1212,7 +1256,8 @@
     </section>
 
   <div class="credits">
-    Germán R. García <a href="https://germanraulgarcia.es/">Full-Stack Developer</a>. <small>Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})</small>
+    Germán R. García <a href="https://germanraulgarcia.es/">Full-Stack Developer</a>.
+    {{-- <small>Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})</small> --}}
   </div>
 
   <!-- Vendor JS Files -->

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CAR</title>
+<title>CAMPOLOR</title>
 <style>
     body {
         margin: 0;
@@ -21,6 +21,6 @@
 </style>
 </head>
 <body>
-    <img src="/assets/project_details/project_car.jpeg" alt="Imagen">
+    <img src="/assets/prjdetails/project_campolor.png" alt="Imagen">
 </body>
 </html>
