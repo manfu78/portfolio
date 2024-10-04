@@ -1081,49 +1081,65 @@
 
                 <div class="col-lg-3 col-md-4 portfolio-item filter-multiempresa filter-crm filter-proyectos filter-informes filter-presupuestos">
                     <div class="icon-box" style="margin-bottom: 5px;align-item: center;">
-                        <a href="/assets/prjdetails/project_kordino.php" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="kordino"><img src="/assets/prj_logos/kordino.png" alt="" style="height: 60px;"></a>
+                        <a href="/assets/prjdetails/project_kordino.php" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="kordino">
+                            <img src="/assets/prj_logos/kordino.png" alt="" style="height: 60px;">
+                        </a>
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-md-4 mb-4 portfolio-item filter-portal filter-infografias filter-noticias filter-blog">
                     <div class="icon-box" style="margin-bottom: 5px;align-item: center;">
-                        <a href="/assets/prjdetails/project_procuba.php" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="procuba"><img src="/assets/prj_logos/procuba.png" alt="" style="height: 60px;"></a>
+                        <a href="/assets/prjdetails/project_procuba.php" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="procuba">
+                            <img src="/assets/prj_logos/procuba.png" alt="" style="height: 60px;">
+                        </a>
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-md-4 mb-4 portfolio-item filter-becas filter-portal">
                     <div class="icon-box" style="margin-bottom: 5px;align-item: center;">
-                        <a href="/assets/prjdetails/project_car.php" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="car"><img src="/assets/prj_logos/car.png" alt="" style="height: 60px;"></a>
+                        <a href="/assets/prjdetails/project_car.php" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="car">
+                            <img src="/assets/prj_logos/car.png" alt="" style="height: 60px;">
+                        </a>
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-md-4 mb-4 portfolio-item filter-informes filter-presupuestos">
                     <div class="icon-box" style="margin-bottom: 5px;align-item: center;">
-                        <a href="/assets/prjdetails/project_frimaq.php" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="frimaq"><img src="/assets/prj_logos/frimaq.png" alt="" style="height: 60px;"></a>
+                        <a href="/assets/prjdetails/project_frimaq.php" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="frimaq">
+                            <img src="/assets/prj_logos/frimaq.png" alt="" style="height: 60px;">
+                        </a>
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-md-4 mb-4 portfolio-item filter-horario filter-informes filter-trabajadores filter-produccion">
                     <div class="icon-box" style="margin-bottom: 5px;align-item: center;">
-                        <a href="/assets/prjdetails/project_campolor.php" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="campolor"><img src="/assets/prj_logos/campolor.png" alt="" style="height: 60px;"></a>
+                        <a href="/assets/prjdetails/project_campolor.php" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="campolor">
+                            <img src="/assets/prj_logos/campolor.png" alt="" style="height: 60px;">
+                        </a>
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-md-4 mb-4 portfolio-item filter-horario filter-informes filter-trabajadores filter-produccion filter-gestionvehiculos">
                     <div class="icon-box" style="margin-bottom: 5px;align-item: center;">
-                        <a href="/assets/prjdetails/project_plantiagro.php" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="plantiagro"><img src="/assets/prj_logos/plantiagro.png" alt="" style="height: 60px;"></a>
+                        <a href="/assets/prjdetails/project_plantiagro.php" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="plantiagro">
+                            <img src="/assets/prj_logos/plantiagro.png" alt="" style="height: 60px;">
+                        </a>
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-md-4 mb-4 portfolio-item filter-gestion filter-informes filter-maquinaria filter-partestrabajo">
                     <div class="icon-box" style="margin-bottom: 5px;align-item: center;">
-                        <a href="/assets/prjdetails/project_almerimur.php" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="almerimur"><img src="/assets/prj_logos/almerimur.png" alt="" style="height: 60px;"></a>
+                        <a href="/assets/prjdetails/project_almerimur.php" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="almerimur">
+                            <img src="/assets/prj_logos/almerimur.png" alt="" style="height: 60px;">
+                        </a>
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-md-4 mb-4 portfolio-item filter-gestionvehiculos filter-granjas filter-partestrabajo">
                     <div class="icon-box" style="margin-bottom: 5px;align-item: center;">
-                        <a href="/assets/prjdetails/project_trescampanas.php" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="trescampanas"><img src="/assets/prj_logos/trescampanas.png" alt="" style="height: 60px;"></a>
+                        <a href="/assets/prjdetails/project_trescampanas.php" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox" title="trescampanas">
+                            <img src="/assets/prj_logos/trescampanas.png" alt="" style="height: 60px;">
+                        </a>
                     </div>
                 </div>
 
