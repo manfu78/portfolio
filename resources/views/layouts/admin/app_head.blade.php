@@ -48,8 +48,6 @@
 <!-- COLOR SKIN CSS -->
 <link id="theme" rel="stylesheet" type="text/css" media="all" href="/assets/colors/color1.css" />
 
-
-
 {{-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback"> --}}
 
 <!-- Font Awesome -->
